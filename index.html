@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Pomodoro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main>
+        <!-- Header / Nav -->
+        <header>
+            <!-- Mobile Dropdown Menu -->
+            <section class="headerContainer">
+                <button id="Trackers">Trackers</button>
+                <button id="Overview">Overview</button> 
+                <button id="Settings">Settings</button>
+            </section>
+        </header>
+
+        <!-- Timer section -->
+        <section class="timerContainer" aria-labelledby="timerHeading">
+            <h1>Study</h1>
+            <p>Pomodoro</p>
+            <button id="playBtn" type="button" aria-label="Start pomodoro session">Play</button>
+            <p class="timeDisplay" id="timeDisplay" role="status" aria-live="polite">00:00</p>
+            <button id="stopBtn" type="button" aria-label="Stop pomodoro session">Stop</button>
+        </section>
+    </main>
+<script src="script.js"></script>
+</body>
+
+</html>
