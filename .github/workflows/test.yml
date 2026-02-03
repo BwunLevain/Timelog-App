@@ -1,0 +1,117 @@
+# Namn på din workflow
+name: Jest Tests CI Pipeline
+
+# När ska denna workflow köras?
+on:
+  # Trigger som startar denna workflow
+  push:
+    # Specifikt för branches:
+    branches: [ main, dev ]
+  # Trigger som startar denna workflow
+  pull_request:
+    # Specifikt för branchen:
+    branches: [ main, dev ]
+
+# Jobben som ska köras
+jobs:
+  # Namnet på jobbet
+  test:
+    # Vilken runner (server) denna workflow körs på
+    runs-on: ubuntu-latest
+    
+    # Lista över alla steg som ska utföras i ordning (sekventiellt)
+    steps:
+      # Namnet på steget - visas i GitHub Actions-loggen
+      - name: Checkout code
+        # Använder GitHubs officiella action för att checka ut koden från repot
+        # @v4 = version 4 av denna action
+        # Detta steg klonar din kod från GitHub till runner-maskinen så att den kan användas i efterföljande steg
+        uses: actions/checkout@v4
+      
+      # Namnet på steget 
+      - name: Setup Node.js 
+        # Använder GitHubs officiella action för att installera Node.js
+        uses: actions/setup-node@v4
+        # "with" innehåller input-parametrar till denna action
+        with:
+          node-version: 20
+          # Aktiverar automatisk caching av npm-paket
+          # Cachar node_modules och npm cache mellan körningar för snabbare builds
+          # Detta kan minska installationstiden från minuter till sekunder
+          cache: 'npm'
+      
+      # Namnet på steget
+      - name: Install dependencies
+        # "run" kör ett shell-kommando på runner-maskinen
+        # npm ci (clean install) installerar alla paket från package-lock.json
+        # Skillnad från npm install: npm ci är snabbare, deterministisk, 
+        # tar bort node_modules först och kräver att package-lock.json existerar
+        run: npm ci
+      
+      # Namnet på steget
+      - name: Run linter
+        # Kör lint-scriptet från package.json
+        # || (OR-operator) betyder "eller" - om npm run lint failar (exit code ≠ 0)
+        # körs istället echo-kommandot som skriver ut meddelandet
+        # Detta gör att workflow:en inte failar om lint-script saknas
+        run: npm run lint || echo "No linter configured"
+      
+      # Namnet på steget
+      - name: Run tests
+        # Kör test-scriptet från package.json med coverage aktiverat
+        # npm test = kör scriptet definierat under "test" i package.json (oftast "jest")
+        # -- (dubbel-bindestreck) = separator som skickar allt efter till det underliggande kommandot
+        # --coverage = flagga till Jest som genererar kodtäckningsrapport
+        # Om testerna failar (exit code ≠ 0) stoppas hela workflow:en här
+        run: npm test -- --coverage
+      
+      # Namnet på steget
+      - name: Upload coverage to Codecov
+        # Använder Codecovs officiella action för att ladda upp coverage-data
+        # Codecov är en tjänst som visualiserar och spårar kodtäckning över tid
+        uses: codecov/codecov-action@v4
+        # Input-parametrar till Codecov-action
+        with:
+          # Sökväg till coverage-filen som ska laddas upp
+          # Jest genererar denna fil automatiskt i coverage/-mappen
+          files: ./coverage/coverage-final.json
+          # Flagga för att kategorisera denna upload i Codecov
+          # Användbart om du har flera typer av tester (unit, integration, e2e)
+          flags: unittests
+          # Ett namn för denna upload som visas i Codecov UI
+          name: codecov-umbrella
+
+      # Namnet på steget
+      - name: Upload coverage report
+        # Använder GitHubs officiella action för att spara filer som artifacts
+        # Artifacts = filer som sparas från workflow:en och kan laddas ner från GitHub UI
+        uses: actions/upload-artifact@v4
+        # Input-parametrar till upload-artifact
+        with:
+          # Namnet på artifact:en - inkluderar Node-version för att göra namnet unikt
+          # Blir "coverage-report-node-18.x" eller "coverage-report-node-20.x"
+          # I v4 av upload-artifact måste varje artifact ha ett unikt namn
+          name: coverage-report-node-${{ matrix.node-version }}
+          # Sökvägen till mappen/filerna som ska laddas upp
+          # Alla filer i coverage/-mappen inkluderas (HTML-rapport, JSON-filer, etc.)
+          path: coverage/
+      
+      # Namnet på steget
+      - name: Comment coverage on PR
+        # Villkorlig körning - detta steg körs ENDAST om workflow:en triggades av en pull request
+        # Vid vanliga pushar hoppas detta steg över
+        # github.event_name är en inbyggd GitHub Actions-variabel
+        if: github.event_name == 'pull_request'
+        # Använder en community action som läser coverage och kommenterar på PR:en
+        # Denna action är INTE officiell från GitHub utan skapad av användaren "romeovs"
+        uses: romeovs/lcov-reporter-action@v0.3.1
+        # Input-parametrar till lcov-reporter
+        with:
+          # Autentiseringstoken som ger action:en behörighet att skapa kommentarer
+          # secrets.GITHUB_TOKEN skapas automatiskt av GitHub för varje workflow-körning
+          # Token:en har begränsade rättigheter (kan endast ändra detta repo)
+          github-token: ${{ secrets.GITHUB_TOKEN }} 
+          # Sökväg till lcov-filen som innehåller coverage-data
+          # Jest genererar denna fil i coverage/-mappen när --coverage körs
+          # Action:en läser denna fil och skapar en formaterad kommentar med coverage-statistik på PR:en
+          lcov-file: ./coverage/lcov.info
