@@ -1,0 +1,146 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:'Bricolage Grotesque', sans-serif;
+}
+
+body {
+  background-color: #263D5C;  
+}
+
+header .headerContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+
+header .headerContainer button {
+    width: 33.33vw; 
+    height: 3rem;
+    color:#e6d8f5;
+    background-color:#6B3B9D;
+    border-radius: 0 0 50% 50%;
+    border: none;
+    font-size: 1rem;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.timerHeaderContainer {
+    padding-top: 2rem;
+    color: white; 
+    text-align: center;
+}
+
+.timerHeaderContainer h1 {
+    font-family: 'Abril Fatface', serif;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.timerContainer{
+    background-color: #D9D9E9;
+    width: 18rem;
+    height: 11rem;
+    margin-top: 0.4rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timerContainer .timeDisplay{
+    text-align: center;
+    font-size: 4rem;
+    font-weight:450;
+    color: #324B6B;
+}
+
+
+.controls {
+    display: flex;
+    gap: 2rem;
+    color: #6B3B9D;
+    justify-content: space-evenly;
+}
+
+.controls button {
+    background: none;
+    border: none;
+    color: #6B3B9D;
+    cursor: pointer;
+}
+
+
+#playBtn { 
+    font-size: 2.5rem; 
+}
+
+#pauseBtn { 
+    font-size: 2.2rem; 
+    letter-spacing: -3px;
+    padding-right: 0.3rem; 
+}
+
+#stopBtn { 
+    font-size: 3.3rem;
+    padding-bottom: 0.5rem; 
+}
+
+
+/* stats area */
+.statsDisplayContainer {
+    width: 90vw;
+    margin: auto;
+    padding: 0.2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+.statsContainer h2 {
+    font-family: 'Abril Fatface', serif;
+    font-weight: 400;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 1rem;
+    
+}
+
+.statsDisplay {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.statNumber {
+    background-color: #D9D9E9;
+    width: 70px;
+    height: 50px;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    margin: 0 0 0.2rem 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #324B6B;
+}
+
+.statText {
+    margin: 0;
+    font-size: 0.65rem;
+    color: #ffffff;
+    text-align:center;
+    font-weight: 400;
+}
