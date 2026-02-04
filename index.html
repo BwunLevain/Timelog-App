@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Pomodoro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,20 +16,48 @@
         <header>
             <!-- Mobile Dropdown Menu -->
             <section class="headerContainer">
-                <button id="Trackers">Trackers</button>
-                <button id="Overview">Overview</button> 
-                <button id="Settings">Settings</button>
+                <button id="Trackers">TRACKERS</button>
+                <button id="Overview">OVERVIEW</button> 
+                <button id="Settings">SETTINGS</button>
             </section>
         </header>
 
-        <!-- Timer section -->
-        <section class="timerContainer" aria-labelledby="timerHeading">
+        <section class="timerHeaderContainer" aria-labelledby="timerHeading">
             <h1>Study</h1>
             <p>Pomodoro</p>
-            <button id="playBtn" type="button" aria-label="Start pomodoro session">Play</button>
-            <p class="timeDisplay" id="timeDisplay" role="status" aria-live="polite">00:00</p>
-            <button id="stopBtn" type="button" aria-label="Stop pomodoro session">Stop</button>
         </section>
+        <!-- Timer section -->
+        <section class="timerContainer" aria-labelledby="timerArea">
+            <p class="timeDisplay" id="timeDisplay" role="status" aria-live="polite">00:00</p>
+    
+            <div class="controls">
+                <button id="playBtn" type="button" aria-label="Start Pomodoro Session">&#9658;</button>
+                <button id="pauseBtn" type="button" aria-label="Pause Pomodoro Session">&#10074;&#10074;</button>
+                <button id="stopBtn" type="button" aria-label="Stop Pomodoro Session">&#9632;</button>
+            </div>
+        </section>
+        <!--Stats section-->
+        <section class="statsContainer" aria-labelledby="statsContainer">
+            <h2>This Week</h2>
+            <div class="statsDisplayContainer"> 
+                <div class="statsDisplay">
+                    <p id="totalTime" class="statNumber">0h</p>
+                    <p class="statText">Total Time</p>
+                </div>
+
+                <div class="statsDisplay">
+                    <p id="currentSession" class="statNumber">0h</p>
+                    <p class="statText">Current Session</p>
+                </div>
+
+                <div class="statsDisplay">
+                    <p id="longestSession" class="statNumber">0h</p>
+                    <p class="statText">Longest Session</p>
+                </div>
+            </div>
+        </section>
+
+        
     </main>
 <script src="script.js"></script>
 </body>
