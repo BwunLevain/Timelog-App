@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Pomodoro</title>
+    <title>Work</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
@@ -11,34 +11,43 @@
 </head>
 <body>
 
-    <main>
-        <!-- Header / Nav -->
+    <main>        
         <header>
-            <!-- Mobile Dropdown Menu -->
-            <section class="headerContainer">
-                <button id="Trackers">TRACKERS</button>
-                <button id="Overview">OVERVIEW</button> 
-                <button id="Settings">SETTINGS</button>
-            </section>
+            <!-- Top Navigation Menu -->
+            <nav class="headerContainer">
+                <a href="#trackersMenu">TRACKERS</a>
+                <a href="#overview">OVERVIEW</a>
+                <a href="#settings">SETTINGS</a>
+            </nav>
         </header>
 
-        <section class="timerHeaderContainer" aria-labelledby="timerHeading">
-            <h1>Study</h1>
-            <p>Pomodoro</p>
+        <!--Det här section är gömt med CSS just nu -Hande -->
+        <section id="trackersMenu" class="trackersMenu" aria-hidden="true" aria-label="Select tracker type">
+            <button id="trackerStudy">Study</button>
+            <button id="trackerTraining">Training</button>
+            <button id="trackerWork">Work</button>
         </section>
-        <!-- Timer section -->
-        <section class="timerContainer" aria-labelledby="timerArea">
+        
+        <!--Timer header-->
+        <section class="timerHeaderContainer" aria-labelledby="timerHeading">
+            <h1 id="timerHeading">Work</h1>
+            <p>Timer</p>
+        </section>
+
+        <!--Work timer-->
+        <section class="workTimerContainer" aria-labelledby="workTimerArea">
             <p class="timeDisplay" id="timeDisplay" role="status" aria-live="polite">00:00</p>
     
-            <div class="controls">
-                <button id="playBtn" type="button" aria-label="Start Pomodoro Session">&#9658;</button>
-                <button id="pauseBtn" type="button" aria-label="Pause Pomodoro Session">&#10074;&#10074;</button>
-                <button id="stopBtn" type="button" aria-label="Stop Pomodoro Session">&#9632;</button>
+            <div class="mainControls">
+                <button id="playBtn" type="button" aria-label="Start Work Session">&#9658;</button>
+                <button id="pauseBtn" type="button" aria-label="Pause Work Session">&#10074;&#10074;</button>
+                <button id="stopBtn" type="button" aria-label="Stop Work Session">&#9632;</button>
             </div>
         </section>
+
         <!--Stats section-->
         <section class="statsContainer" aria-labelledby="statsContainer">
-            <h2>This Week</h2>
+            <h3>This Week</h3>
             <div class="statsDisplayContainer"> 
                 <div class="statsDisplay">
                     <p id="totalTime" class="statNumber">0h</p>
@@ -57,6 +66,13 @@
             </div>
         </section>
 
+        <!--Extra time area-->
+
+        <section class="extraTimeContainer" aria-labelledby="addExtraTimeContainer">           
+                <label for="extraTimeInput"></label>
+                <input type="text" id="extraTimeInput" name="extraTimeInput" placeholder="Insert time..."><br><br>
+                <p>ADD TIME</p>
+        </section>
         
     </main>
 <script src="script.js"></script>
