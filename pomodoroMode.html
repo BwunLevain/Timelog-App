@@ -11,50 +11,67 @@
 </head>
 <body>
 
-    <main>
-        <!-- Header / Nav -->
+    <main>        
         <header>
-            <!-- Mobile Dropdown Menu -->
-            <section class="headerContainer">
-                <button id="Trackers">TRACKERS</button>
-                <button id="Overview">OVERVIEW</button> 
-                <button id="Settings">SETTINGS</button>
-            </section>
+            <!-- Top Navigation Menu -->
+            <nav class="headerContainer">
+                <a href="#trackersMenu">TRACKERS</a>
+                <a href="#overview">OVERVIEW</a>
+                <a href="#settings">SETTINGS</a>
+            </nav>
         </header>
+        
+        <!--Det här section är gömt med CSS just nu -Hande -->
+        <section id="trackersMenu" class="trackersMenu" aria-hidden="true" aria-label="Select tracker type">
+            <button id="trackerStudy">Study</button>
+            <button id="trackerTraining">Training</button>
+            <button id="trackerWork">Work</button>
+        </section>
 
+        <!--Timer header-->
         <section class="timerHeaderContainer" aria-labelledby="timerHeading">
-            <h1>Study</h1>
+            <h1 id="timerHeading">Study</h1>
             <p>Pomodoro</p>
         </section>
-        <!-- Timer section -->
-        <section class="timerContainer" aria-labelledby="timerArea">
+
+        <!--Study pomodoro Timer-->
+        <section class="pomodoroTimerContainer" aria-labelledby="pomodoroTimerArea">
             <p class="timeDisplay" id="timeDisplay" role="status" aria-live="polite">00:00</p>
     
-            <div class="controls">
+            <div class="mainControls">
                 <button id="playBtn" type="button" aria-label="Start Pomodoro Session">&#9658;</button>
                 <button id="pauseBtn" type="button" aria-label="Pause Pomodoro Session">&#10074;&#10074;</button>
                 <button id="stopBtn" type="button" aria-label="Stop Pomodoro Session">&#9632;</button>
             </div>
         </section>
+        
         <!--Stats section-->
         <section class="statsContainer" aria-labelledby="statsContainer">
             <h2>This Week</h2>
             <div class="statsDisplayContainer"> 
                 <div class="statsDisplay">
                     <p id="totalTime" class="statNumber">0h</p>
-                    <p class="statText">Total Time</p>
+                    <p class="statText">Total <br> Time</p>
                 </div>
 
                 <div class="statsDisplay">
                     <p id="currentSession" class="statNumber">0h</p>
-                    <p class="statText">Current Session</p>
+                    <p class="statText">Current <br> Session</p>
                 </div>
 
                 <div class="statsDisplay">
                     <p id="longestSession" class="statNumber">0h</p>
-                    <p class="statText">Longest Session</p>
+                    <p class="statText">Longest <br> Session</p>
                 </div>
             </div>
+        </section>
+
+        <!--Extra time area-->
+
+        <section class="extraTimeContainer" aria-labelledby="addExtraTimeContainer">           
+                <label for="extraTimeInput"></label>
+                <input type="text" id="extraTimeInput" name="extraTimeInput" placeholder="Insert time..."><br><br>
+                <p>ADD TIME</p>
         </section>
 
         
