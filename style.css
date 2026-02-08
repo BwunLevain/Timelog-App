@@ -338,3 +338,170 @@ a:hover{
     color:#ffffff;
     text-align: center;
 }
+
+
+/*Overview area*/
+
+.overviewHeaderContainer {
+    padding-top: 2rem;
+    color: white; 
+    text-align: center;
+}
+
+.overviewHeaderContainer h1 {
+    font-family: 'Abril Fatface', serif;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.overviewHeaderContainer button {
+    background: none;
+    border: none;
+    width: 5rem;
+    height: 2rem;
+    background-color: #6B3B9D;
+    color:#D9D9E9;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+/*HISTORY AREA*/
+
+.historyContainer {
+    width: 90vw;
+    max-width: 18rem;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding-right: 0.3rem;
+}
+
+.historyItem {
+    background-color: #D9D9E9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+    border-radius: 1rem;
+    color: #324B6B;
+}
+
+.historyInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.historyCategory {
+    font-weight: 800;
+    font-size: 0.8rem;
+    color: #6B3B9D;
+    letter-spacing: 0.05rem;
+}
+
+.historyDate {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.historyDuration {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+
+
+/*GRAPH AREA */
+.graphContainer {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    color: white;
+    font-weight: 700;
+}
+
+.activityList {
+    width: 100%;
+    max-width: 16rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.activityLabel {
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  display: inline-block;
+  color: #eaeaf5;
+}
+
+.valueBar {
+  height: 2rem;
+  width: 50%; /* we need to set it to 0 when writing the code for javascript, i only wrote 50% to see how it looks like when filled -hande */
+  background: #e6e6f5;
+  border-radius: 0.5rem;
+}
+
+.overviewSelectors {
+    padding-top: 1rem;
+    color: white; 
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 1rem; 
+}
+
+.overviewSelectors button {
+    background: none;
+    border: none;
+    width: 7rem;
+    height: 2.5rem;
+    background-color: #6B3B9D;
+    color: #D9D9E9;
+    border-radius: 0.5rem;
+    cursor: pointer;    
+}
+
+/*this one will hide the graph part until we click on graph button, we will handle it with javascript later right now it doesnt work -hande */
+[aria-hidden="true"] {
+    display: none !important;
+}
+
+
+/*SETTINGS PAGE*/
+
+.settingsHeaderContainer {
+    padding-top: 2rem;
+    color: white; 
+    text-align: center;
+}
+
+.settingsHeaderContainer h1 {
+    font-family: 'Abril Fatface', serif;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.settingsChoices {
+    width: 90vw;
+    max-width: 18rem;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding-right: 0.3rem;
+}
+
+.settingsChoices button {
+    background: none;
+    border: none;
+    width: 9rem;
+    height: 3rem;
+    background-color: #6B3B9D;
+    color: #D9D9E9;
+    border-radius: 0.5rem;
+    cursor: pointer; 
+}
