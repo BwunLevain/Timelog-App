@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Pomodoro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main>        
+        <header>
+            <!-- Top Navigation Menu -->
+            <nav class="headerContainer">
+                <a href="#trackersMenu">TRACKERS</a>
+                <a href="#overview">OVERVIEW</a>
+                <a href="#settings">SETTINGS</a>
+            </nav>
+        </header>
+        
+        <!--Det här section är gömt med CSS just nu -Hande -->
+        <section id="trackersMenu" class="trackersMenu" aria-hidden="true" aria-label="Select tracker type">
+            <button id="trackerStudy">Study</button>
+            <button id="trackerTraining">Training</button>
+            <button id="trackerWork">Work</button>
+        </section>
+
+
+        <!--overview-->
+        <section class="overviewHeaderContainer" aria-labelledby="overviewHeaderArea">
+            <h1>Overviews</h1>
+            <button id="historyButton">History</button>
+            <button id="graphButton">Graph</button>
+        </section>
+        
+        <!--History-->
+
+        <section class="historyContainer" id="historyOverviewArea" aria-hidden="false" aria-label="Past Sessions">
+            <div class="historyItem">
+                <div class="historyInfo">
+                    <span class="historyCategory">STUDY</span>
+                    <span class="historyDate">Feb 8, 2026</span>
+                </div>
+                <div class="historyDuration">25m</div>
+            </div>
+
+            <div class="historyItem">
+                <div class="historyInfo">
+                    <span class="historyCategory">WORKOUT</span>
+                    <span class="historyDate">Feb 7, 2026</span>
+                </div>
+                <div class="historyDuration">45m</div>
+            </div>
+
+            <div class="historyItem">
+                <div class="historyInfo">
+                    <span class="historyCategory">WORK</span>
+                    <span class="historyDate">Feb 7, 2026</span>
+                </div>
+                <div class="historyDuration">1h 10m</div>
+            </div>
+        </section>
+
+
+        <!--Graph-->
+        <section class="graphContainer" id="graphView" aria-hidden="true" aria-labelledby="graphArea">
+            <div class="activityList">
+                <div class="activity" data-activity="work" data-value="">
+                    <span class="activityLabel">Work</span>
+                    <div class="valueBar"></div>
+                </div>
+
+                <div class="activity" data-activity="study" data-value="">
+                    <span class="activityLabel">Study</span>
+                    <div class="valueBar"></div>
+                </div>
+
+                <div class="activity" data-activity="workout" data-value="">
+                    <span class="activityLabel">Workout</span>
+                    <div class="valueBar"></div>
+                </div>
+            </div>            
+        </section>
+
+        <section class="overviewSelectors" aria-labelledby="overviewSelectorButtons">
+            <button id="rangeSelectorButton">SELECT <br> RANGE</button>
+            <button id="allTimeSelectorButton">ALL <br> TIME</button>
+        </section>
+           
+        
+    </main>
+<script src="script.js"></script>
+</body>
+
+</html>

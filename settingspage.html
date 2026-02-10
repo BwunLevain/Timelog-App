@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Pomodoro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main>        
+        <header>
+            <!-- Top Navigation Menu -->
+            <nav class="headerContainer">
+                <a href="#trackersMenu">TRACKERS</a>
+                <a href="#overview">OVERVIEW</a>
+                <a href="#settings">SETTINGS</a>
+            </nav>
+        </header>
+        
+        <!--Det här section är gömt med CSS just nu -Hande -->
+        <section id="trackersMenu" class="trackersMenu" aria-hidden="true" aria-label="Select tracker type">
+            <button id="trackerStudy">Study</button>
+            <button id="trackerTraining">Training</button>
+            <button id="trackerWork">Work</button>
+        </section>
+
+
+        <!--overview-->
+        <section class="settingsHeaderContainer" aria-labelledby="settingsHeaderArea">
+            <h1>Settings</h1>
+        </section>
+        
+
+        <section class="settingsChoices">
+            <button id="darkModeButton">Dark Mode</button>
+            <button id="localStorageResetButton">Reset Local Storage</button>
+        </section>
+        
+
+        
+    </main>
+<script src="script.js"></script>
+</body>
+
+</html>

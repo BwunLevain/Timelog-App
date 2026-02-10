@@ -9,7 +9,7 @@ body {
   background-color: #263D5C;  
 }
 
-header .headerContainer {
+header nav.headerContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -17,18 +17,27 @@ header .headerContainer {
 }
 
 
-header .headerContainer button {
+header nav.headerContainer a {
     width: 33.33vw; 
-    height: 3rem;
+    height: 3rem;   
     color:#e6d8f5;
     background-color:#6B3B9D;
     border-radius: 0 0 50% 50%;
     border: none;
     font-size: 1rem;
+    text-align: center;
+    padding-top: 0.8rem;
+    text-decoration: none; 
 }
 
-button:hover{
+a:hover{
     cursor: pointer;
+}
+
+
+/*Det här gömmer menyn som öppnas när man klickar på TRACKERS, jag fixar det senare. -Hande */
+.trackersMenu {
+    display: none;
 }
 
 .timerHeaderContainer {
@@ -43,7 +52,8 @@ button:hover{
     margin-bottom: 2rem;
 }
 
-.timerContainer{
+/*Pomodoro timer*/
+.pomodoroTimerContainer{
     background-color: #D9D9E9;
     width: 18rem;
     height: 11rem;
@@ -57,22 +67,23 @@ button:hover{
     align-items: center;
 }
 
-.timerContainer .timeDisplay{
+.pomodoroTimerContainer .timeDisplay{
     text-align: center;
     font-size: 4rem;
     font-weight:450;
     color: #324B6B;
 }
 
+/*play pause stop buttons*/
 
-.controls {
+.mainControls {
     display: flex;
     gap: 2rem;
     color: #6B3B9D;
     justify-content: space-evenly;
 }
 
-.controls button {
+.mainControls button {
     background: none;
     border: none;
     color: #6B3B9D;
@@ -93,6 +104,155 @@ button:hover{
 #stopBtn { 
     font-size: 3.3rem;
     padding-bottom: 0.5rem; 
+}
+
+/*Training timer*/
+
+.trainingTimerContainer{
+    background-color: #D9D9E9;
+    width: 18rem;
+    height: 14rem;
+    margin-top: 0.4rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trainingTimerContainer .timeDisplay{
+    text-align: center;
+    font-size: 4rem;
+    font-weight:450;
+    color: #324B6B;
+}
+
+.trainingTimerContainer .trainingControls {
+    gap: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.trainingTimerContainer .trainingControls button {
+    background: none;
+    border: none;
+    width: 4.5rem;
+    height: 2.1rem;
+    background-color: #6B3B9D;
+    color:#D9D9E9;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+/*Training logs*/
+
+
+.trainingLogsContainer {
+    width: 90vw;
+    margin: auto;
+    padding: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+.trainingLogsContainer h3 {
+    font-family: 'Abril Fatface', serif;
+    font-weight: 400;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0.1rem;    
+}
+
+.logsDisplayContainer {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    gap: 1rem;
+}
+
+.setDisplay {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.setNumber {
+    background-color: #D9D9E9;
+    width: 90px;
+    height: 50px;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    margin: 0 0 0.2rem 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #324B6B;
+}
+
+.setText {
+    margin: 0;
+    font-size: 0.65rem;
+    color: #ffffff;
+    text-align:center;
+    font-weight: 400;
+}
+
+.exerciseDisplay {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.exerciseNumber {
+    background-color: #D9D9E9;
+    width: 90px;
+    height: 50px;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    margin: 0 0 0.2rem 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #324B6B;
+}
+
+.exerciseText {
+    margin: 0;
+    font-size: 0.65rem;
+    color: #ffffff;
+    text-align:center;
+    font-weight: 400;
+}
+
+/* work timer*/
+
+.workTimerContainer{
+    background-color: #D9D9E9;
+    width: 18rem;
+    height: 11rem;
+    margin-top: 0.4rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.workTimerContainer .timeDisplay{
+    text-align: center;
+    font-size: 4rem;
+    font-weight:450;
+    color: #324B6B;
 }
 
 
@@ -143,4 +303,205 @@ button:hover{
     color: #ffffff;
     text-align:center;
     font-weight: 400;
+}
+
+/*add extra time area*/
+
+.extraTimeContainer {
+    width: 18rem;
+    margin: 2rem auto;
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+    color: #D9D9E9;
+    background-color: #6B3B9D;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.extraTimeContainer p {
+    align-items: left;
+}
+
+#extraTimeInput {
+    height: 2rem;;
+    background-color:#263D5C;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    margin-right: 2rem;
+    margin-left: 0.5rem;
+    
+}
+
+.extraTimeContainer ::placeholder {
+    color:#ffffff;
+    text-align: center;
+}
+
+
+/*Overview area*/
+
+.overviewHeaderContainer {
+    padding-top: 2rem;
+    color: white; 
+    text-align: center;
+}
+
+.overviewHeaderContainer h1 {
+    font-family: 'Abril Fatface', serif;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.overviewHeaderContainer button {
+    background: none;
+    border: none;
+    width: 5rem;
+    height: 2rem;
+    background-color: #6B3B9D;
+    color:#D9D9E9;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+/*HISTORY AREA*/
+
+.historyContainer {
+    width: 90vw;
+    max-width: 18rem;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding-right: 0.3rem;
+}
+
+.historyItem {
+    background-color: #D9D9E9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+    border-radius: 1rem;
+    color: #324B6B;
+}
+
+.historyInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.historyCategory {
+    font-weight: 800;
+    font-size: 0.8rem;
+    color: #6B3B9D;
+    letter-spacing: 0.05rem;
+}
+
+.historyDate {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.historyDuration {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+
+
+/*GRAPH AREA */
+.graphContainer {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    color: white;
+    font-weight: 700;
+}
+
+.activityList {
+    width: 100%;
+    max-width: 16rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.activityLabel {
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  display: inline-block;
+  color: #eaeaf5;
+}
+
+.valueBar {
+  height: 2rem;
+  width: 50%; /* we need to set it to 0 when writing the code for javascript, i only wrote 50% to see how it looks like when filled -hande */
+  background: #e6e6f5;
+  border-radius: 0.5rem;
+}
+
+.overviewSelectors {
+    padding-top: 1rem;
+    color: white; 
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 1rem; 
+}
+
+.overviewSelectors button {
+    background: none;
+    border: none;
+    width: 7rem;
+    height: 2.5rem;
+    background-color: #6B3B9D;
+    color: #D9D9E9;
+    border-radius: 0.5rem;
+    cursor: pointer;    
+}
+
+/*this one will hide the graph part until we click on graph button, we will handle it with javascript later right now it doesnt work -hande */
+[aria-hidden="true"] {
+    display: none !important;
+}
+
+
+/*SETTINGS PAGE*/
+
+.settingsHeaderContainer {
+    padding-top: 2rem;
+    color: white; 
+    text-align: center;
+}
+
+.settingsHeaderContainer h1 {
+    font-family: 'Abril Fatface', serif;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.settingsChoices {
+    width: 90vw;
+    max-width: 18rem;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding-right: 0.3rem;
+}
+
+.settingsChoices button {
+    background: none;
+    border: none;
+    width: 9rem;
+    height: 3rem;
+    background-color: #6B3B9D;
+    color: #D9D9E9;
+    border-radius: 0.5rem;
+    cursor: pointer; 
 }
