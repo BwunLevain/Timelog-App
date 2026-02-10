@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Training</title>
+    <title>Study Pomodoro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
@@ -20,7 +20,7 @@
                 <a href="#settings">SETTINGS</a>
             </nav>
         </header>
-
+        
         <!--Det här section är gömt med CSS just nu -Hande -->
         <section id="trackersMenu" class="trackersMenu" aria-hidden="true" aria-label="Select tracker type">
             <button id="trackerStudy">Study</button>
@@ -30,62 +30,42 @@
 
         <!--Timer header-->
         <section class="timerHeaderContainer" aria-labelledby="timerHeading">
-            <h1 id="timerHeading">Training</h1>
-            <p>Workout tracker</p>
+            <h1 id="timerHeading">Study</h1>
+            <p>Pomodoro</p>
         </section>
 
-        <!--Training Timer-->
-        <section class="trainingTimerContainer" aria-labelledby="trainingTimerArea">
+        <!--Study pomodoro Timer-->
+        <section class="pomodoroTimerContainer" aria-labelledby="pomodoroTimerArea">
             <p class="timeDisplay" id="timeDisplay" role="status" aria-live="polite">00:00</p>
     
             <div class="mainControls">
-                <button id="playBtn" type="button" aria-label="Start Training Session">&#9658;</button>
-                <button id="pauseBtn" type="button" aria-label="Pause Training Session">&#10074;&#10074;</button>
-                <button id="stopBtn" type="button" aria-label="Stop Training Session">&#9632;</button>                
+                <button id="playBtn" type="button" aria-label="Start Pomodoro Session">&#9658;</button>
+                <button id="pauseBtn" type="button" aria-label="Pause Pomodoro Session">&#10074;&#10074;</button>
+                <button id="stopBtn" type="button" aria-label="Stop Pomodoro Session">&#9632;</button>
             </div>
-            <div class="trainingControls">
-                <button id="logSetBtn" type="button" aria-label="Log Set">SET</button>
-                <button id="logExerciseBtn" type="button" aria-label="Log Exercise">EXERCISE</button>
-            </div>            
         </section>
-
-        <section class="trainingLogsContainer" aria-labelledby="trainingLogsArea">
-                <h3 id="trainingLogsArea">You're on</h3>
-
-                <div class="logsDisplayContainer"> 
-                    <div class="setDisplay">
-                    <p id="totalSet" class="setNumber">0</p>
-                    <p class="setText">Set</p>
-                    </div>
-
-                    <div class="exerciseDisplay">
-                    <p id="totalExercise" class="exerciseNumber">0</p>
-                    <p class="exerciseText">Exercise</p>
-                    </div>
-                </div>
-        </section>
-
+        
         <!--Stats section-->
         <section class="statsContainer" aria-labelledby="statsContainer">
             <h2>This Week</h2>
             <div class="statsDisplayContainer"> 
                 <div class="statsDisplay">
                     <p id="totalTime" class="statNumber">0h</p>
-                    <p class="statText">Total Time</p>
+                    <p class="statText">Total <br> Time</p>
                 </div>
 
                 <div class="statsDisplay">
                     <p id="currentSession" class="statNumber">0h</p>
-                    <p class="statText">Current Session</p>
+                    <p class="statText">Current <br> Session</p>
                 </div>
 
                 <div class="statsDisplay">
                     <p id="longestSession" class="statNumber">0h</p>
-                    <p class="statText">Longest Session</p>
+                    <p class="statText">Longest <br> Session</p>
                 </div>
             </div>
         </section>
-        
+
         <!--Extra time area-->
 
         <section class="extraTimeContainer" aria-labelledby="addExtraTimeContainer">           
@@ -93,6 +73,7 @@
                 <input type="text" id="extraTimeInput" name="extraTimeInput" placeholder="Insert time..."><br><br>
                 <p>ADD TIME</p>
         </section>
+
         
     </main>
 <script src="script.js"></script>

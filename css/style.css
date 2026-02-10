@@ -465,9 +465,7 @@ a:hover{
 }
 
 /*this one will hide the graph part until we click on graph button, we will handle it with javascript later right now it doesnt work -hande */
-[aria-hidden="true"] {
-    display: none !important;
-}
+
 
 
 /*SETTINGS PAGE*/
