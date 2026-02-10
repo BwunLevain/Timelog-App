@@ -48,3 +48,49 @@ pauseBtn.addEventListener("click", pauseTimer);
 stopBtn.addEventListener("click", stopTimer);
 
 updateDisplay();
+
+/* =========================
+   CATEGORY FUNCTIONS
+   ========================= */
+
+// Edit an existing category name
+function editCategory(categoryName) {
+  // Get categories from LocalStorage (or empty array if none exist)
+  const categories = JSON.parse(localStorage.getItem("categories")) || [];
+
+  // Find the category by name
+  const category = categories.find(cat => cat.name === categoryName);
+  if (!category) return;
+
+  // Ask user for a new category name
+  const newName = prompt("Enter new category name:", category.name);
+  if (!newName || newName.trim() === "") return;
+
+  // Update category name
+  category.name = newName.trim();
+
+  // Save updated categories back to LocalStorage
+  localStorage.setItem("categories", JSON.stringify(categories));
+}
+
+// Filter categories based on a selected date interval
+function getFilteredCategoriesByDateInterval(startDate, endDate) {
+  // Get categories from LocalStorage
+  const categories = JSON.parse(localStorage.getItem("categories")) || [];
+
+  // Convert input dates to Date objects
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+
+  // Filter categories whose date is within the interval
+  const filteredCategory = categories.filter(cat => {
+    const categoryDate = new Date(cat.date);
+    return categoryDate >= start && categoryDate <= end;
+  });
+
+  // Return filtered result
+  return filteredCategory;
+}
+
+
+
