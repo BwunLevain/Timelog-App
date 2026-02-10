@@ -17,7 +17,10 @@ header nav.headerContainer {
 }
 
 
-header nav.headerContainer a {
+header nav.headerContainer a, header nav.headerContainer button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 33.33vw; 
     height: 3rem;   
     color:#e6d8f5;
@@ -30,15 +33,74 @@ header nav.headerContainer a {
     text-decoration: none; 
 }
 
+header nav.headerContainer button {
+    border: none;
+    cursor: pointer;
+}
+
+
 a:hover{
     cursor: pointer;
 }
 
 
-/*Det här gömmer menyn som öppnas när man klickar på TRACKERS, jag fixar det senare. -Hande */
+/*trackers menu */
 .trackersMenu {
     display: none;
+    position: absolute;
+    width: 33.33vw;
+    background-color: #6B3B9D;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    border-radius: 2rem;
 }
+
+.trackersMenu.open {
+    display: flex;
+    flex-direction: column;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.trackersMenu a {
+    width: 90%;
+    padding: 0.6rem 1rem;
+    background-color: #D9D9E9;
+    color: #324B6B;
+    border: none;
+    border-radius: 0.6rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-decoration: none;
+    text-align: center;
+    overflow-wrap: break-word;
+    font-size: 0.7rem;
+}
+
+/* trackers button when menu is not open */
+#trackersToggle {
+    background-color: #6B3B9D;
+    color: #D9D9E9;
+    width: 33.33vw;
+    height: 3rem;
+    font-size: 1rem;
+    text-align: center;
+    padding-top: 0.8rem;
+    border-radius: 0 0 50% 50%;
+    border: none;
+    cursor: pointer;
+}
+
+/* trackers button When menu is open */
+#trackersToggle.active {
+    border-radius: 0%;
+    background-color: #6B3B9D;
+    overflow: hidden;
+}
+
 
 .timerHeaderContainer {
     padding-top: 2rem;
@@ -339,6 +401,13 @@ a:hover{
     text-align: center;
 }
 
+.extraTimeContainer button {
+    cursor: pointer;
+    text-decoration: none;
+    background: none;
+    border: none;
+    color: #D9D9E9;
+}
 
 /*Overview area*/
 
@@ -463,10 +532,6 @@ a:hover{
     border-radius: 0.5rem;
     cursor: pointer;    
 }
-
-/*this one will hide the graph part until we click on graph button, we will handle it with javascript later right now it doesnt work -hande */
-
-
 
 /*SETTINGS PAGE*/
 

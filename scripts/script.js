@@ -1,3 +1,14 @@
+//trackers menu functions -- ADDED ON TOP OTHERWISE IT WILL START BY PLAY PAUSE STOP BUTTONS AND CRASHES ON PAGES LIKE OVERVIEW AND SETTINGS SINCE THOSE BUTTONS DONT EXIST --HANDE
+const toggleBtn = document.getElementById('trackersToggle');
+const trackersMenu = document.getElementById('trackersMenu');
+
+toggleBtn.addEventListener('click', () => {
+  trackersMenu.classList.toggle('open');
+  toggleBtn.classList.toggle('active');
+});
+
+
+//start pause stop buttons
 const timeDisplay = document.getElementById("timeDisplay");
 const playBtn = document.getElementById("playBtn");
 const pauseBtn = document.getElementById("pauseBtn");
@@ -48,3 +59,27 @@ pauseBtn.addEventListener("click", pauseTimer);
 stopBtn.addEventListener("click", stopTimer);
 
 updateDisplay();
+
+
+
+// training mode special buttons (set and exercise) ONLY UI!!! no logging
+
+const logSetBtn = document.getElementById('logSetBtn');
+const logExerciseBtn = document.getElementById('logExerciseBtn');
+const totalSet = document.getElementById('totalSet');
+const totalExercise = document.getElementById('totalExercise');
+
+let setCount = 0;
+let exerciseCount = 0;
+
+logSetBtn.addEventListener('click', () => {
+    if (isRunning) return;
+    setCount++;
+    totalSet.textContent = setCount;
+});
+
+logExerciseBtn.addEventListener('click', () => {
+    if (isRunning) return;
+    exerciseCount++;
+    totalExercise.textContent = exerciseCount;
+});

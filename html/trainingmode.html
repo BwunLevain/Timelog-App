@@ -15,18 +15,18 @@
         <header>
             <!-- Top Navigation Menu -->
             <nav class="headerContainer">
-                <a href="#trackersMenu">TRACKERS</a>
-                <a href="#overview">OVERVIEW</a>
-                <a href="#settings">SETTINGS</a>
+                <button id="trackersToggle" aria-label="tracker menu button">TRACKERS</button>
+                <a href="overviewpage.html">OVERVIEW</a>
+                <a href="settingspage.html">SETTINGS</a>
             </nav>
         </header>
-
-        <!--Det här section är gömt med CSS just nu -Hande -->
-        <section id="trackersMenu" class="trackersMenu" aria-hidden="true" aria-label="Select tracker type">
-            <button id="trackerStudy">Study</button>
-            <button id="trackerTraining">Training</button>
-            <button id="trackerWork">Work</button>
-        </section>
+        
+        <!--Trackers Menu -->
+        <nav id="trackersMenu" class="trackersMenu" aria-label="Select tracker type">
+            <a href="pomodoromode.html">Pomodoro/Study</a>
+            <a href="trainingmode.html">Training</a>
+            <a href="workmode.html">Work</a>
+        </nav>
 
         <!--Timer header-->
         <section class="timerHeaderContainer" aria-labelledby="timerHeading">
@@ -91,11 +91,11 @@
         <section class="extraTimeContainer" aria-labelledby="addExtraTimeContainer">           
                 <label for="extraTimeInput"></label>
                 <input type="text" id="extraTimeInput" name="extraTimeInput" placeholder="Insert time..."><br><br>
-                <p>ADD TIME</p>
+                <button class="addTimeButton" id="addTimeButton">ADD TIME</button>
         </section>
         
     </main>
-<script src="script.js"></script>
+<script src="../scripts/script.js"></script>
 </body>
 
 </html>
