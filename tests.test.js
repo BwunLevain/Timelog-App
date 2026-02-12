@@ -42,6 +42,9 @@ test('close back trackers menu when trackers button is clicked', () => {
   expect(trackersBtn.classList.contains('active')).toBe(false);                
 });
 
+
+//tests for exercise and set UI starts here
+
 test('increases number of sets displayed when log set button is clicked', () => {
   document.body.innerHTML= `<button id="logSet"></button>
                             <p id="totalSet"></p>`;
