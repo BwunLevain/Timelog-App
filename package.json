@@ -20,6 +20,10 @@
     "jest": "^29.7.0"
   },
   "jest": {
+    "testEnvironment": "jsdom",
+    "collectCoverageFrom": [
+      "scripts/**/*.js"
+    ],
     "coverageThreshold": {
       "global": {
         "lines": 80,
