@@ -40,26 +40,66 @@ header nav.headerContainer {
   width: 100%;
 }
 
-header nav.headerContainer a {
-  width: 33.33vw;
-  height: 3rem;
-  color: var(--nav-text);
-  background-color: var(--primary-purple);
-  border-radius: 0 0 50% 50%;
-  border: none;
-  font-size: 1rem;
-  text-align: center;
-  padding-top: 0.8rem;
-  text-decoration: none;
+header nav.headerContainer a, header nav.headerContainer button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33.33vw; 
+    height: 3rem;   
+    color: var(--nav-text);
+    background-color: var(--primary-purple);
+    border-radius: 0 0 50% 50%;
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+    padding-top: 0.8rem;
+    text-decoration: none; 
 }
 
-a:hover {
-  cursor: pointer;
+header nav.headerContainer button {
+    border: none;
+    cursor: pointer;
 }
 
-/*Det här gömmer menyn som öppnas när man klickar på TRACKERS, jag fixar det senare. -Hande */
+
+a:hover{
+    cursor: pointer;
+}
+
+/*trackers menu */
 .trackersMenu {
-  display: none;
+    display: none;
+    position: absolute;
+    width: 33.33vw;
+    background-color: var(--primary-purple);
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    border-radius: 2rem;
+}
+
+.trackersMenu.open {
+    display: flex;
+    flex-direction: column;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.trackersMenu a {
+    width: 90%;
+    padding: 0.6rem 1rem;
+    background-color: var(--accent-light);
+    color: var(--text-dark);
+    border: none;
+    border-radius: 0.6rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-decoration: none;
+    text-align: center;
+    overflow-wrap: break-word;
+    font-size: 0.7rem;
 }
 
 .timerHeaderContainer {
