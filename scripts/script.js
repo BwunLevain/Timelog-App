@@ -1,3 +1,4 @@
+//start pause stop buttons
 const timeDisplay = document.getElementById("timeDisplay");
 const playBtn = document.getElementById("playBtn");
 const pauseBtn = document.getElementById("pauseBtn");
@@ -16,7 +17,7 @@ function formatTime(seconds) {
 }
 
 function updateDisplay() {
-    timeDisplay.textContent = formatTime(totalSeconds);
+        timeDisplay.textContent = formatTime(totalSeconds);
 }
 
 function startTimer() {

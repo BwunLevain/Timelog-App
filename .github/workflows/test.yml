@@ -12,6 +12,10 @@ on:
     # Specifikt för branchen:
     branches: [ main, dev ]
 
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
 # Jobben som ska köras
 jobs:
   # Namnet på jobbet
