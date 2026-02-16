@@ -40,6 +40,7 @@ header nav.headerContainer {
   width: 100%;
 }
 
+
 header nav.headerContainer a, header nav.headerContainer button {
     display: flex;
     justify-content: center;
@@ -66,12 +67,13 @@ a:hover{
     cursor: pointer;
 }
 
+
 /*trackers menu */
 .trackersMenu {
     display: none;
     position: absolute;
     width: 33.33vw;
-    background-color: var(--primary-purple);
+    background-color: #6B3B9D;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
@@ -89,14 +91,44 @@ a:hover{
 .trackersMenu a {
     width: 90%;
     padding: 0.6rem 1rem;
-    background-color: var(--accent-light);
-    color: var(--text-dark);
+    background-color: #D9D9E9;
+    color: #324B6B;
     border: none;
     border-radius: 0.6rem;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s;
     text-decoration: none;
+    text-align: center;
+    overflow-wrap: break-word;
+    font-size: 0.7rem;
+}
+
+/* trackers button when menu is not open */
+#trackersToggle {
+    background-color: #6B3B9D;
+    color: #D9D9E9;
+    width: 33.33vw;
+    height: 3rem;
+    font-size: 1rem;
+    text-align: center;
+    padding-top: 0.8rem;
+    border-radius: 0 0 50% 50%;
+    border: none;
+    cursor: pointer;
+}
+
+/* trackers button When menu is open */
+#trackersToggle.active {
+    border-radius: 0%;
+    background-color: #6B3B9D;
+    overflow: hidden;
+}
+
+
+.timerHeaderContainer {
+    padding-top: 2rem;
+    color: white; 
     text-align: center;
     overflow-wrap: break-word;
     font-size: 0.7rem;
@@ -388,6 +420,14 @@ a:hover{
 .extraTimeContainer ::placeholder {
   color: var(--text-white);
   text-align: center;
+}
+
+.extraTimeContainer button {
+    cursor: pointer;
+    text-decoration: none;
+    background: none;
+    border: none;
+    color: var(--accent-light);
 }
 
 /*Overview area*/
