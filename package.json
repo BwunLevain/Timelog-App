@@ -22,7 +22,8 @@
   "jest": {
     "testEnvironment": "jsdom",
     "collectCoverageFrom": [
-      "scripts/**/*.js"
+      "scripts/**/*.js",
+      "!scripts/script.js"
     ],
     "coverageThreshold": {
       "global": {

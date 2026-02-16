@@ -2,8 +2,8 @@
  * @jest-environment jsdom
  */
 
-// Import the functions from script.js
-const { setupTrackersMenu, setupSetAndExerciseButtons } = require('./scripts/script.js');
+const { setupTrackersMenu } = require('./scripts/navigation.js');
+const { setupSetAndExerciseButtons } = require('./scripts/training.js');
 
 //temporary test that always passes
 test('always passes', () => {
@@ -16,7 +16,6 @@ test('open trackers menu when trackers button is clicked', () => {
   document.body.innerHTML = `<button id="trackersToggle"></button>
                              <div id="trackersMenu"></div>`;
 
-  // Call the actual function from script.js
   setupTrackersMenu();
 
   const trackersBtn = document.getElementById('trackersToggle');
@@ -32,7 +31,6 @@ test('close back trackers menu when trackers button is clicked', () => {
   document.body.innerHTML = `<button id="trackersToggle"></button>
                              <div id="trackersMenu"></div>`;
 
-  // Call the actual function from script.js
   setupTrackersMenu();
 
   const trackersBtn = document.getElementById('trackersToggle');
@@ -49,9 +47,10 @@ test('close back trackers menu when trackers button is clicked', () => {
 
 test('increases number of sets displayed when log set button is clicked', () => {
   document.body.innerHTML = `<button id="logSetBtn"></button>
-                            <p id="totalSet">0</p>`;
+                            <button id="logExerciseBtn"></button>
+                            <p id="totalSet">0</p>
+                            <p id="totalExercise">0</p>`;
 
-  // Call the actual function from script.js
   setupSetAndExerciseButtons();
   
   const logSetBtn = document.getElementById('logSetBtn');
@@ -63,10 +62,11 @@ test('increases number of sets displayed when log set button is clicked', () => 
 });
 
 test('increases number of exercises displayed when log exercise button is clicked', () => {
-  document.body.innerHTML = `<button id="logExerciseBtn"></button>
+  document.body.innerHTML = `<button id="logSetBtn"></button>
+                            <button id="logExerciseBtn"></button>
+                            <p id="totalSet">0</p>
                             <p id="totalExercise">0</p>`;
 
-  // Call the actual function from script.js
   setupSetAndExerciseButtons();
 
   const logExerciseBtn = document.getElementById('logExerciseBtn');
@@ -75,4 +75,24 @@ test('increases number of exercises displayed when log exercise button is clicke
   logExerciseBtn.click();
 
   expect(totalExercise.textContent).toBe('1');
+});
+
+test('does not increment sets when timer is running', () => {
+  global.isRunning = true;
+  
+  document.body.innerHTML = `<button id="logSetBtn"></button>
+                            <button id="logExerciseBtn"></button>
+                            <p id="totalSet">0</p>
+                            <p id="totalExercise">0</p>`;
+
+  setupSetAndExerciseButtons();
+  
+  const logSetBtn = document.getElementById('logSetBtn');
+  const totalSet = document.getElementById('totalSet');
+
+  logSetBtn.click();
+
+  expect(totalSet.textContent).toBe('0');
+  
+  delete global.isRunning;
 });
