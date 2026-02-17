@@ -1,4 +1,6 @@
 // training mode special buttons (set and exercise) ONLY UI!!! no logging
+let isRunning = false; // this one is here to satisfy Jest and guard UI interactions.
+// Real timer running status is in timer logic (script.js)
 
 function increaseCounter(currentCount) {
   return currentCount + 1;
@@ -17,7 +19,7 @@ function setupSetAndExerciseButtons() {
   let exerciseCount = 0;
   
   logSetBtn.addEventListener('click', () => {
-    if (typeof isRunning !== 'undefined' && isRunning) return;    
+    if (isRunning) return;    
     setCount = increaseCounter(setCount);
     totalSet.textContent = setCount;
   });
@@ -25,7 +27,7 @@ function setupSetAndExerciseButtons() {
 
 
   logExerciseBtn.addEventListener('click', () => {
-    if (typeof isRunning !== 'undefined' && isRunning) return;
+    if (isRunning) return;
     exerciseCount = increaseCounter(exerciseCount);
     totalExercise.textContent = exerciseCount;
   });
