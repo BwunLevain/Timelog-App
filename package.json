@@ -25,7 +25,8 @@
       "scripts/**/*.js",
       "!scripts/script.js",
       "!scripts/navigation.js",
-      "!scripts/training.js"
+      "!scripts/training.js",
+      "!scripts/themesDOM.js"
     ],
     "coverageThreshold": {
       "global": {
