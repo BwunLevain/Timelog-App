@@ -16,9 +16,8 @@ export function changeTheme() {
     }
 }
 
-//Add eventlisterner here
-
-// const playBtn = document.getElementById('playBtn');
-// playBtn.addEventListener('click', () => {
-//     changeTheme();
-// })
+//eventlisterner
+const toggleBtn = document.getElementById('darkModeButton');
+toggleBtn.addEventListener('click', () => {
+    changeTheme();
+})
