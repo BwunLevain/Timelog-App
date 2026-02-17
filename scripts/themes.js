@@ -7,6 +7,10 @@ function toggleThemeLogic(currentClasses, storage) {
 
 function getInitialTheme(storage) {
     return storage.getItem('light-theme') === 'enabled';
-} 
+}
 
-module.exports = { toggleThemeLogic, getInitialTheme };
+export { toggleThemeLogic, getInitialTheme };
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { toggleThemeLogic, getInitialTheme };
+}
