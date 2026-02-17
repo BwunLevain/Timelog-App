@@ -22,20 +22,25 @@
         </header>
         
         <!--Trackers Menu -->
-        <nav id="trackersMenu" class="trackersMenu" aria-label="Select tracker type">
-            <a href="pomodoromode.html">Pomodoro - Study</a>
-            <a href="trainingmode.html">Training</a>
-            <a href="workmode.html">Work</a>
-        </nav>
+    <ul
+        id="trackersMenu"
+        class="trackersMenu"
+        aria-label="Select tracker type"
+      >
+        <li><a href="pomodoromode.html">Pomodoro/Study</a></li>
+        <li><a href="trainingmode.html">Training</a></li>
+        <li><a href="workmode.html">Work</a></li>
+      </ul>
 
 
         <!--overview-->
-        <section class="settingsHeaderContainer" aria-labelledby="settingsHeaderArea">
+        <header class="settingsHeaderContainer" aria-labelledby="settingsHeaderArea">
             <h1>Settings</h1>
-        </section>
+        </header>
         
 
         <section class="settingsChoices">
+            <h2 class="visually-hidden">Dark mode toggle</h2>
             <button id="darkModeButton">Dark Mode</button>
             <button id="localStorageResetButton">Reset Local Storage</button>
         </section>
