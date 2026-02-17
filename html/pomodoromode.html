@@ -1,83 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Study Pomodoro</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-
-    <main>        
-        <header>
-            <!-- Top Navigation Menu -->
-            <nav class="headerContainer">
-                <button id="trackersToggle" aria-label="tracker menu button">TRACKERS</button>
-                <a href="overviewpage.html">OVERVIEW</a>
-                <a href="settingspage.html">SETTINGS</a>
-            </nav>
-        </header>
-        
-        <!--Trackers Menu -->
-        <nav id="trackersMenu" class="trackersMenu" aria-label="Select tracker type">
-            <a href="pomodoromode.html">Pomodoro - Study</a>
-            <a href="trainingmode.html">Training</a>
-            <a href="workmode.html">Work</a>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <!-- Top Navigation Menu -->
+        <nav class="headerContainer">
+          <button id="trackersToggle" aria-label="tracker menu button">
+            TRACKERS
+          </button>
+          <a href="overviewpage.html">OVERVIEW</a>
+          <a href="settingspage.html">SETTINGS</a>
         </nav>
+      </header>
 
-        <!--Timer header-->
-        <section class="timerHeaderContainer" aria-labelledby="timerHeading">
-            <h1 id="timerHeading">Study</h1>
-            <p>Pomodoro</p>
-        </section>
+      <!--Trackers Menu -->
+      <ul
+        id="trackersMenu"
+        class="trackersMenu"
+        aria-label="Select tracker type"
+      >
+        <li><a href="pomodoromode.html">Pomodoro/Study</a></li>
+        <li><a href="trainingmode.html">Training</a></li>
+        <li><a href="workmode.html">Work</a></li>
+      </ul>
 
-        <!--Study pomodoro Timer-->
-        <section class="pomodoroTimerContainer" aria-labelledby="pomodoroTimerArea">
-            <p class="timeDisplay" id="timeDisplay" role="status" aria-live="polite">00:00</p>
-    
-            <div class="mainControls">
-                <button id="playBtn" type="button" aria-label="Start Pomodoro Session">&#9658;</button>
-                <button id="pauseBtn" type="button" aria-label="Pause Pomodoro Session">&#10074;&#10074;</button>
-                <button id="stopBtn" type="button" aria-label="Stop Pomodoro Session">&#9632;</button>
-            </div>
-        </section>
-        
-        <!--Stats section-->
-        <section class="statsContainer" aria-labelledby="statsContainer">
-            <h2>This Week</h2>
-            <div class="statsDisplayContainer"> 
-                <div class="statsDisplay">
-                    <p id="totalTime" class="statNumber">0h</p>
-                    <p class="statText">Total <br> Time</p>
-                </div>
+      <!--Timer header-->
+      <header class="timerHeaderContainer" aria-labelledby="timerHeading">
+        <h1 id="timerHeading">Study</h1>
+        <p>Pomodoro</p>
+      </header>
 
-                <div class="statsDisplay">
-                    <p id="currentSession" class="statNumber">0h</p>
-                    <p class="statText">Current <br> Session</p>
-                </div>
+      <!--Study pomodoro Timer-->
+      <section
+        class="pomodoroTimerContainer"
+        aria-labelledby="pomodoroTimerArea"
+      >
+      <h2 class="visually-hidden">Pomodoro Timer</h2>
+        <time
+          class="timeDisplay"
+          id="timeDisplay"
+          role="status"
+          aria-live="polite"
+        >
+          00:00
+    </time>
 
-                <div class="statsDisplay">
-                    <p id="longestSession" class="statNumber">0h</p>
-                    <p class="statText">Longest <br> Session</p>
-                </div>
-            </div>
-        </section>
+        <div class="mainControls">
+          <button id="playBtn" type="button" aria-label="Start Work Session">
+            <i class="fa-solid fa-play"></i>
+          </button>
+          <button id="pauseBtn" type="button" aria-label="Pause Work Session">
+            <i class="fa-solid fa-pause"></i>
+          </button>
+          <button id="stopBtn" type="button" aria-label="Stop Work Session">
+            <i class="fa-solid fa-stop"></i>
+          </button>
+        </div>
+      </section>
 
-        <!--Extra time area-->
+      <!--Stats section-->
+      <section class="statsContainer" aria-labelledby="statsContainer">
+        <h2>This Week</h2>
+        <ul class="statsDisplayContainer">
+          <li class="statsDisplay">
+            <time id="totalTime" class="statNumber">0h</time>
+            <p class="statText">
+              Total <br />
+              Time
+            </p>
+          </li>
 
-        <section class="extraTimeContainer" aria-labelledby="addExtraTimeContainer">           
-                <label for="extraTimeInput"></label>
-                <input type="text" id="extraTimeInput" name="extraTimeInput" placeholder="Insert time..."><br><br>
-                <button class="addTimeButton" id="addTimeButton">ADD TIME</button>
-        </section>
+          <li class="statsDisplay">
+            <time id="currentSession" class="statNumber">0h</time>
+            <p class="statText">
+              Current <br />
+              Session
+            </p>
+          </li>
 
-        
+          <li class="statsDisplay">
+            <time id="longestSession" class="statNumber">0h</time>
+            <p class="statText">
+              Longest <br />
+              Session
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <!--Extra time area-->
+
+      <section
+        class="extraTimeContainer"
+        aria-labelledby="addExtraTimeContainer"
+      >
+      <h2 class="visually-hidden">Extra time area</h2>
+        <label for="extraTimeInput" class="visually-hidden"
+          >Add extra time manually</label
+        >
+        <input
+          type="text"
+          id="extraTimeInput"
+          name="extraTimeInput"
+          placeholder="Insert time..."
+        /><br /><br />
+        <button class="addTimeButton" id="addTimeButton">ADD TIME</button>
+      </section>
     </main>
-<script src="../scripts/script.js"></script>
-<script src="../scripts/navigation.js"></script>
-</body>
-
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/navigation.js"></script>
+  </body>
 </html>

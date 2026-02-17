@@ -22,12 +22,15 @@
         </header>
         
         <!--Trackers Menu -->
-        <nav id="trackersMenu" class="trackersMenu" aria-label="Select tracker type">
-            <a href="pomodoromode.html">Pomodoro - Study</a>
-            <a href="trainingmode.html">Training</a>
-            <a href="workmode.html">Work</a>
-        </nav>
-
+      <ul
+        id="trackersMenu"
+        class="trackersMenu"
+        aria-label="Select tracker type"
+      >
+        <li><a href="pomodoromode.html">Pomodoro/Study</a></li>
+        <li><a href="trainingmode.html">Training</a></li>
+        <li><a href="workmode.html">Work</a></li>
+      </ul>
 
         <!--overview-->
         <section class="overviewHeaderContainer" aria-labelledby="overviewHeaderArea">
@@ -38,54 +41,60 @@
         
         <!--History-->
 
-        <section class="historyContainer" id="historyOverviewArea" aria-hidden="false" aria-label="Past Sessions">
-            <div class="historyItem">
-                <div class="historyInfo">
-                    <span class="historyCategory">STUDY</span>
-                    <span class="historyDate">Feb 8, 2026</span>
-                </div>
-                <div class="historyDuration">25m</div>
-            </div>
+    <section class="historyContainer" id="historyOverviewArea" aria-labelledby="historyHeading">
+  <h2 id="historyHeading" class="visually-hidden">Past Sessions</h2>
 
-            <div class="historyItem">
-                <div class="historyInfo">
-                    <span class="historyCategory">WORKOUT</span>
-                    <span class="historyDate">Feb 7, 2026</span>
-                </div>
-                <div class="historyDuration">45m</div>
-            </div>
+  <ul class="historyList">
+    <li class="historyItem">
+      <div class="historyInfo">
+        <p class="historyCategory">STUDY</p>
+        <time class="historyDate" datetime="2026-02-08">Feb 8, 2026</time>
+      </div>
+      <time class="historyDuration" datetime="PT25M">25m</time>
+    </li>
 
-            <div class="historyItem">
-                <div class="historyInfo">
-                    <span class="historyCategory">WORK</span>
-                    <span class="historyDate">Feb 7, 2026</span>
-                </div>
-                <div class="historyDuration">1h 10m</div>
-            </div>
-        </section>
+    <li class="historyItem">
+      <div class="historyInfo">
+        <p class="historyCategory">WORKOUT</p>
+        <time class="historyDate" datetime="2026-02-07">Feb 7, 2026</time>
+      </div>
+      <time class="historyDuration" datetime="PT45M">45m</time>
+    </li>
+    <li class="historyItem">
+      <div class="historyInfo">
+        <p class="historyCategory">WORK</p>
+        <time class="historyDate" datetime="2026-02-07">Feb 7, 2026</time>
+      </div>
+      <time class="historyDuration" datetime="PT45M">45m</time>
+    </li>
+  </ul>
+</section>
+
 
 
         <!--Graph-->
         <section class="graphContainer" id="graphView" aria-hidden="true" aria-labelledby="graphArea">
-            <div class="activityList">
-                <div class="activity" data-activity="work" data-value="">
+            <h2 class="visually-hidden">Graph</h2>
+            <ul class="activityList">
+                <li class="activity" data-activity="work" data-value="">
                     <span class="activityLabel">Work</span>
                     <div class="valueBar"></div>
-                </div>
+                </li>
 
-                <div class="activity" data-activity="study" data-value="">
+                <li class="activity" data-activity="study" data-value="">
                     <span class="activityLabel">Study</span>
                     <div class="valueBar"></div>
-                </div>
+                </li>
 
-                <div class="activity" data-activity="workout" data-value="">
+                <li class="activity" data-activity="workout" data-value="">
                     <span class="activityLabel">Workout</span>
                     <div class="valueBar"></div>
-                </div>
-            </div>            
+                </li>
+            </ul>            
         </section>
 
         <section class="overviewSelectors" aria-labelledby="overviewSelectorButtons">
+            <h2 class="visually-hidden">Overview selectors</h2>
             <button id="rangeSelectorButton">SELECT <br> RANGE</button>
             <button id="allTimeSelectorButton">ALL <br> TIME</button>
         </section>           
