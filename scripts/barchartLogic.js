@@ -10,16 +10,16 @@ function barchartLogic(totWorkTime, totStudyTime, totExerciseTime) {
   // Check if all timers are zero
   else if (timerArray.every(time => time === 0)) {
     return [
-      ["work", 0, 0],
-      ["study", 0, 0],
-      ["exercise", 0, 0]
+      ["Work", 0, 0],
+      ["Study", 0, 0],
+      ["Exercise", 0, 0]
     ];
   }
   else {
     const timers = [
-      { name: 'work', time: totWorkTime },
-      { name: 'study', time: totStudyTime },
-      { name: 'exercise', time: totExerciseTime }
+      { name: 'Work', time: totWorkTime },
+      { name: 'Study', time: totStudyTime },
+      { name: 'Exercise', time: totExerciseTime }
     ];
 
     // Find the largest bar
