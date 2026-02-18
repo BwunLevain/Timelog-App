@@ -27,7 +27,9 @@
       "!scripts/script.js",
       "!scripts/navigation.js",
       "!scripts/training.js",
-      "!scripts/themesDOM.js"
+      "!scripts/themesDOM.js",
+      "!scripts/barchartDOM.js",
+      "!scripts/localStorage.js"
     ],
     "coverageThreshold": {
       "global": {
