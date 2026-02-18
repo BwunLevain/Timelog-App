@@ -2,10 +2,42 @@ const { getHistory } = require('./localStorage.js');
 
 function barchartLogic() {
   
+  const fullHistory = getHistory()
   
-  const allTimers = getHistory()
+  let totWorkTime = 0;
+  let totStudyTime = 0;
+  let totExerciseTime = 0;
+  
+
+  // Adding all hours from each entry into each separate timer category
+  for (const timerEntry of fullHistory)
+  {
+    const hours = parseDuration(timerEntry.duration)
+    switch (timerEntry.category) {
+      case 'Work':
+        totWorkTime += hours
+        break;
+      case 'Study':
+        totStudyTime += hours
+        break;
+      case 'Exercise':
+        totExerciseTime += hours
+        break;
+    }
+  }
+
+  // Rounding
+  totWorkTime = Math.round(totWorkTime * 10) / 10;
+  totStudyTime = Math.round(totStudyTime * 10) / 10;
+  totExerciseTime = Math.round(totExerciseTime * 10) / 10;
+
   const timerArray = [totWorkTime, totStudyTime, totExerciseTime];
  
+  // Check if any total time is NaN or non finite
+  if (timerArray.some(time => !Number.isFinite(time))) {
+    throw new Error('Invalid duration');
+  }
+
   // Check if timer is below zero
   if (timerArray.some(time => time < 0)) {
     throw new Error("Timer values cannot be negative");
@@ -68,4 +100,11 @@ function barchartLogic() {
     return [bar1Array, bar2Array, bar3Array];
   }
 }
+
+function parseDuration(duration) {
+  const [hours, minutes, seconds] = duration.split(':').map(Number);
+  const totalHours = hours + (minutes / 60) + (seconds / 3600);
+  return totalHours
+}
+
 module.exports = barchartLogic;

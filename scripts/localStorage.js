@@ -34,3 +34,5 @@ function clearHistory() {
     localStorage.removeItem(STORAGE_KEY);
     console.log("History cleared.");
 }
+
+module.exports = { logCurrentTime, getHistory, clearHistory };
