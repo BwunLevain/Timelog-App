@@ -1,10 +1,11 @@
-import { toggleThemeLogic, getInitialTheme } from '../logic/themes.js';
+const { toggleThemeLogic, getInitialTheme } = require('./scripts/themes.js');
+
 
 if (getInitialTheme(localStorage)) {
     document.body.classList.add('lightTheme');
 }
 
-export function changeTheme() {
+function changeTheme() {
     const currentClasses = Array.from(document.body.classList);
     
     const shouldBeLight = toggleThemeLogic(currentClasses, localStorage);
@@ -21,3 +22,4 @@ const toggleBtn = document.getElementById('darkModeButton');
 toggleBtn.addEventListener('click', () => {
     changeTheme();
 })
+
