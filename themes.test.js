@@ -30,3 +30,4 @@ describe('Theme Logic', () => {
         expect(getInitialTheme(mockStorage)).toBe(true);
     });
 });
+
