@@ -1,9 +1,3 @@
-//start pause stop buttons
-const timeDisplay = document.getElementById("timeDisplay");
-const playBtn = document.getElementById("playBtn");
-const pauseBtn = document.getElementById("pauseBtn");
-const stopBtn = document.getElementById("stopBtn");
-
 let timer = null;
 let totalSeconds = 0;
 let isRunning = false;
@@ -16,36 +10,32 @@ function formatTime(seconds) {
     // also acts as a placeholder so that the timer looks a bit better
 }
 
-function updateDisplay() {
-        timeDisplay.textContent = formatTime(totalSeconds);
-}
-
-function startTimer() {
-    if (isRunning) return; // having a problem where I can start multiple timers
+// Pure logic functions, no DOM
+function startTimer(updateCallback) {
+    if (isRunning) return;
 
     isRunning = true;
     timer = setInterval(() => { //this is an interval that will loop
         totalSeconds++;
-        updateDisplay();
+        if (updateCallback) updateCallback(totalSeconds);
     }, 1000);
 }
 
 function pauseTimer() {
     if (!isRunning) return;
-
-    clearInterval(timer); //  it stops here since its "cleared"
+    clearInterval(timer); // it stops here since its "cleared"
     isRunning = false;
 }
 
-function stopTimer() {
+function stopTimer(updateCallback) {
     clearInterval(timer);
     isRunning = false;
     totalSeconds = 0;
-    updateDisplay(); 
+    if (updateCallback) updateCallback(totalSeconds);
 }
 
-playBtn.addEventListener("click", startTimer);
-pauseBtn.addEventListener("click", pauseTimer);
-stopBtn.addEventListener("click", stopTimer);
+function getTime() {
+    return totalSeconds;
+}
 
-updateDisplay();
+module.exports = { startTimer, pauseTimer, stopTimer, getTime, formatTime };
