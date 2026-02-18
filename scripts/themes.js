@@ -9,7 +9,7 @@ function getInitialTheme(storage) {
     return storage.getItem('light-theme') === 'enabled';
 }
 
-export { toggleThemeLogic, getInitialTheme };
+module.exports = { toggleThemeLogic, getInitialTheme };
 
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { toggleThemeLogic, getInitialTheme };
