@@ -1,4 +1,4 @@
-import { toggleThemeLogic, getInitialTheme } from './themes.js';
+const { toggleThemeLogic, getInitialTheme } = require('./themes.js');
 
 if (getInitialTheme(localStorage)) {
     document.body.classList.add('lightTheme');
