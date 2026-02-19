@@ -7,7 +7,7 @@ function updateGraph() {
   
   bars.forEach(([name, width, time]) => {
     const activityLi = document.createElement('li');
-    activityLi.className = 'activity graphItem';  // CHANGED: Use 'graphItem' instead of 'historyItem'
+    activityLi.className = 'activity graphItem';
     activityLi.dataset.activity = name.toLowerCase();
     activityLi.dataset.value = time;
     
@@ -28,7 +28,7 @@ function updateGraph() {
     }
     
     const infoDiv = document.createElement('div');
-    infoDiv.className = 'graphInfo';  // CHANGED: Use 'graphInfo' instead of 'historyInfo'
+    infoDiv.className = 'graphInfo';
     
     const categoryP = document.createElement('p');
     categoryP.className = 'graphCategory'; 

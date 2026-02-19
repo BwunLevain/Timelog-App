@@ -1,5 +1,5 @@
-// barchartLogic.js
-function barchartLogic() {
+import { getHistory } from './localStorage.js';
+export default function barchartLogic() {
   
   const fullHistory = getHistory()
   

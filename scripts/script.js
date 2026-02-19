@@ -38,4 +38,4 @@ function getTime() {
     return totalSeconds;
 }
 
-// module.exports = { startTimer, pauseTimer, stopTimer, getTime, formatTime };
+export { startTimer, pauseTimer, stopTimer, getTime, formatTime };

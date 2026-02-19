@@ -17,7 +17,7 @@ export default defineConfig([
   { 
     files: ["**/*.js"], 
     languageOptions: { 
-      sourceType: "script" 
+      sourceType: "module" 
     } 
   },
 ]);

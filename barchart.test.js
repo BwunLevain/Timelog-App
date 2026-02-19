@@ -1,32 +1,42 @@
-jest.mock('./scripts/localStorage.js'); 
+import { jest } from '@jest/globals';
 
-const { getHistory } = require('./scripts/localStorage.js');
-const barchartLogic = require('./scripts/barchartLogic.js'); //
+// Mock DOM so localStorage.js doesn't crash
+global.document = { addEventListener: jest.fn() };
+
+// Create mock
+const mockGetHistory = jest.fn();
+
+// Apply mock BEFORE importing the module under test
+jest.unstable_mockModule('./scripts/localStorage.js', () => ({
+  getHistory: mockGetHistory,
+}));
+
+// Dynamically import SUT at top-level
+const { default: barchartLogic } = await import('./scripts/barchartLogic.js');
 
 describe('barchartLogic', () => {
   beforeEach(() => {
-    getHistory.mockReset();
+    mockGetHistory.mockReset();
   });
 
-  // Check output
   it('Should return following output', () => {
-    // Mock history - simulating: Work=10h, Study=5h, Exercise=3h
-    getHistory.mockReturnValue([
-      { category: 'Work', duration: '10:00:00' }, // 10.0
-      { category: 'Study', duration: '05:00:00' }, // 5.0
-      { category: 'Exercise', duration: '03:00:00' } // 3.0
+    mockGetHistory.mockReturnValue([
+      { category: 'Work', duration: '10:00:00' },
+      { category: 'Study', duration: '05:00:00' },
+      { category: 'Exercise', duration: '03:00:00' }
     ]);
-    const result = barchartLogic();
-    expect(result).toEqual([
-      ['Work', 1, 10.0],
-      ['Study', 0.5, 5.0],
-      ['Exercise', 0.3, 3.0]
+
+    expect(barchartLogic()).toEqual([
+      ['Work', 1, 10],
+      ['Study', 0.5, 5],
+      ['Exercise', 0.3, 3]
     ]);
   });
+
 
   // Reject negative time
   it('Should throw error if time is negative', () => {
-    getHistory.mockReturnValue([
+    mockGetHistory.mockReturnValue([
       // Will result in NaN
       { category: 'Study', duration: '-05:00:00' } 
     ]);
@@ -35,7 +45,7 @@ describe('barchartLogic', () => {
 
   // Check zero output
   it('Should return zero width and time', () => {
-    getHistory.mockReturnValue([]); // Empty -> all 0
+    mockGetHistory.mockReturnValue([]);
     const result = barchartLogic();
     expect(result).toEqual([
       ['Work', 0, 0],
@@ -46,7 +56,7 @@ describe('barchartLogic', () => {
 
   // Check sorting
   it('Should sort correctly. study > exercise > work', () => {
-    getHistory.mockReturnValue([
+    mockGetHistory.mockReturnValue([
       { category: 'Work', duration: '03:00:00' }, // 3.0
       { category: 'Study', duration: '10:00:00' }, // 10.0
       { category: 'Exercise', duration: '05:00:00' } // 5.0
@@ -61,7 +71,7 @@ describe('barchartLogic', () => {
 
   // Check one input being zero
   it('Should handle one input being zero', () => {
-    getHistory.mockReturnValue([
+    mockGetHistory.mockReturnValue([
       { category: 'Work', duration: '00:00:00' }, // 0
       { category: 'Study', duration: '02:00:00' }, // 2.0
       { category: 'Exercise', duration: '01:00:00' } // 1.0
@@ -76,7 +86,7 @@ describe('barchartLogic', () => {
 
   // Check two inputs being zero
   it('Should handle two inputs being zero', () => {
-    getHistory.mockReturnValue([
+    mockGetHistory.mockReturnValue([
       { category: 'Work', duration: '00:00:00' }, // 0
       { category: 'Study', duration: '00:00:00' }, // 0
       { category: 'Exercise', duration: '05:00:00' } // 5.0
@@ -91,7 +101,7 @@ describe('barchartLogic', () => {
 
   // Check that multiple entries work and that adding works
   it('Should sum multiple entries per category', () => {
-    getHistory.mockReturnValue([
+    mockGetHistory.mockReturnValue([
       { category: 'Work', duration: '01:00:00' },
       { category: 'Work', duration: '02:00:00' },
       { category: 'Study', duration: '04:00:00' },
@@ -106,9 +116,9 @@ describe('barchartLogic', () => {
     ]);
   });
 
-  // Handle rounding
+  // Check rounding
   it('Should handle rounding to one decimal', () => {
-    getHistory.mockReturnValue([
+    mockGetHistory.mockReturnValue([
       // 1.25 => 1.3
       { category: 'Work', duration: '01:15:00' },
       // 0.75 => 0.8
@@ -123,7 +133,7 @@ describe('barchartLogic', () => {
 
   // Check if a category has a different name from expected
   it('Should ignore unknown categories', () => {
-    getHistory.mockReturnValue([
+    mockGetHistory.mockReturnValue([
       { category: 'Work', duration: '01:00:00' }, //1.0
       { category: 'AI-kompis consultation', duration: '1000:00:00' }
     ]);
@@ -137,7 +147,7 @@ describe('barchartLogic', () => {
 
   // Check if duration does not have the correct time format
   it('Should throw on invalid duration', () => {
-    getHistory.mockReturnValue([
+    mockGetHistory.mockReturnValue([
       { category: 'Work', duration: '01:00' }
     ]);
     expect(() => barchartLogic()).toThrow('Invalid duration');

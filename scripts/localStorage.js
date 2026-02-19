@@ -62,4 +62,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-//module.exports = { logCurrentTime, getHistory, clearHistory };
+export { logCurrentTime, getHistory, clearHistory };
