@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "lint": "eslint ../"
@@ -12,7 +12,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "eslint": "^9.39.2",
@@ -20,7 +20,8 @@
     "jest": "^29.7.0"
   },
   "jest": {
-    "testEnvironment" : "node",
+    "transform": {},
+    "testEnvironment": "node",
     "collectCoverageFrom": [
       "scripts/**/*.js",
       "!scripts/timerDOM.js",
@@ -29,7 +30,8 @@
       "!scripts/training.js",
       "!scripts/themesDOM.js",
       "!scripts/barchartDOM.js",
-      "!scripts/localStorage.js"
+      "!scripts/localStorage.js",
+      "!scripts/overviewDOM.js"
     ],
     "coverageThreshold": {
       "global": {

@@ -26,7 +26,6 @@ function logCurrentTime(category, startTime) {
 
 
 function getHistory() {
-    // Restored the logical OR (||)
     return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 }
 
@@ -35,4 +34,32 @@ function clearHistory() {
     console.log("History cleared.");
 }
 
-module.exports = { logCurrentTime, getHistory, clearHistory };
+// Initializing a sample for localStorage
+document.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('time_log_history')) {
+    const sampleHistory = [
+      {
+        category: 'Study',
+        start: '2/18/2026, 10:00:00 AM',
+        end: '2/18/2026, 10:30:00 AM',
+        duration: '00:30:00'
+      },
+      {
+        category: 'Work',
+        start: '2/18/2026, 11:00:00 AM',
+        end: '2/18/2026, 14:00:00 AM',
+        duration: '03:00:00'
+      },
+      {
+        category: 'Exercise',
+        start: '2/18/2026, 12:00:00 PM',
+        end: '2/18/2026, 13:30:00 PM',
+        duration: '01:30:00'
+      }
+    ];
+    localStorage.setItem('time_log_history', JSON.stringify(sampleHistory));
+    console.log('Sample history data added to localStorage.');
+  }
+});
+
+export { logCurrentTime, getHistory, clearHistory };

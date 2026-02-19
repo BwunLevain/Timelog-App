@@ -1,34 +1,50 @@
-function updateGraph(totWorkTime, totStudyTime, totExerciseTime) {
-
-  const bars = barchartLogic(totWorkTime, totStudyTime, totExerciseTime);
+function updateGraph() {
+  const bars = barchartLogic();
   const activityList = document.querySelector('.activityList');
   
   // Clear out any old information
   activityList.innerHTML = '';
   
-  // Loop through each sorted bar and create new HTML elements
   bars.forEach(([name, width, time]) => {
-    // Create the main <div class="activity"> element
-    const activityDiv = document.createElement('div');
-    activityDiv.className = 'activity';
-    activityDiv.dataset.activity = name;
-    activityDiv.dataset.value = time;
+    const activityLi = document.createElement('li');
+    activityLi.className = 'activity graphItem';
+    activityLi.dataset.activity = name.toLowerCase();
+    activityLi.dataset.value = time;
     
-    // Create the label <span>
-    const labelSpan = document.createElement('span');
-    labelSpan.className = 'activityLabel';
-    labelSpan.textContent = name;
+    const fillBar = document.createElement('div');
+    fillBar.className = 'fill-bar'; 
+    fillBar.style.width = `${width * 90}%`;
+    if (width === 1) {
+      fillBar.style.borderRadius = '1rem';
+    }
+    activityLi.appendChild(fillBar);
     
-    // Create the bar <div> and set its width
-    const valueBarDiv = document.createElement('div');
-    valueBarDiv.className = 'valueBar';
-    valueBarDiv.style.width = `${width * 100}%`;
+    if (width < 1) {
+      const shadowBar = document.createElement('div');
+      shadowBar.className = 'shadow-bar';
+      shadowBar.style.left = `calc(5% + ${width * 90}%)`;
+      shadowBar.style.width = `${(1 - width) * 90}%`;
+      activityLi.appendChild(shadowBar);
+    }
     
-    // Put the label and bar inside the activity div
-    activityDiv.appendChild(labelSpan);
-    activityDiv.appendChild(valueBarDiv);
+    const infoDiv = document.createElement('div');
+    infoDiv.className = 'graphInfo';
     
-    // Add the whole activity div to the list
-    activityList.appendChild(activityDiv);
+    const categoryP = document.createElement('p');
+    categoryP.className = 'graphCategory'; 
+    categoryP.textContent = name.toUpperCase();
+    
+    infoDiv.appendChild(categoryP);
+    activityLi.appendChild(infoDiv);
+    
+    const durationTime = document.createElement('time');
+    durationTime.className = 'graphDuration';
+    durationTime.textContent = `${time.toFixed(1)}h`;
+    const hours = Math.floor(time);
+    const minutes = Math.floor((time - hours) * 60);
+    durationTime.setAttribute('datetime', `PT${hours}H${minutes}M`);
+    
+    activityLi.appendChild(durationTime);
+    activityList.appendChild(activityLi);
   });
 }

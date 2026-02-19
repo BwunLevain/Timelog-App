@@ -1,6 +1,5 @@
-const { getHistory } = require('./localStorage.js');
-
-function barchartLogic() {
+import { getHistory } from './localStorage.js';
+export default function barchartLogic() {
   
   const fullHistory = getHistory()
   
@@ -106,5 +105,3 @@ function parseDuration(duration) {
   const totalHours = hours + (minutes / 60) + (seconds / 3600);
   return totalHours
 }
-
-module.exports = barchartLogic;

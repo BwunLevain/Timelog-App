@@ -55,7 +55,7 @@
 
     <li class="historyItem">
       <div class="historyInfo">
-        <p class="historyCategory">WORKOUT</p>
+        <p class="historyCategory">EXERCISE</p>
         <time class="historyDate" datetime="2026-02-07">Feb 7, 2026</time>
       </div>
       <time class="historyDuration" datetime="PT45M">45m</time>
@@ -76,21 +76,27 @@
         <section class="graphContainer" id="graphView" aria-hidden="true" aria-labelledby="graphArea">
             <h2 class="visually-hidden">Graph</h2>
             <ul class="activityList">
-                <li class="activity" data-activity="work" data-value="">
-                    <span class="activityLabel">Work</span>
-                    <div class="valueBar"></div>
+                <li class="activity graphItem" data-activity="work" data-value="">
+                    <div class="graphInfo">
+                        <p class="graphCategory">WORK</p>
+                    </div>
+                    <time class="graphDuration" datetime="">0h</time>
                 </li>
 
-                <li class="activity" data-activity="study" data-value="">
-                    <span class="activityLabel">Study</span>
-                    <div class="valueBar"></div>
+                <li class="activity graphItem" data-activity="study" data-value="">
+                    <div class="graphInfo">
+                        <p class="graphCategory">STUDY</p> 
+                    </div>
+                    <time class="graphDuration" datetime="">0h</time>  <!-- CHANGED: Use 'graphDuration' -->
                 </li>
 
-                <li class="activity" data-activity="workout" data-value="">
-                    <span class="activityLabel">Workout</span>
-                    <div class="valueBar"></div>
+                <li class="activity graphItem" data-activity="exercise" data-value="">  <!-- CHANGED: Added 'graphItem' -->
+                    <div class="graphInfo">  <!-- CHANGED: Use 'graphInfo' -->
+                        <p class="graphCategory">EXERCISE</p>  <!-- CHANGED: Use 'graphCategory' -->
+                    </div>
+                    <time class="graphDuration" datetime="">0h</time>  <!-- CHANGED: Use 'graphDuration' -->
                 </li>
-            </ul>            
+            </ul>       
         </section>
 
         <section class="overviewSelectors" aria-labelledby="overviewSelectorButtons">
@@ -104,6 +110,10 @@
 <script src="../scripts/navigation.js"></script>
 <script src="../scripts/themes.js"></script>
 <script src="../scripts/themesDOM.js"></script>
+<script src="../scripts/localStorage.js"></script>
+<script src="../scripts/barchartLogic.js"></script>
+<script src="../scripts/barchartDOM.js"></script>
+<script src="../scripts/overviewDOM.js"></script>
 
 </body>
 

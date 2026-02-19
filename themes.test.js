@@ -1,4 +1,4 @@
-const { toggleThemeLogic, getInitialTheme } = require('./scripts/themes.js');
+import { toggleThemeLogic, getInitialTheme } from './scripts/themes.js';
 
 describe('Theme Logic', () => {
     let mockStorage;
