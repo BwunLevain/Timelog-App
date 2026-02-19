@@ -8,7 +8,7 @@
   --nav-text: #e6d8f5;
   --graph-bar: #e6e6f5;
   --graph-label: #eaeaf5;
-}
+  --shadow-purple: rgba(107, 59, 157, 0.3);
 
 /*light theme*/
 body.lightTheme {
@@ -20,6 +20,7 @@ body.lightTheme {
   --nav-text: #fefefe;
   --graph-bar: #b1c8e6;
   --graph-label: #273345;
+  --shadow-purple: rgba(165, 122, 219, 0.3);
 }
 
 * {
@@ -521,28 +522,87 @@ a:hover{
 
 /*GRAPH AREA */
 .graphContainer {
+  width: 15rem;
+  margin: 1rem auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 1rem;
   color: var(--text-white);
   font-weight: 700;
 }
 
-.activityList {
+.graphBarBackground {
+  background-color: var(--accent-light);
+  height: 2rem;
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
   width: 100%;
-  max-width: 16rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
+  z-index: 0;
 }
 
-.activityLabel {
-  font-size: 0.9rem;
-  margin-bottom: 0.4rem;
-  display: inline-block;
-  color: var(--graph-label);
+.graphItem {
+  background-color: var(--accent-light);
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 0.8rem 1.2rem;
+  border-radius: 1rem; 
+  color: var(--text-dark); 
+  position: relative;
+  min-height: 80px;
+}
+
+.graphInfo {
+  display: flex; 
+  flex-direction: column; 
+  position: relative; 
+  top: -10px; 
+}
+
+.graphCategory {
+  font-weight: 800; 
+  font-size: 1rem; 
+  color: var(--primary-purple); 
+  letter-spacing: 0.05rem;
+  margin: 0; 
+}
+
+.graphDuration {
+  font-size: 1.1rem;
+  font-weight: 700;
+  position: relative; 
+  top: -10px; 
+}
+
+.fill-bar {
+  position: absolute;
+  left: 5%;
+  height: 25%;
+  top: 55%;
+  background: var(--primary-purple);
+  border-radius: 1rem 0 0 1rem;
+}
+
+.shadow-bar {
+  position: absolute;
+  height: 25%; 
+  top: 55%;
+  background: var(--shadow-purple);
+  border-radius: 0 1rem 1rem 0;
+}
+
+.activityList {
+  width: 100%;
+  max-width: 18rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.activity {
+  position: relative;
 }
 
 .valueBar {
@@ -605,4 +665,5 @@ a:hover{
   color: var(--accent-light);
   border-radius: 0.5rem;
   cursor: pointer;
+}
 }
