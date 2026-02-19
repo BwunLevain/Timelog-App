@@ -5,23 +5,25 @@
   --accent-light: #D9D9E9;
   --text-white: #ffffff;
   --text-dark: #324B6B;
-  --nav-text: #e6d8f5;
+  --button-text: #fefefe;
   --graph-bar: #e6e6f5;
   --graph-label: #eaeaf5;
   --shadow-purple: rgba(107, 59, 157, 0.3);
-
+}
 /*light theme*/
 body.lightTheme {
   --bg-color: #f8f7fd;
   --accent-light: #f1e4fc;
-  --primary-purple: #a57adb;
+  --primary-purple: #5f4c7a;
   --text-white: #203661;
   --text-dark: #000d1fbd;
-  --nav-text: #fefefe;
+  --button-text: #ffffff;
   --graph-bar: #b1c8e6;
   --graph-label: #273345;
   --shadow-purple: rgba(165, 122, 219, 0.3);
 }
+
+/* --- FONT DECLARATIONS --- */
 
 * {
   margin: 0;
@@ -29,6 +31,18 @@ body.lightTheme {
   box-sizing: border-box;
   font-family: 'Bricolage Grotesque', sans-serif;
 }
+
+/* Abril Fatface Headers */
+.timerHeaderContainer h1,
+.trainingLogsContainer h3,
+.statsContainer h2,
+.overviewHeaderContainer h1,
+.settingsHeaderContainer h1 {
+  font-family: 'Abril Fatface', serif;
+  font-weight: 400;
+}
+
+/* --- REMAINING STYLES --- */
 
 body {
   background-color: var(--bg-color);
@@ -41,18 +55,17 @@ header nav.headerContainer {
   width: 100%;
 }
 
-
 header nav.headerContainer a, header nav.headerContainer button {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 33.33vw; 
     height: 3rem;   
-    color: var(--nav-text);
+    color: var(--button-text);
     background-color: var(--primary-purple);
     border-radius: 0 0 50% 50%;
     border: none;
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-align: center;
     padding-top: 0.8rem;
     text-decoration: none; 
@@ -63,7 +76,6 @@ header nav.headerContainer button {
     cursor: pointer;
 }
 
-/* makes label so screen can read it but hidden visually */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -76,13 +88,10 @@ header nav.headerContainer button {
   border: 0;
 }
 
-
 a:hover{
     cursor: pointer;
 }
 
-
-/*trackers menu */
 .trackersMenu {
     display: none;
     position: absolute;
@@ -103,80 +112,45 @@ a:hover{
 }
 
 .trackersMenu a {
-    width: 90%;
-    padding: 0.6rem 1rem;
-    background-color: var(--accent-light);
     color: var(--text-dark);
     border: none;
-    border-radius: 0.6rem;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s;
     text-decoration: none;
-    text-align: center;
-    overflow-wrap: break-word;
-    font-size: 0.7rem;
+    font-size: 1rem;
 }
 
 .trackersMenu li {
     width: 90%;
     padding: 0.6rem 1rem;
     background-color: var(--accent-light);
-    color: var(--text-dark);
     border: none;
     border-radius: 0.6rem;
-    font-weight: bold;
-    cursor: pointer;
     transition: background-color 0.2s;
-    text-decoration: none;
     text-align: center;
     overflow-wrap: break-word;
-    font-size: 0.7rem;
+    list-style: none;
 }
 
-/* trackers button when menu is not open */
-#trackersToggle {
-    background-color: var(--primary-purple);
-    color: var(--accent-light);
-    width: 33.33vw;
-    height: 3rem;
-    font-size: 1rem;
-    text-align: center;
-    padding-top: 0.8rem;
-    border-radius: 0 0 50% 50%;
-    border: none;
-    cursor: pointer;
-}
-
-/* trackers button When menu is open */
 #trackersToggle.active {
     border-radius: 0%;
     background-color: var(--primary-purple);
     overflow: hidden;
 }
 
-
-.timerHeaderContainer {
-    padding-top: 2rem;
-    color: white; 
-    text-align: center;
-    overflow-wrap: break-word;
-    font-size: 0.7rem;
-}
-
 .timerHeaderContainer {
   padding-top: 2rem;
   color: var(--text-white);
   text-align: center;
+  overflow-wrap: break-word;
+  font-size: 1.3rem;
 }
 
 .timerHeaderContainer h1 {
-  font-family: 'Abril Fatface', serif;
-  font-weight: 400;
   margin-bottom: 2rem;
 }
 
-/*Pomodoro timer*/
 .pomodoroTimerContainer {
   background-color: var(--accent-light);
   width: 18rem;
@@ -198,7 +172,6 @@ a:hover{
   color: var(--text-dark);
 }
 
-/*play pause stop buttons*/
 .mainControls {
   display: flex;
   gap: 2rem;
@@ -211,10 +184,9 @@ a:hover{
     border: none;
     color: var(--primary-purple);
     cursor: pointer;
-    font-size: 2.5rem;
+    font-size: 3rem;
 }
 
-/*Training timer*/
 .trainingTimerContainer {
   background-color: var(--accent-light);
   width: 18rem;
@@ -231,7 +203,7 @@ a:hover{
 
 .trainingTimerContainer .timeDisplay {
   text-align: center;
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 450;
   color: var(--text-dark);
 }
@@ -248,12 +220,11 @@ a:hover{
   width: 4.5rem;
   height: 2.1rem;
   background-color: var(--primary-purple);
-  color: var(--accent-light);
+  color: var(--button-text);
   border-radius: 1rem;
   cursor: pointer;
 }
 
-/*Training logs*/
 .trainingLogsContainer {
   width: 90vw;
   margin: auto;
@@ -265,8 +236,6 @@ a:hover{
 }
 
 .trainingLogsContainer h3 {
-  font-family: 'Abril Fatface', serif;
-  font-weight: 400;
   color: var(--text-white);
   text-align: center;
   margin-top: 1rem;
@@ -280,13 +249,7 @@ a:hover{
   gap: 1rem;
 }
 
-.setDisplay {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.setNumber {
+.setNumber, .exerciseNumber {
   background-color: var(--accent-light);
   width: 90px;
   height: 50px;
@@ -300,7 +263,7 @@ a:hover{
   color: var(--text-dark);
 }
 
-.setText {
+.setText, .exerciseText {
   margin: 0;
   font-size: 1rem;
   color: var(--text-white);
@@ -308,35 +271,6 @@ a:hover{
   font-weight: 400;
 }
 
-.exerciseDisplay {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.exerciseNumber {
-  background-color: var(--accent-light);
-  width: 90px;
-  height: 50px;
-  border-radius: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 0 0.2rem 0;
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: var(--text-dark);
-}
-
-.exerciseText {
-  margin: 0;
-  font-size: 1rem;
-  color: var(--text-white);
-  text-align: center;
-  font-weight: 400;
-}
-
-/* work timer*/
 .workTimerContainer {
   background-color: var(--accent-light);
   width: 18rem;
@@ -358,7 +292,6 @@ a:hover{
   color: var(--text-dark);
 }
 
-/* stats area */
 .statsDisplayContainer {
   width: 90vw;
   margin: auto;
@@ -370,8 +303,6 @@ a:hover{
 }
 
 .statsContainer h2 {
-  font-family: 'Abril Fatface', serif;
-  font-weight: 400;
   color: var(--text-white);
   text-align: center;
   margin-top: 1rem;
@@ -399,19 +330,17 @@ a:hover{
 
 .statText {
   margin: 0;
-  font-size: 0.65rem;
+  font-size: 1rem;
   color: var(--text-white);
   text-align: center;
   font-weight: 400;
 }
 
-/*add extra time area*/
 .extraTimeContainer {
   width: 18rem;
   margin: 2rem auto;
   padding: 0.2rem;
   border-radius: 0.5rem;
-  color: var(--accent-light);
   background-color: var(--primary-purple);
   display: flex;
   flex-direction: row;
@@ -444,10 +373,9 @@ a:hover{
     text-decoration: none;
     background: none;
     border: none;
-    color: var(--accent-light);
+    color: var(--button-text);
 }
 
-/*Overview area*/
 .overviewHeaderContainer {
   padding-top: 2rem;
   color: var(--text-white);
@@ -455,8 +383,6 @@ a:hover{
 }
 
 .overviewHeaderContainer h1 {
-  font-family: 'Abril Fatface', serif;
-  font-weight: 400;
   margin-bottom: 1rem;
 }
 
@@ -466,12 +392,11 @@ a:hover{
   width: 5rem;
   height: 2rem;
   background-color: var(--primary-purple);
-  color: var(--accent-light);
+  color: var(--button-text);
   border-radius: 0.5rem;
   cursor: pointer;
 }
 
-/*HISTORY AREA*/
 .historyContainer {
     width: 90vw;
     max-width: 18rem;
@@ -520,7 +445,6 @@ a:hover{
   font-weight: 700;
 }
 
-/*GRAPH AREA */
 .graphContainer {
   width: 15rem;
   margin: 1rem auto;
@@ -614,7 +538,7 @@ a:hover{
 
 .overviewSelectors {
   padding-top: 1rem;
-  color: var(--text-white);
+  color: var(--button-text);
   text-align: center;
   display: flex;
   justify-content: center;
@@ -627,12 +551,11 @@ a:hover{
   width: 7rem;
   height: 2.5rem;
   background-color: var(--primary-purple);
-  color: var(--accent-light);
+  color: var(--button-text);
   border-radius: 0.5rem;
   cursor: pointer;
 }
 
-/*SETTINGS PAGE*/
 .settingsHeaderContainer {
   padding-top: 2rem;
   color: var(--text-white);
@@ -640,8 +563,6 @@ a:hover{
 }
 
 .settingsHeaderContainer h1 {
-  font-family: 'Abril Fatface', serif;
-  font-weight: 400;
   margin-bottom: 1rem;
 }
 
@@ -662,8 +583,8 @@ a:hover{
   width: 9rem;
   height: 3rem;
   background-color: var(--primary-purple);
-  color: var(--accent-light);
+  color: var(--button-text);
   border-radius: 0.5rem;
   cursor: pointer;
-}
+  font-size: 1rem;
 }

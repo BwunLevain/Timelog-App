@@ -1,3 +1,4 @@
+import { toggleThemeLogic, getInitialTheme } from './themes.js';
 
 if (getInitialTheme(localStorage)) {
     document.body.classList.add('lightTheme');
