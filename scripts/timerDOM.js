@@ -1,4 +1,4 @@
-const { startTimer, pauseTimer, stopTimer, formatTime } = require("./scripts/script.js");
+import { startTimer, pauseTimer, stopTimer, formatTime } from "./script.js";
 
 const timeDisplay = document.getElementById("timeDisplay");
 const playBtn = document.getElementById("playBtn");
