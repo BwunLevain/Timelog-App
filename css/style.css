@@ -1,49 +1,3 @@
-/*default dark theme*/
-:root {
-  --bg-color: #263D5C;
-  --primary-purple: #6B3B9D;
-  --accent-light: #D9D9E9;
-  --text-white: #ffffff;
-  --text-dark: #324B6B;
-  --button-text: #fefefe;
-  --graph-bar: #e6e6f5;
-  --graph-label: #eaeaf5;
-  --shadow-purple: rgba(107, 59, 157, 0.3);
-}
-/*light theme*/
-body.lightTheme {
-  --bg-color: #f8f7fd;
-  --accent-light: #f1e4fc;
-  --primary-purple: #5f4c7a;
-  --text-white: #203661;
-  --text-dark: #000d1fbd;
-  --button-text: #ffffff;
-  --graph-bar: #b1c8e6;
-  --graph-label: #273345;
-  --shadow-purple: rgba(165, 122, 219, 0.3);
-}
-
-/* --- FONT DECLARATIONS --- */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Bricolage Grotesque', sans-serif;
-}
-
-/* Abril Fatface Headers */
-.timerHeaderContainer h1,
-.trainingLogsContainer h3,
-.statsContainer h2,
-.overviewHeaderContainer h1,
-.settingsHeaderContainer h1 {
-  font-family: 'Abril Fatface', serif;
-  font-weight: 400;
-}
-
-/* --- REMAINING STYLES --- */
-
 body {
   background-color: var(--bg-color);
 }
@@ -115,13 +69,12 @@ a:hover{
     color: var(--text-dark);
     border: none;
     font-weight: bold;
-    cursor: pointer;
     transition: background-color 0.2s;
     text-decoration: none;
     font-size: 1rem;
 }
 
-.trackersMenu li {
+.trackersMenu button {
     width: 90%;
     padding: 0.6rem 1rem;
     background-color: var(--accent-light);
@@ -131,6 +84,7 @@ a:hover{
     text-align: center;
     overflow-wrap: break-word;
     list-style: none;
+    cursor: pointer;
 }
 
 #trackersToggle.active {

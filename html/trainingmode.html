@@ -18,52 +18,51 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/timer.css">
   </head>
   <body>
     <main>
       <header>
-        <!-- Top Navigation Menu -->
-        <nav class="headerContainer">
-          <button id="trackersToggle" aria-label="tracker menu button">
-            TRACKERS
-          </button>
-          <a href="overviewpage.html">OVERVIEW</a>
-          <a href="settingspage.html">SETTINGS</a>
+        <nav class="headerContainer" aria-label="Main Navigation">
+            <button id="trackersToggle" aria-label="tracker menu button" aria-haspopup="true" aria-expanded="false" aria-controls="trackersMenu">
+                TRACKERS
+            </button>
+            <a href="overviewpage.html" class="nav-link">OVERVIEW</a>
+            <a href="settingspage.html" class="nav-link">SETTINGS</a>
         </nav>
-      </header>
 
-      <!--Trackers Menu -->
-      <ul
-        id="trackersMenu"
-        class="trackersMenu"
-        aria-label="Select tracker type"
+        <nav id="trackersMenuContainer">
+            <ul id="trackersMenu" class="trackersMenu" aria-label="Select tracker type">
+                <li><a href="pomodoromode.html">Study</a></li>
+                <li><a href="trainingmode.html">Training</a></li>
+                <li><a href="workmode.html">Work</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Timer header-->
+    <header class="timerHeaderContainer" aria-labelledby="timerHeading">
+      <h1 id="timerHeading">Training</h1>
+      <p>Workout tracker</p>
+    </header>
+
+    <!--Training Timer-->
+    <section
+      class="timer-card"
+      aria-labelledby="trainingTimerArea"
+    >
+    <h2 class="visually-hidden">Training Timer</h2>
+      <time
+        class="timeDisplay"
+        id="timeDisplay"
+        role="status"
+        aria-live="polite"
       >
-        <li><a href="pomodoromode.html">Pomodoro/Study</a></li>
-        <li><a href="trainingmode.html">Training</a></li>
-        <li><a href="workmode.html">Work</a></li>
-      </ul>
-
-      <!--Timer header-->
-      <header class="timerHeaderContainer" aria-labelledby="timerHeading">
-        <h1 id="timerHeading">Training</h1>
-        <p>Workout tracker</p>
-      </header>
-
-      <!--Training Timer-->
-      <section
-        class="trainingTimerContainer"
-        aria-labelledby="trainingTimerArea"
-      >
-      <h2 class="visually-hidden">Training Timer</h2>
-        <time
-          class="timeDisplay"
-          id="timeDisplay"
-          role="status"
-          aria-live="polite"
-        >
-          00:00
-    </time>
+        00:00
+  </time>
 
         <div class="mainControls">
           <button id="playBtn" type="button" aria-label="Start Work Session">
@@ -77,48 +76,50 @@
           </button>
         </div>
         <div class="trainingControls">
-          <button id="logSetBtn" type="button" aria-label="Log Set">SET</button>
-          <button id="logExerciseBtn" type="button" aria-label="Log Exercise">
+          <button id="logSetBtn" class="btn-primary" type="button" aria-label="Log Set">SET</button>
+          <button id="logExerciseBtn" class="btn-primary" type="button" aria-label="Log Exercise">
             EXERCISE
           </button>
         </div>
       </section>
 
       <section class="trainingLogsContainer" aria-labelledby="trainingLogsArea">
-        <h3 id="trainingLogsArea">You're on</h3>
-
-        <div class="logsDisplayContainer">
-          <div class="setDisplay">
-            <time id="totalSet" class="setNumber">0</time>
-            <p class="setText">Set</p>
+        <h2 id="trainingLogsArea">You're on</h2>
+        <div class="stats-grid">
+          
+          <div class="statsDisplay">
+            <time id="totalSet" class="number-card">0</time>
+            <label for="totalSet">Set</label>
           </div>
 
-          <div class="exerciseDisplay">
-            <time id="totalExercise" class="exerciseNumber">0</time>
-            <p class="exerciseText">Exercise</p>
+          <div class="statsDisplay">
+            <time id="totalExercise" class="number-card">0</time>
+            <label for="totalExercise">Exercise</label>
           </div>
+
         </div>
       </section>
 
-      <!--Stats section-->
-      <section class="statsContainer" aria-labelledby="statsContainer" data-category="Exercise">
-        <h2>This Week</h2>
-        <ul class="statsDisplayContainer">
-          <li class="statsDisplay">
-            <time id="totalTime" class="statNumber">0h</time>
-            <p class="statText">Total Time</p>
-          </li>
+      <section class="statsContainer" aria-labelledby="statsArea" data-category="Exercise">
+        <h2 id="statsArea">This Week</h2>
+        <div class="stats-grid">
+          
+          <div class="statsDisplay">
+            <time id="totalTime" class="number-card">0h</time>
+            <label for="totalTime">Total Time</label>
+          </div>
 
-          <li class="statsDisplay">
-            <time id="currentSession" class="statNumber">0h</time>
-            <p class="statText">Current Session</p>
-          </li>
+          <div class="statsDisplay">
+            <time id="currentSession" class="number-card">0h</time>
+            <label for="currentSession">Current Session</label>
+          </div>
 
-          <li class="statsDisplay">
-            <time id="longestSession" class="statNumber">0h</time>
-            <p class="statText">Longest Session</p>
-          </li>
-        </ul>
+          <div class="statsDisplay">
+            <time id="longestSession" class="number-card">0h</time>
+            <label for="longestSession">Longest Session</label>
+          </div>
+
+        </div>
       </section>
 
       <!--Extra time area-->

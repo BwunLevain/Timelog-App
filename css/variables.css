@@ -1,0 +1,28 @@
+:root {
+  /* Dark Theme (Default) */
+  --bg-color: #263D5C;
+  --primary-purple: #6B3B9D;
+  --accent-light: #D9D9E9;
+  --text-white: #ffffff;
+  --text-dark: #324B6B;
+  --button-text: #fefefe;
+  --graph-bar: #e6e6f5;
+  --graph-label: #eaeaf5;
+  --shadow-purple: rgba(107, 59, 157, 0.3);
+  
+  /* Fonts */
+  --font-main: 'Bricolage Grotesque', sans-serif;
+  --font-header: 'Abril Fatface', serif;
+}
+
+body.lightTheme {
+  --bg-color: #f8f7fd;
+  --accent-light: #f1e4fc;
+  --primary-purple: #5f4c7a;
+  --text-white: #203661;
+  --text-dark: #000d1fbd;
+  --button-text: #ffffff;
+  --graph-bar: #b1c8e6;
+  --graph-label: #273345;
+  --shadow-purple: rgba(165, 122, 219, 0.3);
+}
