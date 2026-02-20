@@ -100,7 +100,7 @@
 
 .dateIcon i {
   font-size: 1.7rem !important;
-  color: var(--text-white) !important;
+  color: var(--button-text) !important;
   cursor: pointer;
 }
 
@@ -113,7 +113,7 @@
 }
 
 .dateLabel {
-  color: var(--text-white);
+  color: var(--button-text);
   font-size: 0.7rem;
   font-weight: 600;
   opacity: 0.8;
@@ -140,7 +140,7 @@
 }
 
 .timeUnit label {
-  color: var(--text-white);
+  color: var(--button-text);
   font-size: 0.7rem;
   font-weight: 600;
   opacity: 0.8;
@@ -171,7 +171,7 @@
 .addTimeButton {  
   padding: 0 0.8rem;
   background: none;
-  color: var(--text-white);
+  color: var(--button-text);
   border: none;
   border-radius: 0.8rem;
   cursor: pointer;
