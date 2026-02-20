@@ -47,13 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
       {
         category: 'Work',
         start: '2/18/2026, 11:00:00 AM',
-        end: '2/18/2026, 14:00:00 AM',
+        end: '2/18/2026, 02:00:00 PM',
         duration: '03:00:00'
       },
       {
         category: 'Exercise',
         start: '2/18/2026, 12:00:00 PM',
-        end: '2/18/2026, 13:30:00 PM',
+        end: '2/18/2026, 01:30:00 PM',
         duration: '01:30:00'
       }
     ];
