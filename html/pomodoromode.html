@@ -82,18 +82,38 @@
             </div>
         </section>
 
-        <section class="extraTimeContainer" aria-labelledby="addExtraTimeHeading">
-            <h2 id="addExtraTimeHeading" class="visually-hidden">Add extra time manually</h2>
-            <div class="input-group">
-                <input type="text" id="extraTimeInput" name="extraTimeInput" placeholder="Insert time..." aria-label="Manual time input" />
-                <button class="addTimeButton" id="addTimeButton">ADD TIME</button>
-            </div>
-        </section>
-    </main>
+      <!--Extra time area-->
 
-    <script src="../scripts/timerDOM.js" type="module"></script>
-    <script src="../scripts/navigation.js" type="module"></script>
-    <script src="../scripts/themesDOM.js" type="module"></script>
-    <script src="../scripts/statsDisplayDOM.js" type="module"></script>
-</body>
+      <section class="extraTimeContainer" aria-labelledby="addExtraTimeContainer">
+        <h2 id="addExtraTimeContainer" class="visually-hidden">Extra time area</h2>
+        <div class="extraTimeRow">
+          <div class="timeUnit">
+          <label class="dateLabel">Date</label>
+          <label class="dateIcon">
+            <i class="fa-regular fa-calendar"></i>
+            <input type="datetime-local" id="dateInput" />
+          </label>
+        </div>
+          <div class="timeUnit">
+            <label for="hoursInput">Hours</label>
+            <input type="number" id="hoursInput" inputmode="numeric" pattern="[0-9]*" min="0" max="99" value="0">
+          </div>
+          <div class="timeUnit">
+            <label for="minutesInput">Minutes</label>
+            <input type="number" id="minutesInput" inputmode="numeric" pattern="[0-9]*" min="0" max="59" value="0">
+          </div>
+          <div class="timeUnit">
+            <label for="secondsInput">Seconds</label>
+            <input type="number" id="secondsInput" inputmode="numeric" pattern="[0-9]*" min="0" max="59" value="0">
+          </div>
+        </div>          
+        <button class="addTimeButton" id="addTimeButton">ADD TIME</button>
+      </section>
+    </main>
+    <script type="module" src="../scripts/navigation.js"></script>
+    <script type="module" src="../scripts/themesDOM.js"></script>
+    <script type="module" src="../scripts/statsDisplayDOM.js"></script>
+    <script type="module" src="../scripts/timerDOM.js"></script>
+    <script type="module" src="../scripts/addTimeDOM.js"></script>
+  </body>
 </html>

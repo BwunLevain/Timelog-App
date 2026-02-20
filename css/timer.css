@@ -79,33 +79,106 @@
 
 /* Extra manual time input */
 .extraTimeContainer {
-  width: 20rem;
-  margin: 4rem auto;
-  padding: 0.75rem;
-  border-radius: 1rem;
+  width: 18rem;
+  margin: 2rem auto;
+  padding: 0.6rem 0.8rem;
+  border-radius: 1.5rem;
   background-color: var(--primary-purple);
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  gap: 0.5rem;
 }
 
-#extraTimeInput {
-  flex: 1;
-  background: var(--bg-color);
-  border: none;
-  border-radius: 0.5rem;
-  color: var(--text-white);
-  padding: 0.6rem;
-  margin-right: 0.75rem;
-  text-align: left;
-}
-
-.addTimeButton {
-  background: none;
-  border: none;
-  color: var(--button-text);
-  font-weight: 800;
+.dateIcon {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dateIcon i {
+  font-size: 1.7rem !important;
+  color: var(--text-white) !important;
+  cursor: pointer;
+}
+
+.dateIcon input {
+  position: absolute !important;
+  opacity: 0 !important;
+  width: 2rem !important;
+  height: 2rem !important;
+  cursor: pointer;  
+}
+
+.dateLabel {
+  color: var(--text-white);
+  font-size: 0.7rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.timeUnit:has(#dateInput) {
+  justify-content: flex-end;
+  padding-bottom: 0.1rem;
+}
+
+.extraTimeRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.timeUnit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.timeUnit label {
+  color: var(--text-white);
+  font-size: 0.7rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.timeUnit input {
+  width: 2.8rem;
+  height: 1.8rem;
+  background-color: var(--bg-color);
+  border: none;
+  border-radius: 0.8rem;
+  color: var(--text-white);
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  outline: none;
+}
+
+.timeUnit input::-webkit-outer-spin-button,
+.timeUnit input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.timeUnit input[type=number] { /* this is for mozarella browser folks*/
+  -moz-appearance: textfield;
+}
+
+.addTimeButton {  
+  padding: 0 0.8rem;
+  background: none;
+  color: var(--text-white);
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.03rem;
+  align-self: center;
 }
 
 /* active state effects */

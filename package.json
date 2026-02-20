@@ -32,7 +32,8 @@
       "!scripts/barchartDOM.js",
       "!scripts/localStorage.js",
       "!scripts/overviewDOM.js",
-      "!scripts/statsDisplayDOM.js"
+      "!scripts/statsDisplayDOM.js",
+      "!scripts/addTimeDOM.js"
     ],
     "coverageThreshold": {
       "global": {

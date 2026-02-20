@@ -2,6 +2,12 @@ import { updateGraph } from './barchartDOM.js';
 import { getHistory } from './localStorage.js';
 import { parseDuration } from './barchartLogic.js';
 
+function parseLocaleDate(dateStr) {
+  const [datePart, timePart] = dateStr.split(', ');
+  const [day, month, year] = datePart.split('/');
+  return new Date(`${year}-${month}-${day}T${timePart}`);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const historyButton = document.getElementById('historyButton');
   const graphButton = document.getElementById('graphButton');
@@ -33,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Clearing history list initially
     historyList.innerHTML = '';
 
-    // Recent entry should be first
-    history.sort((a,b) => new Date(b.start) - new Date(a.start))
+        // Recent entry should be first
+    history.sort((a,b) => parseLocaleDate(b.start) - parseLocaleDate(a.start))
 
     history.forEach(entry => {
       const li = document.createElement('li')
@@ -54,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Timer date
       const dateP = document.createElement('p');
       dateP.className = 'timerDate';
-      const startDate = new Date(entry.start);
+      const startDate = parseLocaleDate(entry.start);
       const year = startDate.getFullYear();
       const month = String(startDate.getMonth() + 1).padStart(2, '0');
       const day = String(startDate.getDate()).padStart(2, '0');
@@ -66,8 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Timer time range 
       const timeP = document.createElement('p');
       timeP.className = 'timerTime';
-      const startTime = new Date(entry.start).toLocaleTimeString('en-GB', { hour: 'numeric', minute: 'numeric', hour12: false });
-      const endTime = new Date(entry.end).toLocaleTimeString('en-GB', { hour: 'numeric', minute: 'numeric', hour12: false });
+      const startTime = parseLocaleDate(entry.start).toLocaleTimeString('en-GB', { hour: 'numeric', minute: 'numeric', hour12: false });
+      const endTime = parseLocaleDate(entry.end).toLocaleTimeString('en-GB', { hour: 'numeric', minute: 'numeric', hour12: false });
       timeP.textContent = `${startTime} - ${endTime}`;
       li.appendChild(timeP);
 
@@ -81,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
       placeholder.className = 'placeholder';
       historyList.appendChild(placeholder);
     }
-    }
+  }
   
   updateHistory();
 });
