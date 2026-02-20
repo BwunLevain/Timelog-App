@@ -1,0 +1,109 @@
+.timerHeaderContainer {
+  margin: 2.5rem 0 1.5rem 0;
+  text-align: center;
+}
+
+.timerHeaderContainer h1 {
+  font-size: 3rem;
+  font-family: var(--font-header);
+}
+
+.timer-card {
+  background-color: var(--accent-light);
+  width: 20rem; 
+  min-height: 14rem;
+  margin: 2rem auto;
+  padding: 2.5rem; 
+  border-radius: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeDisplay {
+  font-size: 4.5rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.mainControls {
+  display: flex;
+  gap: 2.5rem; 
+  margin-top: 1.5rem;
+}
+
+.mainControls button {
+  background: none;
+  border: none;
+  color: var(--primary-purple);
+  cursor: pointer;
+  font-size: 2.5rem;
+}
+
+.statsContainer, 
+.trainingLogsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 4rem 0; 
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 1.5rem;
+  max-width: 450px;
+  margin: 1.5rem auto 0;
+}
+
+/* Specific grid for training sets/exercises */
+.trainingLogsContainer .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 300px;
+}
+
+.statsDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statsDisplay label, .statsDisplay span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-white);
+  margin-top: 0.5rem;
+}
+
+/* Extra manual time input */
+.extraTimeContainer {
+  width: 20rem;
+  margin: 4rem auto;
+  padding: 0.75rem;
+  border-radius: 1rem;
+  background-color: var(--primary-purple);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#extraTimeInput {
+  flex: 1;
+  background: var(--bg-color);
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--text-white);
+  padding: 0.6rem;
+  margin-right: 0.75rem;
+  text-align: left;
+}
+
+.addTimeButton {
+  background: none;
+  border: none;
+  color: var(--button-text);
+  font-weight: 800;
+  cursor: pointer;
+}

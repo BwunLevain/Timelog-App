@@ -1,0 +1,54 @@
+/* --- Overview Lists --- */
+.historyList, .activityList {
+  list-style: none;
+  max-width: 18rem;
+  /* UPDATED: Increased vertical margin for better section breathing room */
+  margin: 2.5rem auto 4rem auto; 
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.historyItem, .graphItem {
+  background-color: var(--accent-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  border-radius: 1rem;
+  color: var(--text-dark);
+  /* ADDED: Subtle bottom margin for extra safety in older browsers */
+  margin-bottom: 0.2rem; 
+}
+
+.graphCategory, .historyCategory {
+  font-weight: 800;
+  color: var(--primary-purple);
+  /* ADDED: Small margin to separate category text from the bars below */
+  margin-bottom: 0.3rem; 
+}
+
+.graphItem { 
+  position: relative; 
+  min-height: 80px; 
+  overflow: hidden;
+  /* UPDATED: Increased margin for graph cards specifically */
+  margin-top: 0.5rem; 
+}
+
+.fill-bar, .shadow-bar {
+  position: absolute;
+  height: 20%;
+  bottom: 15%;
+}
+
+.fill-bar { 
+  background: var(--primary-purple); 
+  left: 5%; 
+  border-radius: 1rem 0 0 1rem; 
+}
+
+.shadow-bar { 
+  background: var(--shadow-purple); 
+  border-radius: 0 1rem 1rem 0; 
+}

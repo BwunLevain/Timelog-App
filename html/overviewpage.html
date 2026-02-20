@@ -3,93 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Track your activities and view your progress with our comprehensive overview page. Access detailed history and insightful graphs to stay motivated and achieve your goals.">
-    <title>Study Pomodoro</title>
+    <meta name="description" content="Track your activities and view your progress with our comprehensive overview page. Access detailed history and insightful graphs.">
+    <title>Study Pomodoro - Overview</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/overview.css">
 </head>
 <body>
 
-    <main>        
-        <header>
-            <!-- Top Navigation Menu -->
-            <nav class="headerContainer">
-                <button id="trackersToggle" aria-label="tracker menu button">TRACKERS</button>
-                <a href="overviewpage.html">OVERVIEW</a>
-                <a href="settingspage.html">SETTINGS</a>
-            </nav>
-        </header>
-        
-        <!--Trackers Menu -->
-      <ul
-        id="trackersMenu"
-        class="trackersMenu"
-        aria-label="Select tracker type"
-      >
-        <li><a href="pomodoromode.html">Pomodoro/Study</a></li>
-        <li><a href="trainingmode.html">Training</a></li>
-        <li><a href="workmode.html">Work</a></li>
-      </ul>
+    <header>
+        <nav class="headerContainer" aria-label="Main Navigation">
+            <button id="trackersToggle" aria-label="Toggle tracker menu" aria-haspopup="true" aria-expanded="false">
+                TRACKERS
+            </button>
+            <a href="overviewpage.html" class="nav-link active">OVERVIEW</a>
+            <a href="settingspage.html" class="nav-link">SETTINGS</a>
+        </nav>
 
-        <!--overview-->
-        <section class="overviewHeaderContainer" aria-labelledby="overviewHeaderArea">
-            <h1>Overviews</h1>
-            <button id="historyButton">History</button>
-            <button id="graphButton">Graph</button>
+        <nav id="trackersMenuContainer">
+            <ul id="trackersMenu" class="trackersMenu" aria-label="Select tracker type">
+                <li><a href="pomodoromode.html">Pomodoro/Study</a></li>
+                <li><a href="trainingmode.html">Training</a></li>
+                <li><a href="workmode.html">Work</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>        
+        <section class="overviewHeaderContainer" aria-labelledby="mainTitle">
+            <h1 id="mainTitle">Overviews</h1>
+            <div class="view-toggle-group" role="tablist">
+                <button id="historyButton" class="btn-primary" role="tab" aria-selected="true" aria-controls="historyOverviewArea">History</button>
+                <button id="graphButton" class="btn-primary" role="tab" aria-selected="false" aria-controls="graphView">Graph</button>
+            </div>
         </section>
         
-        <!--History-->
-        <section class="historyContainer" id="historyOverviewArea" aria-hidden="false">
-          <h2 class="visually-hidden">History</h2>
-          <ul class="historyList">
-
-          </ul>
+        <section class="historyContainer" id="historyOverviewArea" role="tabpanel" aria-labelledby="historyButton">
+            <h2 class="visually-hidden">Activity History</h2>
+            <ul class="historyList">
+                </ul>
         </section>
     
-
-
-
-        <!--Graph-->
-        <section class="graphContainer" id="graphView" aria-hidden="true" aria-labelledby="graphArea">
-            <h2 class="visually-hidden">Graph</h2>
+        <section class="graphContainer" id="graphView" role="tabpanel" aria-labelledby="graphButton" hidden>
+            <h2 class="visually-hidden">Activity Graph</h2>
             <ul class="activityList">
-                <li class="activity graphItem" data-activity="work" data-value="">
+                <li class="activity graphItem" data-activity="work">
                     <div class="graphInfo">
                         <p class="graphCategory">WORK</p>
                     </div>
-                    <time class="graphDuration" datetime="">0h</time>
+                    <time class="graphDuration" datetime="PT0H">0h</time>
                 </li>
 
-                <li class="activity graphItem" data-activity="study" data-value="">
+                <li class="activity graphItem" data-activity="study">
                     <div class="graphInfo">
                         <p class="graphCategory">STUDY</p> 
                     </div>
-                    <time class="graphDuration" datetime="">0h</time>  <!-- CHANGED: Use 'graphDuration' -->
+                    <time class="graphDuration" datetime="PT0H">0h</time>
                 </li>
 
-                <li class="activity graphItem" data-activity="exercise" data-value="">  <!-- CHANGED: Added 'graphItem' -->
-                    <div class="graphInfo">  <!-- CHANGED: Use 'graphInfo' -->
-                        <p class="graphCategory">EXERCISE</p>  <!-- CHANGED: Use 'graphCategory' -->
+                <li class="activity graphItem" data-activity="exercise">
+                    <div class="graphInfo">
+                        <p class="graphCategory">EXERCISE</p>
                     </div>
-                    <time class="graphDuration" datetime="">0h</time>  <!-- CHANGED: Use 'graphDuration' -->
+                    <time class="graphDuration" datetime="PT0H">0h</time>
                 </li>
             </ul>       
         </section>
 
-        <section class="overviewSelectors" aria-labelledby="overviewSelectorButtons">
-            <h2 class="visually-hidden">Overview selectors</h2>
-            <button id="rangeSelectorButton">SELECT <br> RANGE</button>
-            <button id="allTimeSelectorButton">ALL <br> TIME</button>
+        <section class="overviewSelectors" aria-label="Data range filters">
+            <button id="rangeSelectorButton" class="btn-primary">SELECT <br> RANGE</button>
+            <button id="allTimeSelectorButton" class="btn-primary">ALL <br> TIME</button>
         </section>           
-        
     </main>
-<script src="../scripts/navigation.js"></script>
-<script src="../scripts/themesDOM.js" type="module"></script>
-<script src="../scripts/barchartDOM.js" type="module"></script>
-<script src="../scripts/overviewDOM.js" type="module"></script>
 
+    <script src="../scripts/navigation.js"></script>
+    <script src="../scripts/themesDOM.js" type="module"></script>
+    <script src="../scripts/barchartDOM.js" type="module"></script>
+    <script src="../scripts/overviewDOM.js" type="module"></script>
 </body>
-
 </html>

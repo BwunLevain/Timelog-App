@@ -1,0 +1,84 @@
+/* --- Navigation --- */
+.headerContainer {
+  display: flex;
+  width: 100%;
+  margin-bottom: 2rem; 
+}
+
+.headerContainer a, 
+.headerContainer button {
+  flex: 1;
+  height: 3.5rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--button-text);
+  background-color: var(--primary-purple);
+  border-radius: 0 0 1.5rem 1.5rem; 
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* --- Dropdown Menu --- */
+.trackersMenu {
+  display: none;
+  position: absolute;
+  top: 0; 
+  z-index: 5;
+  width: 33.33vw;
+  background-color: var(--primary-purple);
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  padding-top: 4.5rem;
+  padding-bottom: 1.5rem;
+  border-radius: 0 0 1.5rem 1.5rem;
+  list-style: none;
+}
+
+.trackersMenu.open { display: flex; }
+
+.trackersMenu li {
+  width: 85%;
+  padding: 0.75rem;
+  background-color: var(--accent-light);
+  border-radius: 0.8rem;
+  text-align: center;
+}
+
+.trackersMenu a {
+  color: var(--text-dark);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* --- Common Buttons --- */
+.btn-primary {
+  background-color: var(--primary-purple);
+  color: var(--button-text);
+  border: none;
+  border-radius: 0.75rem;
+  padding: 1rem 1.5rem; 
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-weight: 600;
+}
+
+/* --- Common Stats/Numbers --- */
+.number-card {
+  background-color: var(--accent-light);
+  width: 100px; 
+  height: 70px; 
+  border-radius: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem; 
+}
