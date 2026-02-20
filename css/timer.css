@@ -107,3 +107,16 @@
   font-weight: 800;
   cursor: pointer;
 }
+
+/* active state effects */
+/* Timer play, pause, and stop buttons */
+.mainControls button:active {
+  transform: scale(0.85);
+  opacity: 0.7;
+  transition: transform 0.1s ease;
+}
+
+/* Training mode small buttons */
+.trainingTimerContainer .trainingControls button:active {
+  transform: translateY(2px) scale(0.98);
+}

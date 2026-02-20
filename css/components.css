@@ -82,3 +82,22 @@
   color: var(--text-dark);
   margin-bottom: 0.5rem; 
 }
+
+/* Active state effects */
+.headerContainer a:active, 
+.headerContainer button:active,
+.trackersMenu a:active,
+.trackersMenu button:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+.btn-primary:active,
+.overviewSelectors button:active,
+.settingsChoices button:active,
+.addTimeButton:active,
+.overviewHeaderContainer button:active {
+  transform: scale(0.96);
+  filter: brightness(0.9);
+  transition: transform 0.1s ease;
+}
