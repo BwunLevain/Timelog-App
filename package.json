@@ -6,7 +6,7 @@
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
+    "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
     "lint": "eslint ../"
   },
   "keywords": [],
@@ -31,7 +31,8 @@
       "!scripts/themesDOM.js",
       "!scripts/barchartDOM.js",
       "!scripts/localStorage.js",
-      "!scripts/overviewDOM.js"
+      "!scripts/overviewDOM.js",
+      "!scripts/statsDisplayDOM.js"
     ],
     "coverageThreshold": {
       "global": {
