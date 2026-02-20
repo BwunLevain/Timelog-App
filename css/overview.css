@@ -48,3 +48,13 @@
   background: var(--shadow-purple); 
   border-radius: 0 1rem 1rem 0; 
 }
+
+/* animations */
+@keyframes fillProgress {
+  from { width: 0; }
+  /* The end width is handled by your inline styles/JS */
+}
+
+.fill-bar {
+  animation: fillProgress 1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
