@@ -589,3 +589,12 @@ a:hover{
   cursor: pointer;
   font-size: 1rem;
 }
+
+.timerCategory {
+  font-weight: bold;
+}
+
+.placeholder {
+  font-size: 1.5em;  /* Adjust size as needed */
+  color: white;  /* White color */
+}
