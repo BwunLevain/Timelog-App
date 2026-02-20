@@ -1,11 +1,20 @@
 import { updateGraph } from './barchartDOM.js';
 import { getHistory } from './localStorage.js';
-import { parseDuration } from './barchartLogic.js';
 
 function parseLocaleDate(dateStr) {
-  const [datePart, timePart] = dateStr.split(', ');
-  const [day, month, year] = datePart.split('/');
-  return new Date(`${year}-${month}-${day}T${timePart}`);
+  if (dateStr.includes('T')) return new Date(dateStr);
+  
+  if (dateStr.includes('AM') || dateStr.includes('PM')) {
+    return new Date(dateStr);
+  }
+
+  if (dateStr.includes('/') && dateStr.includes(',')) {
+    const [datePart, timePart] = dateStr.split(', ');
+    const [day, month, year] = datePart.split('/');
+    return new Date(`${year}-${month}-${day}T${timePart}`);
+  }
+
+  return new Date(dateStr);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
