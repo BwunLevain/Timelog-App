@@ -1,6 +1,6 @@
 export function toggleThemeLogic(currentClasses, storage) {
-    const isLight = currentClasses.includes('lightTheme');
-    const nextState = !isLight;
+    const isCurrentlyLight = currentClasses.includes('lightTheme');
+    const nextState = !isCurrentlyLight;
     storage.setItem('light-theme', nextState ? 'enabled' : 'disabled');
     return nextState;
 }
