@@ -105,3 +105,5 @@ function parseDuration(duration) {
   const totalHours = hours + (minutes / 60) + (seconds / 3600);
   return totalHours
 }
+
+export { parseDuration };
