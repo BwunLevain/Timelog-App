@@ -1,3 +1,5 @@
+import { updateGraph } from './barchartDOM.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   const historyButton = document.getElementById('historyButton');
   const graphButton = document.getElementById('graphButton');
