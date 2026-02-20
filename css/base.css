@@ -30,8 +30,3 @@ h1, h2, h3 {
   border: 0;
 }
 
-@keyframes popIn {
-  0% { transform: scale(0.9); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-

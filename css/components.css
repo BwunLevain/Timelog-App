@@ -130,3 +130,9 @@
 .timer-running .timeDisplay {
   animation: pulseTimer 2s infinite ease-in-out;
 }
+
+@keyframes popIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
