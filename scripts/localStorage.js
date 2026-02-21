@@ -1,9 +1,16 @@
 const STORAGE_KEY = 'time_log_history';
 
-function logCurrentTime(category, startTime) {
+function formatDuration(ms) {
+  const totalSecs = Math.floor(ms / 1000);
+  const h = Math.floor(totalSecs / 3600);
+  const m = Math.floor((totalSecs % 3600) / 60);
+  const s = totalSecs % 60;
+  return `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+}
+
+function logCurrentTime(category, startTime, endTime = Date.now()) {
     const existingHistory = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
-    const endTime = Date.now();
     const durationMs = endTime - startTime;
 
     // Convert ms → hh:mm:ss
@@ -40,20 +47,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const sampleHistory = [
       {
         category: 'Study',
-        start: '2/18/2026, 10:00:00 AM',
-        end: '2/18/2026, 10:30:00 AM',
+        start: '18/02/2026, 10:00:00',
+        end: '18/02/2026, 10:30:00',
         duration: '00:30:00'
       },
       {
         category: 'Work',
-        start: '2/18/2026, 11:00:00 AM',
-        end: '2/18/2026, 02:00:00 PM',
+        start: '18/02/2026, 11:00:00',
+        end: '18/02/2026, 14:00:00',
         duration: '03:00:00'
       },
       {
         category: 'Exercise',
-        start: '2/18/2026, 12:00:00 PM',
-        end: '2/18/2026, 01:30:00 PM',
+        start: '18/02/2026, 12:00:00',
+        end: '18/02/2026, 13:30:00',
         duration: '01:30:00'
       }
     ];
@@ -62,4 +69,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-export { logCurrentTime, getHistory, clearHistory };
+export { logCurrentTime, getHistory, clearHistory, formatDuration };
