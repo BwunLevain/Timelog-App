@@ -79,7 +79,7 @@
 
 /* Extra manual time input */
 .extraTimeContainer {
-  width: 18rem;
+  width: 22rem;
   margin: 2rem auto;
   padding: 0.6rem 0.8rem;
   border-radius: 1.5rem;
@@ -166,6 +166,19 @@
 }
 .timeUnit input[type=number] { /* this is for mozarella browser folks*/
   -moz-appearance: textfield;
+}
+
+.timeUnit input[type="time"] {
+  width: 4.5rem;
+  font-size: 0.65rem;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  text-align-last: center;
+}
+
+.timeUnit input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none;
 }
 
 .addTimeButton {  

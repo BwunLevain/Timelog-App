@@ -1,18 +1,21 @@
 import { isValid, toTotalSeconds, buildSession } from "./addTimeLogic.js";
 import { logCurrentTime } from "./localStorage.js";
 
-
 const hoursInput = document.getElementById("hoursInput");
 const minutesInput = document.getElementById("minutesInput");
 const secondsInput = document.getElementById("secondsInput");
 const dateInput = document.getElementById("dateInput");
+const timeInput = document.getElementById("timeInput");
 const addBtn = document.getElementById("addTimeButton");
 
 addBtn.addEventListener("click", () => {
   const h = parseInt(hoursInput.value) || 0;
   const m = parseInt(minutesInput.value) || 0;
   const s = parseInt(secondsInput.value) || 0;
-  const datetime = dateInput.value;
+
+  const datetime = dateInput.value && timeInput.value
+    ? `${dateInput.value}T${timeInput.value}`
+    : null;
 
   if (!datetime) {
     alert("Please select a date and time");
@@ -30,7 +33,7 @@ addBtn.addEventListener("click", () => {
     alert("Please enter a duration greater than 0");
     return;
   }
-  
+
   saveSession(totalSecs, datetime);
   window.dispatchEvent(new CustomEvent("sessionAdded"));
 
@@ -38,10 +41,15 @@ addBtn.addEventListener("click", () => {
   minutesInput.value = 0;
   secondsInput.value = 0;
   dateInput.value = "";
+  timeInput.value = "";
 });
 
 function saveSession(totalSecs, datetime) {
   const { startTime, endTime } = buildSession(totalSecs, datetime);
   const category = document.querySelector(".statsContainer").dataset.category;
   logCurrentTime(category, startTime, endTime);
+
+  document.querySelectorAll('.number-card').forEach(el => {
+    el.setAttribute('datetime', datetime);
+  });
 }
