@@ -33,7 +33,7 @@
       "!scripts/localStorage.js",
       "!scripts/overviewDOM.js",
       "!scripts/statsDisplayDOM.js",
-      "!scripts/swCall.js"
+      "!scripts/swCall.js",
       "!scripts/addTimeDOM.js"
     ],
     "coverageThreshold": {
