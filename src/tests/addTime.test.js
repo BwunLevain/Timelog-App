@@ -1,4 +1,4 @@
-import { isValid, toTotalSeconds, buildSession } from "./scripts/addTimeLogic.js";
+import { isValid, toTotalSeconds, buildSession } from "../scripts/addTimeLogic.js";
 
 describe('time validator tests', () => {
 

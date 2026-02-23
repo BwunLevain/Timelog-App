@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Track your activities and view your progress with our comprehensive work timer page." />
-    <title>Work - Study Pomodoro</title>
+    <meta name="description" content="Track your study sessions and view your progress with our Pomodoro timer." />
+    <title>Study - Study Pomodoro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet" />
@@ -28,39 +28,39 @@
 
         <nav id="trackersMenuContainer">
             <ul id="trackersMenu" class="trackersMenu" aria-label="Select tracker type">
-                <li><a href="pomodoromode.html">Study</a></li>
+                <li><a href="pomodoromode.html" class="active">Study</a></li>
                 <li><a href="trainingmode.html">Training</a></li>
-                <li><a href="workmode.html" class="active">Work</a></li>
+                <li><a href="index.html">Work</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <header class="timerHeaderContainer">
-            <h1 id="timerHeading">Work</h1>
-            <p>Focus Timer</p>
+            <h1 id="timerHeading">Study</h1>
+            <p>Pomodoro</p>
         </header>
 
         <section class="timer-card" aria-labelledby="timerHeading">
-            <h2 class="visually-hidden">Work timer display</h2>
+            <h2 class="visually-hidden">Study timer display</h2>
             <time class="timeDisplay" id="timeDisplay" role="timer" aria-live="polite">
                 00:00
             </time>
 
             <div class="mainControls">
-                <button id="playBtn" type="button" aria-label="Start Work Session">
+                <button id="playBtn" type="button" aria-label="Start Study Session">
                     <i class="fa-solid fa-play" aria-hidden="true"></i>
                 </button>
-                <button id="pauseBtn" type="button" aria-label="Pause Work Session">
+                <button id="pauseBtn" type="button" aria-label="Pause Study Session">
                     <i class="fa-solid fa-pause" aria-hidden="true"></i>
                 </button>
-                <button id="stopBtn" type="button" aria-label="Stop Work Session">
+                <button id="stopBtn" type="button" aria-label="Stop Study Session">
                     <i class="fa-solid fa-stop" aria-hidden="true"></i>
                 </button>
             </div>
         </section>
 
-        <section class="statsContainer" aria-labelledby="statsArea" data-category="Work">
+        <section class="statsContainer" aria-labelledby="statsArea" data-category="Study">
             <h2 id="statsArea">This Week</h2>
             <div class="stats-grid">
                 
@@ -83,16 +83,17 @@
         </section>
 
       <!--Extra time area-->
-      <section class="extraTimeContainer" aria-labelledby="extraTimeHeading">
-        <h2 id="extraTimeHeading" class="visually-hidden">Extra time area</h2>
-        <div class="timeUnit">
-          <span class="dateLabel">Date</span>
+
+      <section class="extraTimeContainer" aria-labelledby="addExtraTimeContainer">
+        <h2 id="addExtraTimeContainer" class="visually-hidden">Extra time area</h2>
+        <div class="extraTimeRow">
+          <div class="timeUnit">
+          <label class="dateLabel">Date</label>
           <label class="dateIcon">
             <i class="fa-regular fa-calendar"></i>
-            <input type="datetime-local" id="dateInput" aria-label="Select date and time"/>
+            <input type="datetime-local" id="dateInput" aria-label="Select date and time" />
           </label>
         </div>
-        <div class="extraTimeRow">
           <div class="timeUnit">
             <label for="hoursInput">Hours</label>
             <input type="number" id="hoursInput" inputmode="numeric" pattern="[0-9]*" min="0" max="99" value="0">
@@ -109,11 +110,10 @@
         <button class="addTimeButton" id="addTimeButton">ADD TIME</button>
       </section>
     </main>
-
-    <script src="../scripts/timerDOM.js" type="module"></script>
-    <script src="../scripts/navigation.js" type="module"></script>
-    <script src="../scripts/themesDOM.js" type="module"></script>
-    <script src="../scripts/statsDisplayDOM.js" type="module"></script>
-    <script src="../scripts/addTimeDOM.js" type="module" ></script>
+    <script type="module" src="../scripts/navigation.js"></script>
+    <script type="module" src="../scripts/themesDOM.js"></script>
+    <script type="module" src="../scripts/statsDisplayDOM.js"></script>
+    <script type="module" src="../scripts/timerDOM.js"></script>
+    <script type="module" src="../scripts/addTimeDOM.js"></script>
   </body>
 </html>
