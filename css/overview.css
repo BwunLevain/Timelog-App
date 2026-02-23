@@ -2,10 +2,23 @@
 .historyList, .activityList {
   list-style: none;
   max-width: 18rem;
-  margin: 2.5rem auto 4rem auto; 
+  margin: 1.5rem auto 3rem auto; 
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1rem;
+  overflow-y: scroll;
+  max-height: 30rem;
+}
+
+/* For Chrome, Safari, and newer versions of Edge */
+.historyList::-webkit-scrollbar ,.activityList::-webkit-scrollbar{
+    display: none;
+}
+
+/* For Firefox and IE/Legacy Edge */
+.historyList .activityList{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 .historyItem, .graphItem {
@@ -13,34 +26,31 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 1.2rem;
+  padding: 1.5rem 1.2rem 2.2rem 1.2rem; 
   border-radius: 1rem;
   color: var(--text-dark);
-  margin-bottom: 0.2rem; 
+  margin-bottom: 0;
 }
 
 .graphCategory, .historyCategory {
   font-weight: 800;
-  color: var(--primary-purple);
-  margin-bottom: 0.3rem; 
+  color: var(--text-dark);
 }
 
 .graphItem { 
   position: relative; 
-  min-height: 80px; 
   overflow: hidden;
-  margin-top: 0.5rem; 
 }
 
 .fill-bar, .shadow-bar {
   position: absolute;
-  height: 20%;
-  bottom: 15%;
+  height: 18%;
+  bottom: 12%; 
 }
 
 .fill-bar { 
   background: var(--primary-purple); 
-  left: 5%; 
+  left: 5%;
   border-radius: 1rem 0 0 1rem; 
 }
 
@@ -52,7 +62,6 @@
 /* animations */
 @keyframes fillProgress {
   from { width: 0; }
-  /* The end width is handled by your inline styles/JS */
 }
 
 .fill-bar {
