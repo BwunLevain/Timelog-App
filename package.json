@@ -28,12 +28,13 @@
       "!scripts/script.js",
       "!scripts/navigation.js",
       "!scripts/training.js",
-      "!scripts/themesDOM.js",
+      "!scripts/settingsDOM.js",
       "!scripts/barchartDOM.js",
       "!scripts/localStorage.js",
       "!scripts/overviewDOM.js",
       "!scripts/statsDisplayDOM.js",
       "!scripts/swCall.js"
+      "!scripts/addTimeDOM.js"
     ],
     "coverageThreshold": {
       "global": {

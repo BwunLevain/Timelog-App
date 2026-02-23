@@ -8,15 +8,10 @@ function updateTotalTimeDisplay () {
     totalTimeDisplays.textContent = `${stats[categories]}h`
 }
 
-updateTotalTimeDisplay()
-
 function updateCurrentTimeDisplay() {
     const currentTimeDisplays = document.getElementById('currentSession');
-    
     currentTimeDisplays.textContent = `${getCurrentTime()}h`
 }
-
-updateCurrentTimeDisplay()
 
 function updateLongestTimeDisplay() {
     const longestTimeDisplays= document.getElementById('longestSession');
@@ -26,6 +21,13 @@ function updateLongestTimeDisplay() {
     longestTimeDisplays.textContent= `${stats[categories]}h`
 }
 
-updateLongestTimeDisplay()
+updateTotalTimeDisplay();
+updateCurrentTimeDisplay();
+updateLongestTimeDisplay();
 
-setInterval(() => { updateCurrentTimeDisplay() }, 1000)
+setInterval(() => { updateCurrentTimeDisplay() }, 1000);
+
+window.addEventListener("sessionAdded", () => {
+  updateTotalTimeDisplay();
+  updateLongestTimeDisplay();
+});

@@ -1,3 +1,4 @@
+import barchartLogic from './barchartLogic.js';
 function updateGraph() {
   const bars = barchartLogic();
   const activityList = document.querySelector('.activityList');
@@ -48,3 +49,5 @@ function updateGraph() {
     activityList.appendChild(activityLi);
   });
 }
+
+export { updateGraph };
