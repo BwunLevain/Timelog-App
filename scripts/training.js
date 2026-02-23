@@ -10,10 +10,11 @@ function increaseCounter(currentCount) {
 function setupSetAndExerciseButtons() {
   const logSetBtn = document.getElementById('logSetBtn');
   const logExerciseBtn = document.getElementById('logExerciseBtn');
+  const clearBtn = document.getElementById('clearExerciseBtn');
   const totalSet = document.getElementById('totalSet');
   const totalExercise = document.getElementById('totalExercise');
   
-  if (!logSetBtn || !logExerciseBtn || !totalSet || !totalExercise) return;
+  if (!logSetBtn || !logExerciseBtn || !totalSet || !totalExercise || !clearBtn) return;
   
   let setCount = 0;
   let exerciseCount = 0;
@@ -29,6 +30,14 @@ function setupSetAndExerciseButtons() {
   logExerciseBtn.addEventListener('click', () => {
     if (isRunning) return;
     exerciseCount = increaseCounter(exerciseCount);
+    totalExercise.textContent = exerciseCount;
+  });
+
+  clearBtn.addEventListener('click', () => {
+    if(isRunning) return;
+    setCount = 0;
+    exerciseCount = 0;
+    totalSet.textContent = setCount;
     totalExercise.textContent = exerciseCount;
   });
 }
