@@ -148,9 +148,9 @@
 
         <nav id="trackersMenuContainer">
             <ul id="trackersMenu" class="trackersMenu" aria-label="Select tracker type">
-                <li><a href="pomodoromode.html">Study</a></li>
-                <li><a href="trainingmode.html">Training</a></li>
-                <li><a href="workmode.html">Work</a></li>
+                <li><a href="pomodoromode.html" class="menu-link">Study</a></li>
+                <li><a href="trainingmode.html" class="menu-link">Training</a></li>
+                <li><a href="workmode.html" class="menu-link">Work</a></li>
             </ul>
         </nav>
     </header>
@@ -192,6 +192,7 @@
           <button id="logExerciseBtn" class="btn-primary" type="button" aria-label="Log Exercise">
             EXERCISE
           </button>
+          <button id="clearExerciseBtn" class="btn-primary" type="button" aria-label="Clear exercise counter">CLEAR EXERCISE COUNTER</button>
         </div>
       </section>
 
@@ -237,30 +238,34 @@
       <!--Extra time area-->
 
       <section class="extraTimeContainer" aria-labelledby="extraTimeHeading">
-        <h2 id="extraTimeHeading" class="visually-hidden">Extra time area</h2>
-        <div class="timeUnit">
-          <span class="dateLabel">Date</span>
-          <label class="dateIcon">
-            <i class="fa-regular fa-calendar"></i>
-            <input type="datetime-local" id="dateInput" aria-label="Select date and time"/>
-          </label>
-        </div>
-        <div class="extraTimeRow">
-          <div class="timeUnit">
-            <label for="hoursInput">Hours</label>
-            <input type="number" id="hoursInput" inputmode="numeric" pattern="[0-9]*" min="0" max="99" value="0">
-          </div>
-          <div class="timeUnit">
-            <label for="minutesInput">Minutes</label>
-            <input type="number" id="minutesInput" inputmode="numeric" pattern="[0-9]*" min="0" max="59" value="0">
-          </div>
-          <div class="timeUnit">
-            <label for="secondsInput">Seconds</label>
-            <input type="number" id="secondsInput" inputmode="numeric" pattern="[0-9]*" min="0" max="59" value="0">
-          </div>
-        </div>          
-        <button class="addTimeButton" id="addTimeButton">ADD TIME</button>
-      </section>
+            <h2 id="extraTimeHeading" class="visually-hidden">Extra time area</h2>
+            <div class="extraTimeRow">
+                <div class="timeUnit">
+                    <span class="dateLabel">Date</span>
+                    <label class="dateIcon">
+                        <i class="fa-regular fa-calendar"></i>
+                        <input type="date" id="dateInput" aria-label="Select date"/>
+                    </label>
+                </div>
+                <div class="timeUnit">
+                    <label for="timeInput">Start Time</label>
+                    <input type="time" id="timeInput" aria-label="Select time"/>
+                </div>
+                <div class="timeUnit">
+                    <label for="hoursInput">Hours</label>
+                    <input type="number" id="hoursInput" inputmode="numeric" pattern="[0-9]*" min="0" max="99" value="0">
+                </div>
+                <div class="timeUnit">
+                    <label for="minutesInput">Minutes</label>
+                    <input type="number" id="minutesInput" inputmode="numeric" pattern="[0-9]*" min="0" max="59" value="0">
+                </div>
+                <div class="timeUnit">
+                    <label for="secondsInput">Seconds</label>
+                    <input type="number" id="secondsInput" inputmode="numeric" pattern="[0-9]*" min="0" max="59" value="0">
+                </div>
+                <button class="addTimeButton" id="addTimeButton">ADD TIME</button>
+            </div>
+        </section>
     </main>
     <script src="../scripts/timerDOM.js" type="module"></script>
     <script src="../scripts/navigation.js" type="module"></script>
