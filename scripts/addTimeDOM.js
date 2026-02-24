@@ -13,14 +13,18 @@ addBtn.addEventListener("click", () => {
   const m = parseInt(minutesInput.value) || 0;
   const s = parseInt(secondsInput.value) || 0;
 
-  const datetime = dateInput.value && timeInput.value
-    ? `${dateInput.value}T${timeInput.value}`
-    : null;
-
-  if (!datetime) {
-    alert("Please select a date and time");
+  if (!timeInput.value) {
+    alert("Please enter a start time");
     return;
   }
+
+  const now = new Date();
+  const day = (now.getDate()).toString().padStart(2, "0");
+  const month = (now.getMonth() + 1).toString().padStart(2, "0");
+  const year = (now.getFullYear()).toString().padStart(4, "0");
+
+  const datePart = dateInput.value || `${year}-${month}-${day}`;
+  const datetime = `${datePart}T${timeInput.value}`;
 
   if (!isValid(h, m, s)) {
     alert("Hours must be 99 or under, minutes and seconds must be 59 or under");
