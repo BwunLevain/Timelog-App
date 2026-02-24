@@ -8,18 +8,26 @@ function formatDuration(ms) {
   return `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
 }
 
+function pad(n) {
+  return String(n).padStart(2, '0');
+}
+
 function logCurrentTime(category, startTime, endTime = Date.now()) {
     const existingHistory = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
     const durationMs = endTime - startTime;
-
-    // Convert ms → hh:mm:ss
     const duration = formatDuration(durationMs);
+
+    const startD = new Date(startTime);
+    const endD = new Date(endTime);
+
+    const startStr = `${startD.getFullYear()}-${pad(startD.getMonth() + 1)}-${pad(startD.getDate())} ${pad(startD.getHours())}:${pad(startD.getMinutes())}:${pad(startD.getSeconds())}`;
+    const endStr = `${endD.getFullYear()}-${pad(endD.getMonth() + 1)}-${pad(endD.getDate())} ${pad(endD.getHours())}:${pad(endD.getMinutes())}:${pad(endD.getSeconds())}`;
 
     const entry = {
         category,
-        start: new Date(startTime).toLocaleString(),
-        end: new Date(endTime).toLocaleString(),
+        start: startStr,
+        end: endStr,
         duration
     };
 
@@ -40,33 +48,5 @@ function clearHistory() {
     localStorage.removeItem(STORAGE_KEY);
     console.log("History cleared.");
 }
-
-// Initializing a sample for localStorage
-document.addEventListener('DOMContentLoaded', () => {
-  if (!localStorage.getItem('time_log_history')) {
-    const sampleHistory = [
-      {
-        category: 'Study',
-        start: '18/02/2026, 10:00:00',
-        end: '18/02/2026, 10:30:00',
-        duration: '00:30:00'
-      },
-      {
-        category: 'Work',
-        start: '18/02/2026, 11:00:00',
-        end: '18/02/2026, 14:00:00',
-        duration: '03:00:00'
-      },
-      {
-        category: 'Exercise',
-        start: '18/02/2026, 12:00:00',
-        end: '18/02/2026, 13:30:00',
-        duration: '01:30:00'
-      }
-    ];
-    localStorage.setItem('time_log_history', JSON.stringify(sampleHistory));
-    console.log('Sample history data added to localStorage.');
-  }
-});
 
 export { logCurrentTime, getHistory, clearHistory, formatDuration };
