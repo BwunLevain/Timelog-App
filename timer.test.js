@@ -1,6 +1,15 @@
 import { jest, describe, beforeEach, test, expect } from '@jest/globals'; 
 import { startTimer, pauseTimer, stopTimer, getTime } from './scripts/script.js';
 
+const mockStorage = {
+    getItem: jest.fn(() => null),
+    setItem: jest.fn(),
+    removeItem: jest.fn(),
+    clear: jest.fn()
+};
+
+global.localStorage = mockStorage;
+
 jest.useFakeTimers(); // makes it so that we can use time however we want
 
 describe("Test the timer logic", () => {

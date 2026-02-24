@@ -10,10 +10,10 @@
 
 .timer-card {
   background-color: var(--accent-light);
-  width: 19rem; 
+  width: 19rem;
   min-height: 14rem;
   margin: 2rem auto;
-  padding: 2.5rem; 
+  padding: 2.5rem;
   border-radius: 3rem;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@
 
 .mainControls {
   display: flex;
-  gap: 2.5rem; 
+  gap: 2.5rem;
   margin-top: 1.5rem;
 }
 
@@ -39,9 +39,29 @@
   color: var(--primary-purple);
   cursor: pointer;
   font-size: 2.5rem;
+  min-width: 44px;
+  min-height: 44px;
 }
 
-.statsContainer, 
+.trainingControls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.trainingControls .btn-primary {
+  flex: 1;
+  min-width: 5rem;
+}
+
+#clearExerciseBtn {
+  flex-basis: 100%;
+}
+
+.statsContainer,
 .trainingLogsContainer {
   display: flex;
   flex-direction: column;
@@ -54,7 +74,7 @@
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
   max-width: 310px;
   padding: 0 0.4rem;
@@ -62,9 +82,13 @@
 }
 
 /* Specific grid for training sets/exercises */
-.trainingLogsContainer .stats-grid {
+.logStatsgrid {
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
   max-width: 300px;
+  gap: 0.5rem;
+  padding: 0 0.4rem;
+  margin: 1.5rem auto 0;
 }
 
 .statsDisplay {
@@ -101,7 +125,7 @@
 }
 
 .dateIcon i {
-  font-size: 1.7rem !important;
+  font-size: 2.8rem !important;
   color: var(--button-text) !important;
   cursor: pointer;
 }
@@ -111,12 +135,12 @@
   opacity: 0 !important;
   width: 2rem !important;
   height: 2rem !important;
-  cursor: pointer;  
+  cursor: pointer;
 }
 
 .dateLabel {
   color: var(--button-text);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 600;
   opacity: 0.8;
 }
@@ -144,15 +168,15 @@
 
 .timeUnit label {
   color: var(--button-text);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 600;
   opacity: 0.8;
   white-space: nowrap;
 }
 
 .timeUnit input {
-  width: 2.2rem;
-  height: 1.8rem;
+  width: 2.8rem;
+  height: 2.75rem;
   background-color: var(--bg-color);
   border: none;
   border-radius: 0.8rem;
@@ -186,14 +210,14 @@
   display: none;
 }
 
-.addTimeButton {  
-  padding: 0.3rem 0.8rem;
+.addTimeButton {
+  padding: 0.5rem 0.8rem;
   background: none;
   color: var(--button-text);
   border: none;
   border-radius: 0.8rem;
   cursor: pointer;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.03rem;
   flex-basis: 100%;
@@ -214,40 +238,129 @@
 }
 
 /*for bigger screens*/
-
 @media (min-width: 480px) {
-  .stats-grid {
-    gap: 1.5rem;
-    width: auto;
-    max-width: 450px;
+
+  .timerHeaderContainer {
+    grid-area: header;
+    grid-column: span 2;
+    text-align: center;
+    align-self: center;
   }
 
-  .number-card {
-    width: 100px;
-    height: 70px;
+  .timer-card {
+    grid-area: timer;
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 22rem;
+    align-self: start;
+  }
+
+  .statsContainer {
+    grid-area: stats;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--accent-light);
+    border-radius: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .statsContainer h2 {
+    color: var(--text-dark);
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+
+  .stats-grid {
+    gap: 1.2rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5rem;
+  }
+
+  .statsDisplay span {
+    color: var(--text-dark);
+    margin-top: 1px;
   }
 
   .extraTimeContainer {
-    width: 24rem;
-  }
-
-  .timeUnit input {
-    width: 2.8rem;
-    font-size: 1rem;
-  }
-
-  .timeUnit input[type="time"] {
-    width: 4rem;
-    font-size: 0.65rem;
+    grid-area: addtime;
+    width: fit-content;
+    margin: 0 auto;
+    flex-direction: column;
   }
 
   .extraTimeRow {
-    flex-wrap: nowrap;
+    gap: 1.5rem;
   }
 
   .addTimeButton {
-    flex-basis: auto;
-    font-size: 0.85rem;
-    padding: 0 0.8rem;
+    padding: 0.8rem 0;
+  }
+
+  .trainingLogsContainer {
+    grid-area: logs;
+    margin-top: 0.8rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--accent-light);
+    border-radius: 3rem;
+    padding-bottom: 1rem;
+  }
+
+  .trainingLogsContainer h2 {
+    color: var(--text-dark);
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+
+  .trainingLogsContainer label {
+    color: var(--text-dark);
+  }
+
+  body.training main { /*different grid layout for trainingmode.html*/
+    grid-template-areas:
+      "header header"
+      "stats timer"
+      "addtime logs";
+  }
+
+  body.training .statsContainer {
+    padding-bottom: 0.5rem;
+  }
+
+  body.training .statsContainer h2 {
+    margin-top: 0.3rem;
+  }
+
+  body.training .statsContainer .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+    margin-top: 0.4rem;
+  }
+
+  body.training .statsContainer .statsDisplay label {
+    margin-top: 0.1rem;
+  }
+
+  body.training .trainingLogsContainer {
+    width: 100%;
+    max-width: 22rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    padding-bottom: 0.3rem;
+  }
+
+  body.training .trainingLogsContainer h2 {
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+  }
+
+  body.training .logStatsgrid {
+    margin-top: 0.2rem;
+  }
+
+  body.training .extraTimeContainer {
+    margin-top: 0.7rem;
   }
 }

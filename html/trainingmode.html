@@ -137,9 +137,8 @@
     <link rel="stylesheet" href="../css/components.css">
     <link rel="stylesheet" href="../css/timer.css">
   </head>
-  <body>
-    <main>
-      <header>
+  <body class="training">
+    <header>
         <nav class="headerContainer" aria-label="Main Navigation">
             <button id="trackersToggle" aria-label="tracker menu button" aria-haspopup="true" aria-expanded="false" aria-controls="trackersMenu">
                 TRACKERS
@@ -155,7 +154,8 @@
                 <li><a href="workmode.html" class="menu-link">Work</a></li>
             </ul>
         </nav>
-    </header>
+      </header>
+    <main>      
 
     <!--Timer header-->
     <header class="timerHeaderContainer" aria-labelledby="timerHeading">
@@ -200,8 +200,7 @@
 
       <section class="trainingLogsContainer" aria-labelledby="trainingLogsArea">
         <h2 id="trainingLogsArea">You're on</h2>
-        <div class="stats-grid">
-          
+        <div class="logStatsgrid">          
           <div class="statsDisplay">
               <time id="totalSet" class="number-card">0</time>
               <span>Set</span> </div>
@@ -209,7 +208,6 @@
           <div class="statsDisplay">
               <time id="totalExercise" class="number-card">0</time>
               <span>Exercise</span> </div>
-
         </div>
       </section>
 

@@ -45,6 +45,7 @@
 .trackersMenu li {
   width: 85%;
   padding: 0.75rem;
+  min-height: 44px;
   background-color: var(--accent-light);
   border-radius: 0.8rem;
   text-align: center;
@@ -136,3 +137,13 @@
   100% { transform: scale(1); opacity: 1; }
 }
 
+@media (min-width: 480px) {
+  .headerContainer {
+    grid-column: span 2;
+    margin-bottom: 3rem;
+  }
+
+  .number-card {
+    background-color: var(--accent-gray);
+  }
+}
