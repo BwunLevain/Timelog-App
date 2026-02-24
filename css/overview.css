@@ -110,7 +110,3 @@
   display: flex;
   align-items: center;
 }
-
-.editBtnShape:hover {
-  color: var(--primary-purple); /* subtle hover effect */
-}
