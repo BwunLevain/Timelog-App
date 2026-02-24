@@ -84,20 +84,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-
+// Select time range function
  function setupRangeSelector() {
   const rangeSelectorButton = document.getElementById('rangeSelectorButton');
   rangeSelectorButton.addEventListener('click', () => {
     const startDateStr = prompt('Enter start date (YYYY-MM-DD)');
     const endDateStr = prompt('Enter end date (YYYY-MM-DD)');
 
+    // Cancel if no input
     if (!startDateStr || !endDateStr) {
-      return; // Cancel if no input
+      return; 
     }
 
     const startDate = new Date(startDateStr);
     const endDate = new Date(endDateStr);
-    endDate.setHours(23, 59, 59, 999); // Include full end day
+    // Include full end day
+    endDate.setHours(23, 59, 59, 999);
 
     if (isNaN(startDate) || isNaN(endDate)) {
       alert('Invalid date format.');
@@ -109,11 +111,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 } 
 
+// Reset time range
 function setupResetSelector() {
   const allTimeSelectorButton = document.getElementById('allTimeSelectorButton');
   if (allTimeSelectorButton) {
     allTimeSelectorButton.addEventListener('click', () => {
-      updateHistory(); // Reset to full history
+      updateHistory();
     });
   }
 }
