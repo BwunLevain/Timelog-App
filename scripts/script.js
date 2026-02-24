@@ -1,6 +1,9 @@
+import { logCurrentTime} from "./localStorage.js";
+
 let timer = null;
 let totalSeconds = 0;
 let isRunning = false;
+let startTime = 0;
 
 function formatTime(seconds) {
     const mins = Math.floor(seconds / 60);
@@ -15,6 +18,7 @@ function startTimer(updateCallback) {
     if (isRunning) return;
 
     isRunning = true;
+    startTime = Date.now();
     timer = setInterval(() => { //this is an interval that will loop
         totalSeconds++;
         if (updateCallback) updateCallback(totalSeconds);
@@ -29,6 +33,7 @@ function pauseTimer() {
 
 function stopTimer(updateCallback) {
     clearInterval(timer);
+    logCurrentTime("CATEGORY", startTime, Date.now())
     isRunning = false;
     totalSeconds = 0;
     if (updateCallback) updateCallback(totalSeconds);
