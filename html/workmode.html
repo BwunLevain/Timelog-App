@@ -18,6 +18,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#673ab7">
     <style>
       /* --- CSS Variables for Theming --- */
       :root {
@@ -191,24 +193,19 @@
       >
         <h2 id="statsArea">This Week</h2>
         <div class="stats-grid">
-          <div class="statsDisplay">
-            <time id="totalTime" class="number-card" datetime="PT0H">0h</time>
-            <span>Total Time</span>
-          </div>
+            <div class="stats-grid">
+                <div class="statsDisplay">
+                    <time id="totalTime" class="number-card">0h</time>
+                    <span>Total Time</span> </div>
 
-          <div class="statsDisplay">
-            <time id="currentSession" class="number-card" datetime="PT0H"
-              >0h</time
-            >
-            <span>Current Session</span>
-          </div>
+                <div class="statsDisplay">
+                    <time id="currentSession" class="number-card">0h</time>
+                    <span>Current Session</span> </div>
 
-          <div class="statsDisplay">
-            <time id="longestSession" class="number-card" datetime="PT0H"
-              >0h</time
-            >
-            <span>Longest Session</span>
-          </div>
+                <div class="statsDisplay">
+                    <time id="longestSession" class="number-card">0h</time>
+                    <span>Longest Session</span> </div>
+            </div>
         </div>
       </section>
 
@@ -246,8 +243,9 @@
 
     <script src="../scripts/timerDOM.js" type="module"></script>
     <script src="../scripts/navigation.js" type="module"></script>
-    <script src="../scripts/settingsDOM.js" type="module"></script>
     <script src="../scripts/statsDisplayDOM.js" type="module"></script>
     <script src="../scripts/addTimeDOM.js" type="module"></script>
+    <script src="../scripts/settingsDOM.js" type="module"></script>
+    <script src="/scripts/swCall.js"></script>
   </body>
 </html>

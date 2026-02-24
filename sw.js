@@ -2,27 +2,50 @@
 const CACHE_VERSION = 'v1'
 const CACHE_NAME = `workers-cache-${CACHE_VERSION}`
 
-const ASSETS = [ //cache files so that the website works without internet
+const ASSETS = [
   '/',
-  '/offline.html',
-  '/overviewpage.html',
-  '/pomodoromode.html',
-  '/settingspage.html',
-  '/trainingmode.html',
-  '/workmode.html',
-  '/style.css',
-  '/localStorage.js',
-  '/navigation.js',
-  '/overviewDOM.js',
-  '/script.js',
-  '/statsDisplayDOM.js',
-  '/statsDisplayLogic.js',
-  '/themes.js',
-  '/themesDOM.js',
-  '/timerDOM.js',
-  '/training.js',
+  // HTML Files
+  '/html/offline.html',
+  '/html/overviewpage.html',
+  '/html/pomodoromode.html',
+  '/html/settingspage.html',
+  '/html/trainingmode.html',
+  '/html/workmode.html',
+
+  // CSS Files
+  '/css/base.css',
+  '/css/components.css',
+  '/css/overview.css',
+  '/css/style.css',
+  '/css/timer.css',
+  '/css/variables.css',
+
+  // Scripts
+  '/scripts/addTimeDOM.js',
+  '/scripts/addTimeLogic.js',
+  '/scripts/barchartDOM.js',
+  '/scripts/barchartLogic.js',
+  '/scripts/localStorage.js',
+  '/scripts/navigation.js',
+  '/scripts/overviewDOM.js',
+  '/scripts/overviewLogic.js',
+  '/scripts/script.js',
+  '/scripts/settingsDOM.js',
+  '/scripts/statsDisplayDOM.js',
+  '/scripts/statsDisplayLogic.js',
+  '/scripts/swCall.js',
+  '/scripts/themes.js',
+  '/scripts/timerDOM.js',
+  '/scripts/training.js',
+
+  // Root files
   '/sw.js',
-]
+  '/manifest.json',
+
+  // Images
+  '/images/icon-192.png',
+  '/images/icon-512.png'
+];
 
 // Install
 self.addEventListener('install', (event) => { // installs the important files so that they can be used

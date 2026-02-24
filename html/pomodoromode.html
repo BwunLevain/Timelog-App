@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#673ab7">
   <style>
       /* --- CSS Variables for Theming --- */
       :root {
@@ -174,22 +176,17 @@
         <section class="statsContainer" aria-labelledby="statsArea" data-category="Study">
             <h2 id="statsArea">This Week</h2>
             <div class="stats-grid">
-                
                 <div class="statsDisplay">
-                    <time id="totalTime" class="number-card" datetime="PT0H">0h</time>
-                    <span>Total Time</span>
-                </div>
+                    <time id="totalTime" class="number-card">0h</time>
+                    <span>Total Time</span> </div>
 
                 <div class="statsDisplay">
-                    <time id="currentSession" class="number-card" datetime="PT0H">0h</time>
-                    <span>Current Session</span>
-                </div>
+                    <time id="currentSession" class="number-card">0h</time>
+                    <span>Current Session</span> </div>
 
                 <div class="statsDisplay">
-                    <time id="longestSession" class="number-card" datetime="PT0H">0h</time>
-                    <span>Longest Session</span>
-                </div>
-                
+                    <time id="longestSession" class="number-card">0h</time>
+                    <span>Longest Session</span> </div>
             </div>
         </section>
 
@@ -226,9 +223,10 @@
         </section>
     </main>
     <script type="module" src="../scripts/navigation.js"></script>
-    <script type="module" src="../scripts/settingsDOM.js"></script>
     <script type="module" src="../scripts/statsDisplayDOM.js"></script>
     <script type="module" src="../scripts/timerDOM.js"></script>
     <script type="module" src="../scripts/addTimeDOM.js"></script>
+    <script src="/scripts/swCall.js"></script>
+    <script src="../scripts/settingsDOM.js" type="module"></script>
   </body>
 </html>

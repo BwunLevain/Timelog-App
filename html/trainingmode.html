@@ -18,6 +18,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#673ab7">
       <style>
       /* --- CSS Variables for Theming --- */
       :root {
@@ -201,14 +203,12 @@
         <div class="stats-grid">
           
           <div class="statsDisplay">
-            <time id="totalSet" class="number-card">0</time>
-            <label for="totalSet">Set</label>
-          </div>
+              <time id="totalSet" class="number-card">0</time>
+              <span>Set</span> </div>
 
           <div class="statsDisplay">
-            <time id="totalExercise" class="number-card">0</time>
-            <label for="totalExercise">Exercise</label>
-          </div>
+              <time id="totalExercise" class="number-card">0</time>
+              <span>Exercise</span> </div>
 
         </div>
       </section>
@@ -216,22 +216,17 @@
       <section class="statsContainer" aria-labelledby="statsArea" data-category="Exercise">
         <h2 id="statsArea">This Week</h2>
         <div class="stats-grid">
-          
-          <div class="statsDisplay">
-            <time id="totalTime" class="number-card">0h</time>
-            <label for="totalTime">Total Time</label>
-          </div>
+            <div class="statsDisplay">
+                <time id="totalTime" class="number-card">0h</time>
+                <span>Total Time</span> </div>
 
-          <div class="statsDisplay">
-            <time id="currentSession" class="number-card">0h</time>
-            <label for="currentSession">Current Session</label>
-          </div>
+            <div class="statsDisplay">
+                <time id="currentSession" class="number-card">0h</time>
+                <span>Current Session</span> </div>
 
-          <div class="statsDisplay">
-            <time id="longestSession" class="number-card">0h</time>
-            <label for="longestSession">Longest Session</label>
-          </div>
-
+            <div class="statsDisplay">
+                <time id="longestSession" class="number-card">0h</time>
+                <span>Longest Session</span> </div>
         </div>
       </section>
 
@@ -270,8 +265,9 @@
     <script src="../scripts/timerDOM.js" type="module"></script>
     <script src="../scripts/navigation.js" type="module"></script>
     <script src="../scripts/training.js" type="module"></script>
-    <script src="../scripts/settingsDOM.js" type="module"></script>
     <script src="../scripts/statsDisplayDOM.js" type="module"></script>
+    <script src="../scripts/settingsDOM.js" type="module"></script>
     <script type="module" src="../scripts/addTimeDOM.js"></script>
+    <script src="/scripts/swCall.js"></script>
   </body>
 </html>
