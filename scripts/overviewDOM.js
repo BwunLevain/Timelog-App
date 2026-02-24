@@ -1,21 +1,7 @@
 import { updateGraph } from './barchartDOM.js';
 import { getHistory } from './localStorage.js';
+import { filterByTimeInterval, parseLocaleDate } from './overviewLogic.js';
 
-function parseLocaleDate(dateStr) {
-  if (dateStr.includes('T')) return new Date(dateStr);
-  
-  if (dateStr.includes('AM') || dateStr.includes('PM')) {
-    return new Date(dateStr);
-  }
-
-  if (dateStr.includes('/') && dateStr.includes(',')) {
-    const [datePart, timePart] = dateStr.split(', ');
-    const [day, month, year] = datePart.split('/');
-    return new Date(`${year}-${month}-${day}T${timePart}`);
-  }
-
-  return new Date(dateStr);
-}
 
 document.addEventListener('DOMContentLoaded', () => {
   const historyButton = document.getElementById('historyButton');
@@ -41,15 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
     updateGraph();
   });
 
-  function updateHistory() {
-    const historyList = document.querySelector('.historyList')
-    const history = getHistory();
+  function updateHistory(customHistory = null) {
+  const historyList = document.querySelector('.historyList');
+  const history = customHistory || getHistory();
 
-    // Clearing history list initially
-    historyList.innerHTML = '';
+  // Clearing history list initially
+  historyList.innerHTML = '';
 
-        // Recent entry should be first
-    history.sort((a,b) => parseLocaleDate(b.start) - parseLocaleDate(a.start))
+  // Recent entry should be first
+  history.sort((a, b) => parseLocaleDate(b.start) - parseLocaleDate(a.start));
 
     history.forEach(entry => {
       const li = document.createElement('li')
@@ -97,6 +83,43 @@ document.addEventListener('DOMContentLoaded', () => {
       historyList.appendChild(placeholder);
     }
   }
-  
-  updateHistory();
+
+
+ function setupRangeSelector() {
+  const rangeSelectorButton = document.getElementById('rangeSelectorButton');
+  rangeSelectorButton.addEventListener('click', () => {
+    const startDateStr = prompt('Enter start date (YYYY-MM-DD)');
+    const endDateStr = prompt('Enter end date (YYYY-MM-DD)');
+
+    if (!startDateStr || !endDateStr) {
+      return; // Cancel if no input
+    }
+
+    const startDate = new Date(startDateStr);
+    const endDate = new Date(endDateStr);
+    endDate.setHours(23, 59, 59, 999); // Include full end day
+
+    if (isNaN(startDate) || isNaN(endDate)) {
+      alert('Invalid date format.');
+      return;
+    }
+
+    const filteredHistory = filterByTimeInterval(startDate, endDate);
+    updateHistory(filteredHistory);
+  });
+} 
+
+function setupResetSelector() {
+  const allTimeSelectorButton = document.getElementById('allTimeSelectorButton');
+  if (allTimeSelectorButton) {
+    allTimeSelectorButton.addEventListener('click', () => {
+      updateHistory(); // Reset to full history
+    });
+  }
+}
+
+updateHistory();
+setupRangeSelector();
+setupResetSelector();
+
 });
