@@ -34,7 +34,8 @@
       "!src/scripts/overviewDOM.js",
       "!src/scripts/statsDisplayDOM.js",
       "!src/scripts/swCall.js",
-      "!src/scripts/addTimeDOM.js"
+      "!src/scripts/addTimeDOM.js",
+      "!src/scripts/sw.js"
     ],
     "coverageThreshold": {
       "global": {
