@@ -9,6 +9,13 @@ function setupTrackersMenu() {
     trackersMenu.classList.toggle('open');
     toggleBtn.classList.toggle('active');
   });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && trackersMenu.classList.contains('open')) {
+      trackersMenu.classList.remove('open');
+      toggleBtn.classList.remove('active');
+    }
+  });
 }
 
 setupTrackersMenu();
