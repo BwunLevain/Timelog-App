@@ -2,7 +2,7 @@ import {
   isValid,
   toTotalSeconds,
   buildSession,
-} from "./scripts/addTimeLogic.js";
+} from "../scripts/addTimeLogic.js";
 
 describe("time validator tests", () => {
   test("should return true for correct time entry", () => {

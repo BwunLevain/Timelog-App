@@ -5,18 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Track your study sessions and view your progress with our Pomodoro timer."
+      content="Track your activities and view your progress with our comprehensive overview page. Access detailed history and insightful graphs."
     />
-    <title>Study - Study Pomodoro</title>
+    <title>Study Pomodoro - Overview</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
       rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#673ab7" />
@@ -135,9 +131,9 @@
     <link rel="stylesheet" href="../css/variables.css" />
     <link rel="stylesheet" href="../css/base.css" />
     <link rel="stylesheet" href="../css/components.css" />
-    <link rel="stylesheet" href="../css/timer.css" />
+    <link rel="stylesheet" href="../css/overview.css" />
   </head>
-  <body class="timerPage">
+  <body>
     <header>
       <nav class="headerContainer" aria-label="Main Navigation">
         <button
@@ -145,11 +141,10 @@
           aria-label="Toggle tracker menu"
           aria-haspopup="true"
           aria-expanded="false"
-          aria-controls="trackersMenu"
         >
           TRACKERS
         </button>
-        <a href="overviewpage.html" class="nav-link">OVERVIEW</a>
+        <a href="overviewpage.html" class="nav-link active">OVERVIEW</a>
         <a href="settingspage.html" class="nav-link">SETTINGS</a>
       </nav>
 
@@ -161,125 +156,93 @@
         >
           <li><a href="pomodoromode.html" class="menu-link">Study</a></li>
           <li><a href="trainingmode.html" class="menu-link">Exercise</a></li>
-          <li><a href="../index.html" class="menu-link">Work</a></li>
+          <li><a href="/index.html" class="menu-link">Work</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <header class="timerHeaderContainer">
-        <h1 id="timerHeading">Study</h1>
-        <p>Study mode</p>
-      </header>
-
-      <section class="timer-card" aria-labelledby="timerHeading">
-        <h2 class="visually-hidden">Study timer display</h2>
-        <time
-          class="timeDisplay"
-          id="timeDisplay"
-          role="timer"
-          aria-live="polite"
-        >
-          00:00
-        </time>
-
-        <div class="mainControls">
-          <button id="playBtn" type="button" aria-label="Start Study Session">
-            <i class="fa-solid fa-play" aria-hidden="true"></i>
+      <section class="overviewHeaderContainer" aria-labelledby="mainTitle">
+        <h1 id="mainTitle">Overviews</h1>
+        <div class="view-toggle-group" role="tablist">
+          <button
+            id="historyButton"
+            class="btn-primary"
+            role="tab"
+            aria-selected="true"
+            aria-controls="historyOverviewArea"
+          >
+            History
           </button>
-          <button id="pauseBtn" type="button" aria-label="Pause Study Session">
-            <i class="fa-solid fa-pause" aria-hidden="true"></i>
-          </button>
-          <button id="stopBtn" type="button" aria-label="Stop Study Session">
-            <i class="fa-solid fa-stop" aria-hidden="true"></i>
+          <button
+            id="graphButton"
+            class="btn-primary"
+            role="tab"
+            aria-selected="false"
+            aria-controls="graphView"
+          >
+            Graph
           </button>
         </div>
       </section>
 
       <section
-        class="statsContainer"
-        aria-labelledby="statsArea"
-        data-category="Study"
+        class="historyContainer"
+        id="historyOverviewArea"
+        role="tabpanel"
+        aria-labelledby="historyButton"
       >
-        <h2 id="statsArea">This Week</h2>
-        <div class="stats-grid">
-          <div class="statsDisplay">
-            <time id="totalTime" class="number-card">0h</time>
-            <span>Total Time</span>
-          </div>
-
-          <div class="statsDisplay">
-            <time id="currentSession" class="number-card">0h</time>
-            <span>Current Session</span>
-          </div>
-
-          <div class="statsDisplay">
-            <time id="longestSession" class="number-card">0h</time>
-            <span>Longest Session</span>
-          </div>
-        </div>
+        <h2 class="visually-hidden">Activity History</h2>
+        <ul class="historyList"></ul>
       </section>
 
-      <!--Extra time area-->
+      <section
+        class="graphContainer"
+        id="graphView"
+        role="tabpanel"
+        aria-labelledby="graphButton"
+        hidden
+      >
+        <h2 class="visually-hidden">Activity Graph</h2>
+        <ul class="activityList">
+          <li class="activity graphItem" data-activity="work">
+            <div class="graphInfo">
+              <p class="graphCategory">WORK</p>
+            </div>
+            <time class="graphDuration" datetime="PT0H">0h</time>
+          </li>
 
-      <section class="extraTimeContainer" aria-labelledby="extraTimeHeading">
-        <h2 id="extraTimeHeading" class="visually-hidden">Extra time area</h2>
-        <div class="extraTimeRow">
-          <div class="timeUnit">
-            <span class="dateLabel">Date</span>
-            <label class="dateIcon">
-              <i class="fa-regular fa-calendar"></i>
-              <input type="date" id="dateInput" aria-label="Select date" />
-            </label>
-          </div>
-          <div class="timeUnit">
-            <label for="timeInput">Start Time</label>
-            <input type="time" id="timeInput" aria-label="Select time" />
-          </div>
-          <div class="timeUnit">
-            <label for="hoursInput">Hours</label>
-            <input
-              type="number"
-              id="hoursInput"
-              inputmode="numeric"
-              pattern="[0-9]*"
-              min="0"
-              max="99"
-              value="0"
-            />
-          </div>
-          <div class="timeUnit">
-            <label for="minutesInput">Minutes</label>
-            <input
-              type="number"
-              id="minutesInput"
-              inputmode="numeric"
-              pattern="[0-9]*"
-              min="0"
-              max="59"
-              value="0"
-            />
-          </div>
-          <div class="timeUnit">
-            <label for="secondsInput">Seconds</label>
-            <input
-              type="number"
-              id="secondsInput"
-              inputmode="numeric"
-              pattern="[0-9]*"
-              min="0"
-              max="59"
-              value="0"
-            />
-          </div>
-          <button class="addTimeButton" id="addTimeButton">ADD TIME</button>
-        </div>
+          <li class="activity graphItem" data-activity="study">
+            <div class="graphInfo">
+              <p class="graphCategory">STUDY</p>
+            </div>
+            <time class="graphDuration" datetime="PT0H">0h</time>
+          </li>
+
+          <li class="activity graphItem" data-activity="exercise">
+            <div class="graphInfo">
+              <p class="graphCategory">EXERCISE</p>
+            </div>
+            <time class="graphDuration" datetime="PT0H">0h</time>
+          </li>
+        </ul>
+      </section>
+
+      <section class="overviewSelectors" aria-label="Data range filters">
+        <button id="rangeSelectorButton" class="btn-primary">
+          SELECT <br />
+          RANGE
+        </button>
+        <button id="allTimeSelectorButton" class="btn-primary">
+          RESET <br />
+          RANGE
+        </button>
       </section>
     </main>
-    <script type="module" src="../scripts/navigation.js"></script>
-    <script type="module" src="../scripts/statsDisplayDOM.js"></script>
-    <script type="module" src="../scripts/timerDOM.js"></script>
-    <script type="module" src="../scripts/addTimeDOM.js"></script>
+
+    <script src="../scripts/navigation.js"></script>
+    <script src="../scripts/barchartDOM.js" type="module"></script>
+    <script src="../scripts/overviewDOM.js" type="module"></script>
     <script src="/scripts/swCall.js"></script>
     <script src="../scripts/settingsDOM.js" type="module"></script>
   </body>

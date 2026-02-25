@@ -4,7 +4,7 @@ import {
   pauseTimer,
   stopTimer,
   getTime,
-} from "./scripts/script.js";
+} from "../scripts/timer.js";
 
 const mockStorage = {
   getItem: jest.fn(() => null),

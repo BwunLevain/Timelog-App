@@ -5,16 +5,16 @@ global.document = { addEventListener: jest.fn() };
 const mockGetHistory = jest.fn();
 const mockGetTime = jest.fn();
 
-jest.unstable_mockModule("./scripts/localStorage.js", () => ({
+jest.unstable_mockModule("../scripts/localStorage.js", () => ({
   getHistory: mockGetHistory,
 }));
 
-jest.unstable_mockModule("./scripts/script.js", () => ({
+jest.unstable_mockModule("../scripts/timer.js", () => ({
   getTime: mockGetTime,
 }));
 
 const { getTotalTime, getLongestTime, getCurrentTime } =
-  await import("./scripts/statsDisplayLogic.js");
+  await import("../scripts/statsDisplayLogic.js");
 
 describe("getTotalTime tests", () => {
   beforeEach(() => {

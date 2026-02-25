@@ -1,6 +1,6 @@
 // training mode special buttons (set and exercise) ONLY UI!!! no logging
 let isRunning = false; // this one is here to satisfy Jest and guard UI interactions.
-// Real timer running status is in timer logic (script.js)
+// Real timer running status is in timer logic (timer.js)
 
 function increaseCounter(currentCount) {
   return currentCount + 1;

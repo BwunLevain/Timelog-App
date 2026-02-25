@@ -1,5 +1,5 @@
 import { getHistory } from "./localStorage.js";
-import { getTime } from "./script.js";
+import { getTime } from "./timer.js";
 
 function parseDuration(duration) {
   const [hours, minutes, seconds] = duration.split(":").map(Number);

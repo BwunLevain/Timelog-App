@@ -10,7 +10,7 @@ const ASSETS = [
   "/html/pomodoromode.html",
   "/html/settingspage.html",
   "/html/trainingmode.html",
-  "/html/../index.html",
+  "/html//index.html",
 
   // CSS Files
   "/css/base.css",
@@ -29,7 +29,7 @@ const ASSETS = [
   "/scripts/navigation.js",
   "/scripts/overviewDOM.js",
   "/scripts/overviewLogic.js",
-  "/scripts/script.js",
+  "/scripts/timer.js",
   "/scripts/settingsDOM.js",
   "/scripts/statsDisplayDOM.js",
   "/scripts/statsDisplayLogic.js",

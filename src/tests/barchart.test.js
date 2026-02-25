@@ -7,12 +7,12 @@ global.document = { addEventListener: jest.fn() };
 const mockGetHistory = jest.fn();
 
 // Apply mock BEFORE importing the module under test
-jest.unstable_mockModule("./scripts/localStorage.js", () => ({
+jest.unstable_mockModule("../scripts/localStorage.js", () => ({
   getHistory: mockGetHistory,
 }));
 
 // Dynamically import SUT at top-level
-const { default: barchartLogic } = await import("./scripts/barchartLogic.js");
+const { default: barchartLogic } = await import("../scripts/barchartLogic.js");
 
 describe("barchartLogic", () => {
   beforeEach(() => {
