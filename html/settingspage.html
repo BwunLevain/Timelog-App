@@ -1,16 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Customize your experience with dark mode and manage your local storage for optimal performance.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Customize your experience with dark mode and manage your local storage for optimal performance."
+    />
     <title>Study Pomodoro - Settings</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#673ab7">
-      <style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#673ab7" />
+    <style>
       /* --- CSS Variables for Theming --- */
       :root {
         /* Dark Theme (Default) */
@@ -122,52 +128,61 @@
         text-decoration: none;
       }
     </style>
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/timer.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/timer.css" />
+  </head>
+  <body>
     <header>
-        <nav class="headerContainer" aria-label="Main Navigation">
-            <button id="trackersToggle" aria-label="Toggle tracker menu" aria-haspopup="true" aria-expanded="false" aria-controls="trackersMenu">
-                TRACKERS
-            </button>
-            <a href="overviewpage.html" class="nav-link">OVERVIEW</a>
-            <a href="settingspage.html" class="nav-link active">SETTINGS</a>
-        </nav>
+      <nav class="headerContainer" aria-label="Main Navigation">
+        <button
+          id="trackersToggle"
+          aria-label="Toggle tracker menu"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="trackersMenu"
+        >
+          TRACKERS
+        </button>
+        <a href="overviewpage.html" class="nav-link">OVERVIEW</a>
+        <a href="settingspage.html" class="nav-link active">SETTINGS</a>
+      </nav>
 
-        <nav id="trackersMenuContainer">
-            <ul id="trackersMenu" class="trackersMenu" aria-label="Select tracker type">
-                <li><a href="pomodoromode.html" class="menu-link">Study</a></li>
-                <li><a href="trainingmode.html" class="menu-link">Training</a></li>
-                <li><a href="workmode.html" class="menu-link">Work</a></li>
-            </ul>
-        </nav>
+      <nav id="trackersMenuContainer">
+        <ul
+          id="trackersMenu"
+          class="trackersMenu"
+          aria-label="Select tracker type"
+        >
+          <li><a href="pomodoromode.html" class="menu-link">Study</a></li>
+          <li><a href="trainingmode.html" class="menu-link">Exercise</a></li>
+          <li><a href="workmode.html" class="menu-link">Work</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <main>        
-        <header class="settingsHeaderContainer">
-            <h1 id="settingsHeaderArea">Settings</h1>
-        </header>
+    <main>
+      <header class="settingsHeaderContainer">
+        <h1 id="settingsHeaderArea">Settings</h1>
+      </header>
 
-        <section class="settingsChoices" aria-labelledby="settingsHeaderArea">
-            <h2 class="visually-hidden">Preferences and Data Management</h2>
-            
-            <button id="darkModeButton" class="btn-primary" type="button">
-                Dark Mode
-            </button>
-            
-            <button id="localStorageResetButton" class="btn-primary" type="button">
-                Reset Local Storage
-            </button>
-        </section>
+      <section class="settingsChoices" aria-labelledby="settingsHeaderArea">
+        <h2 class="visually-hidden">Preferences and Data Management</h2>
+
+        <button id="darkModeButton" class="btn-primary" type="button">
+          Dark Mode
+        </button>
+
+        <button id="localStorageResetButton" class="btn-primary" type="button">
+          Reset Local Storage
+        </button>
+      </section>
     </main>
 
     <script src="../scripts/script.js" type="module"></script>
     <script src="../scripts/navigation.js"></script>
     <script src="../scripts/settingsDOM.js" type="module"></script>
     <script src="/scripts/swCall.js"></script>
-</body> 
+  </body>
 </html>

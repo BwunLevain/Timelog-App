@@ -6,7 +6,7 @@ const pauseBtn = document.getElementById("pauseBtn");
 const stopBtn = document.getElementById("stopBtn");
 
 function updateDisplay(seconds) {
-    timeDisplay.textContent = formatTime(seconds);
+  timeDisplay.textContent = formatTime(seconds);
 }
 
 playBtn.addEventListener("click", () => startTimer(updateDisplay));

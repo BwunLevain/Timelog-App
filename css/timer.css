@@ -97,7 +97,8 @@
   align-items: center;
 }
 
-.statsDisplay label, .statsDisplay span {
+.statsDisplay label,
+.statsDisplay span {
   font-size: 1rem;
   font-weight: 600;
   color: var(--text-white);
@@ -193,7 +194,8 @@
   margin: 0;
 }
 
-.timeUnit input[type=number] { /* this is for mozarella browser folks*/
+.timeUnit input[type="number"] {
+  /* this is for mozarella browser folks*/
   -moz-appearance: textfield;
 }
 
@@ -239,7 +241,6 @@
 
 /*for bigger screens*/
 @media (min-width: 480px) {
-
   .timerHeaderContainer {
     grid-area: header;
     grid-column: span 2;
@@ -316,7 +317,8 @@
     color: var(--text-dark);
   }
 
-  body.training main { /*different grid layout for trainingmode.html*/
+  body.training main {
+    /*different grid layout for trainingmode.html*/
     grid-template-areas:
       "header header"
       "stats timer"

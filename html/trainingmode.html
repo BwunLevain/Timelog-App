@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Track your activities and view your progress with our comprehensive training timer page." />
+    <meta
+      name="description"
+      content="Track your activities and view your progress with our comprehensive training timer page."
+    />
     <title>Training</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,9 +21,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#673ab7">
-      <style>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#673ab7" />
+    <style>
       /* --- CSS Variables for Theming --- */
       :root {
         /* Dark Theme (Default) */
@@ -132,51 +135,57 @@
         text-decoration: none;
       }
     </style>
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/timer.css">
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/timer.css" />
   </head>
   <body class="training">
     <header>
-        <nav class="headerContainer" aria-label="Main Navigation">
-            <button id="trackersToggle" aria-label="tracker menu button" aria-haspopup="true" aria-expanded="false" aria-controls="trackersMenu">
-                TRACKERS
-            </button>
-            <a href="overviewpage.html" class="nav-link">OVERVIEW</a>
-            <a href="settingspage.html" class="nav-link">SETTINGS</a>
-        </nav>
+      <nav class="headerContainer" aria-label="Main Navigation">
+        <button
+          id="trackersToggle"
+          aria-label="tracker menu button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="trackersMenu"
+        >
+          TRACKERS
+        </button>
+        <a href="overviewpage.html" class="nav-link">OVERVIEW</a>
+        <a href="settingspage.html" class="nav-link">SETTINGS</a>
+      </nav>
 
-        <nav id="trackersMenuContainer">
-            <ul id="trackersMenu" class="trackersMenu" aria-label="Select tracker type">
-                <li><a href="pomodoromode.html" class="menu-link">Study</a></li>
-                <li><a href="trainingmode.html" class="menu-link">Training</a></li>
-                <li><a href="workmode.html" class="menu-link">Work</a></li>
-            </ul>
-        </nav>
-      </header>
-    <main>      
-
-    <!--Timer header-->
-    <header class="timerHeaderContainer" aria-labelledby="timerHeading">
-      <h1 id="timerHeading">Training</h1>
-      <p>Workout tracker</p>
+      <nav id="trackersMenuContainer">
+        <ul
+          id="trackersMenu"
+          class="trackersMenu"
+          aria-label="Select tracker type"
+        >
+          <li><a href="pomodoromode.html" class="menu-link">Study</a></li>
+          <li><a href="trainingmode.html" class="menu-link">Exercise</a></li>
+          <li><a href="workmode.html" class="menu-link">Work</a></li>
+        </ul>
+      </nav>
     </header>
+    <main>
+      <!--Timer header-->
+      <header class="timerHeaderContainer" aria-labelledby="timerHeading">
+        <h1 id="timerHeading">Exercise</h1>
+        <p>Workout tracker</p>
+      </header>
 
-    <!--Training Timer-->
-    <section
-      class="timer-card"
-      aria-labelledby="trainingTimerArea"
-    >
-    <h2 class="visually-hidden">Training Timer</h2>
-      <time
-        class="timeDisplay"
-        id="timeDisplay"
-        role="status"
-        aria-live="polite"
-      >
-        00:00
-  </time>
+      <!--Training Timer-->
+      <section class="timer-card" aria-labelledby="trainingTimerArea">
+        <h2 class="visually-hidden">Training Timer</h2>
+        <time
+          class="timeDisplay"
+          id="timeDisplay"
+          role="status"
+          aria-live="polite"
+        >
+          00:00
+        </time>
 
         <div class="mainControls">
           <button id="playBtn" type="button" aria-label="Start Work Session">
@@ -190,75 +199,127 @@
           </button>
         </div>
         <div class="trainingControls">
-          <button id="logSetBtn" class="btn-primary" type="button" aria-label="Log Set">SET</button>
-          <button id="logExerciseBtn" class="btn-primary" type="button" aria-label="Log Exercise">
+          <button
+            id="logSetBtn"
+            class="btn-primary"
+            type="button"
+            aria-label="Log Set"
+          >
+            SET
+          </button>
+          <button
+            id="logExerciseBtn"
+            class="btn-primary"
+            type="button"
+            aria-label="Log Exercise"
+          >
             EXERCISE
           </button>
-          <button id="clearExerciseBtn" class="btn-primary" type="button" aria-label="Clear exercise counter">CLEAR EXERCISE COUNTER</button>
+          <button
+            id="clearExerciseBtn"
+            class="btn-primary"
+            type="button"
+            aria-label="Clear exercise counter"
+          >
+            CLEAR EXERCISE COUNTER
+          </button>
         </div>
       </section>
 
       <section class="trainingLogsContainer" aria-labelledby="trainingLogsArea">
         <h2 id="trainingLogsArea">You're on</h2>
-        <div class="logStatsgrid">          
+        <div class="logStatsgrid">
           <div class="statsDisplay">
-              <time id="totalSet" class="number-card">0</time>
-              <span>Set</span> </div>
+            <time id="totalSet" class="number-card">0</time>
+            <span>Set</span>
+          </div>
 
           <div class="statsDisplay">
-              <time id="totalExercise" class="number-card">0</time>
-              <span>Exercise</span> </div>
+            <time id="totalExercise" class="number-card">0</time>
+            <span>Exercise</span>
+          </div>
         </div>
       </section>
 
-      <section class="statsContainer" aria-labelledby="statsArea" data-category="Exercise">
+      <section
+        class="statsContainer"
+        aria-labelledby="statsArea"
+        data-category="Exercise"
+      >
         <h2 id="statsArea">This Week</h2>
         <div class="stats-grid">
-            <div class="statsDisplay">
-                <time id="totalTime" class="number-card">0h</time>
-                <span>Total Time</span> </div>
+          <div class="statsDisplay">
+            <time id="totalTime" class="number-card">0h</time>
+            <span>Total Time</span>
+          </div>
 
-            <div class="statsDisplay">
-                <time id="currentSession" class="number-card">0h</time>
-                <span>Current Session</span> </div>
+          <div class="statsDisplay">
+            <time id="currentSession" class="number-card">0h</time>
+            <span>Current Session</span>
+          </div>
 
-            <div class="statsDisplay">
-                <time id="longestSession" class="number-card">0h</time>
-                <span>Longest Session</span> </div>
+          <div class="statsDisplay">
+            <time id="longestSession" class="number-card">0h</time>
+            <span>Longest Session</span>
+          </div>
         </div>
       </section>
 
       <!--Extra time area-->
 
       <section class="extraTimeContainer" aria-labelledby="extraTimeHeading">
-            <h2 id="extraTimeHeading" class="visually-hidden">Extra time area</h2>
-            <div class="extraTimeRow">
-                <div class="timeUnit">
-                    <span class="dateLabel">Date</span>
-                    <label class="dateIcon">
-                        <i class="fa-regular fa-calendar"></i>
-                        <input type="date" id="dateInput" aria-label="Select date"/>
-                    </label>
-                </div>
-                <div class="timeUnit">
-                    <label for="timeInput">Start Time</label>
-                    <input type="time" id="timeInput" aria-label="Select time"/>
-                </div>
-                <div class="timeUnit">
-                    <label for="hoursInput">Hours</label>
-                    <input type="number" id="hoursInput" inputmode="numeric" pattern="[0-9]*" min="0" max="99" value="0">
-                </div>
-                <div class="timeUnit">
-                    <label for="minutesInput">Minutes</label>
-                    <input type="number" id="minutesInput" inputmode="numeric" pattern="[0-9]*" min="0" max="59" value="0">
-                </div>
-                <div class="timeUnit">
-                    <label for="secondsInput">Seconds</label>
-                    <input type="number" id="secondsInput" inputmode="numeric" pattern="[0-9]*" min="0" max="59" value="0">
-                </div>
-                <button class="addTimeButton" id="addTimeButton">ADD TIME</button>
-            </div>
-        </section>
+        <h2 id="extraTimeHeading" class="visually-hidden">Extra time area</h2>
+        <div class="extraTimeRow">
+          <div class="timeUnit">
+            <span class="dateLabel">Date</span>
+            <label class="dateIcon">
+              <i class="fa-regular fa-calendar"></i>
+              <input type="date" id="dateInput" aria-label="Select date" />
+            </label>
+          </div>
+          <div class="timeUnit">
+            <label for="timeInput">Start Time</label>
+            <input type="time" id="timeInput" aria-label="Select time" />
+          </div>
+          <div class="timeUnit">
+            <label for="hoursInput">Hours</label>
+            <input
+              type="number"
+              id="hoursInput"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              min="0"
+              max="99"
+              value="0"
+            />
+          </div>
+          <div class="timeUnit">
+            <label for="minutesInput">Minutes</label>
+            <input
+              type="number"
+              id="minutesInput"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              min="0"
+              max="59"
+              value="0"
+            />
+          </div>
+          <div class="timeUnit">
+            <label for="secondsInput">Seconds</label>
+            <input
+              type="number"
+              id="secondsInput"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              min="0"
+              max="59"
+              value="0"
+            />
+          </div>
+          <button class="addTimeButton" id="addTimeButton">ADD TIME</button>
+        </div>
+      </section>
     </main>
     <script src="../scripts/timerDOM.js" type="module"></script>
     <script src="../scripts/navigation.js" type="module"></script>

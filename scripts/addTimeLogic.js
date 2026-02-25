@@ -8,7 +8,7 @@ function toTotalSeconds(h, m, s) {
 
 function buildSession(totalSecs, datetime) {
   const startTime = new Date(datetime).getTime();
-  const endTime = startTime + (totalSecs * 1000);
+  const endTime = startTime + totalSecs * 1000;
   return { startTime, endTime };
 }
 

@@ -1,19 +1,19 @@
 :root {
   /* Dark Theme (Default) */
-  --bg-color: #263D5C;
-  --primary-purple: #6B3B9D;
-  --accent-light: #D9D9E9;
+  --bg-color: #263d5c;
+  --primary-purple: #6b3b9d;
+  --accent-light: #d9d9e9;
   --text-white: #ffffff;
-  --text-dark: #324B6B;
+  --text-dark: #324b6b;
   --button-text: #fefefe;
   --graph-bar: #e6e6f5;
   --graph-label: #eaeaf5;
   --shadow-purple: rgba(107, 59, 157, 0.3);
-  --accent-gray: #C1C0CF;
-  
+  --accent-gray: #c1c0cf;
+
   /* Fonts */
-  --font-main: 'Bricolage Grotesque', sans-serif;
-  --font-header: 'Abril Fatface', serif;
+  --font-main: "Bricolage Grotesque", sans-serif;
+  --font-header: "Abril Fatface", serif;
 }
 
 body.lightTheme {

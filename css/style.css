@@ -9,25 +9,26 @@ header nav.headerContainer {
   width: 100%;
 }
 
-header nav.headerContainer a, header nav.headerContainer button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 33.33vw; 
-    height: 3rem;   
-    color: var(--button-text);
-    background-color: var(--primary-purple);
-    border-radius: 0 0 50% 50%;
-    border: none;
-    font-size: 1.2rem;
-    text-align: center;
-    padding-top: 0.8rem;
-    text-decoration: none; 
+header nav.headerContainer a,
+header nav.headerContainer button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33.33vw;
+  height: 3rem;
+  color: var(--button-text);
+  background-color: var(--primary-purple);
+  border-radius: 0 0 50% 50%;
+  border: none;
+  font-size: 1.2rem;
+  text-align: center;
+  padding-top: 0.8rem;
+  text-decoration: none;
 }
 
 header nav.headerContainer button {
-    border: none;
-    cursor: pointer;
+  border: none;
+  cursor: pointer;
 }
 
 .visually-hidden {
@@ -42,55 +43,55 @@ header nav.headerContainer button {
   border: 0;
 }
 
-a:hover{
-    cursor: pointer;
+a:hover {
+  cursor: pointer;
 }
 
 .trackersMenu {
-    display: none;
-    position: absolute;
-    width: 33.33vw;
-    background-color: var(--primary-purple);
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1rem 0;
-    border-radius: 2rem;
+  display: none;
+  position: absolute;
+  width: 33.33vw;
+  background-color: var(--primary-purple);
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0;
+  border-radius: 2rem;
 }
 
 .trackersMenu.open {
-    display: flex;
-    flex-direction: column;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .trackersMenu a {
-    color: var(--text-dark);
-    border: none;
-    font-weight: bold;
-    transition: background-color 0.2s;
-    text-decoration: none;
-    font-size: 1rem;
+  color: var(--text-dark);
+  border: none;
+  font-weight: bold;
+  transition: background-color 0.2s;
+  text-decoration: none;
+  font-size: 1rem;
 }
 
 .trackersMenu button {
-    width: 90%;
-    padding: 0.6rem 1rem;
-    background-color: var(--accent-light);
-    border: none;
-    border-radius: 0.6rem;
-    transition: background-color 0.2s;
-    text-align: center;
-    overflow-wrap: break-word;
-    list-style: none;
-    cursor: pointer;
+  width: 90%;
+  padding: 0.6rem 1rem;
+  background-color: var(--accent-light);
+  border: none;
+  border-radius: 0.6rem;
+  transition: background-color 0.2s;
+  text-align: center;
+  overflow-wrap: break-word;
+  list-style: none;
+  cursor: pointer;
 }
 
 #trackersToggle.active {
-    border-radius: 0%;
-    background-color: var(--primary-purple);
-    overflow: hidden;
+  border-radius: 0%;
+  background-color: var(--primary-purple);
+  overflow: hidden;
 }
 
 .timerHeaderContainer {
@@ -134,11 +135,11 @@ a:hover{
 }
 
 .mainControls button {
-    background: none;
-    border: none;
-    color: var(--primary-purple);
-    cursor: pointer;
-    font-size: 3rem;
+  background: none;
+  border: none;
+  color: var(--primary-purple);
+  cursor: pointer;
+  font-size: 3rem;
 }
 
 .trainingTimerContainer {
@@ -203,7 +204,8 @@ a:hover{
   gap: 1rem;
 }
 
-.setNumber, .exerciseNumber {
+.setNumber,
+.exerciseNumber {
   background-color: var(--accent-light);
   width: 90px;
   height: 50px;
@@ -217,7 +219,8 @@ a:hover{
   color: var(--text-dark);
 }
 
-.setText, .exerciseText {
+.setText,
+.exerciseText {
   margin: 0;
   font-size: 1rem;
   color: var(--text-white);
@@ -306,15 +309,15 @@ a:hover{
 }
 
 #extraTimeInput {
-    height: 2rem;
-    background-color: var(--bg-color);
-    outline: none;
-    border: none;
-    border-radius: 0.5rem;
-    margin-right: 2rem;
-    margin-left: 0.5rem;
-    color:white;
-    padding-left: 0.6rem;
+  height: 2rem;
+  background-color: var(--bg-color);
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  margin-right: 2rem;
+  margin-left: 0.5rem;
+  color: white;
+  padding-left: 0.6rem;
 }
 
 .extraTimeContainer ::placeholder {
@@ -323,11 +326,11 @@ a:hover{
 }
 
 .extraTimeContainer button {
-    cursor: pointer;
-    text-decoration: none;
-    background: none;
-    border: none;
-    color: var(--button-text);
+  cursor: pointer;
+  text-decoration: none;
+  background: none;
+  border: none;
+  color: var(--button-text);
 }
 
 .overviewHeaderContainer {
@@ -352,19 +355,19 @@ a:hover{
 }
 
 .historyContainer {
-    width: 90vw;
-    max-width: 18rem;
-    margin: 1rem auto;
-    padding-right: 0.3rem;
+  width: 90vw;
+  max-width: 18rem;
+  margin: 1rem auto;
+  padding-right: 0.3rem;
 }
 
 .historyList {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .historyItem {
@@ -392,7 +395,7 @@ a:hover{
 .historyDate {
   font-size: 1rem;
   opacity: 0.8;
-  color: black
+  color: black;
 }
 
 .historyDuration {
@@ -423,36 +426,36 @@ a:hover{
 
 .graphItem {
   background-color: var(--accent-light);
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.8rem 1.2rem;
-  border-radius: 1rem; 
-  color: var(--text-dark); 
+  border-radius: 1rem;
+  color: var(--text-dark);
   position: relative;
   min-height: 80px;
 }
 
 .graphInfo {
-  display: flex; 
-  flex-direction: column; 
-  position: relative; 
-  top: -10px; 
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: -10px;
 }
 
 .graphCategory {
-  font-weight: 800; 
-  font-size: 1rem; 
-  color: var(--primary-purple); 
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--primary-purple);
   letter-spacing: 0.05rem;
-  margin: 0; 
+  margin: 0;
 }
 
 .graphDuration {
   font-size: 1.1rem;
   font-weight: 700;
-  position: relative; 
-  top: -10px; 
+  position: relative;
+  top: -10px;
 }
 
 .fill-bar {
@@ -466,7 +469,7 @@ a:hover{
 
 .shadow-bar {
   position: absolute;
-  height: 25%; 
+  height: 25%;
   top: 55%;
   background: var(--shadow-purple);
   border-radius: 0 1rem 1rem 0;
@@ -549,6 +552,6 @@ a:hover{
 }
 
 .placeholder {
-  font-size: 1.5em;  /* Adjust size as needed */
-  color: white;  /* White color */
+  font-size: 1.5em; /* Adjust size as needed */
+  color: white; /* White color */
 }

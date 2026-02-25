@@ -1,26 +1,23 @@
-import { getHistory } from './localStorage.js';
+import { getHistory } from "./localStorage.js";
 export default function barchartLogic() {
-  
-  const fullHistory = getHistory()
-  
+  const fullHistory = getHistory();
+
   let totWorkTime = 0;
   let totStudyTime = 0;
   let totExerciseTime = 0;
-  
 
   // Adding all hours from each entry into each separate timer category
-  for (const timerEntry of fullHistory)
-  {
-    const hours = parseDuration(timerEntry.duration)
+  for (const timerEntry of fullHistory) {
+    const hours = parseDuration(timerEntry.duration);
     switch (timerEntry.category) {
-      case 'Work':
-        totWorkTime += hours
+      case "Work":
+        totWorkTime += hours;
         break;
-      case 'Study':
-        totStudyTime += hours
+      case "Study":
+        totStudyTime += hours;
         break;
-      case 'Exercise':
-        totExerciseTime += hours
+      case "Exercise":
+        totExerciseTime += hours;
         break;
     }
   }
@@ -31,35 +28,34 @@ export default function barchartLogic() {
   totExerciseTime = Math.round(totExerciseTime * 10) / 10;
 
   const timerArray = [totWorkTime, totStudyTime, totExerciseTime];
- 
+
   // Check if any total time is NaN or non finite
-  if (timerArray.some(time => !Number.isFinite(time))) {
-    throw new Error('Invalid duration');
+  if (timerArray.some((time) => !Number.isFinite(time))) {
+    throw new Error("Invalid duration");
   }
 
   // Check if timer is below zero
-  if (timerArray.some(time => time < 0)) {
+  if (timerArray.some((time) => time < 0)) {
     throw new Error("Timer values cannot be negative");
   }
 
   // Check if all timers are zero
-  else if (timerArray.every(time => time === 0)) {
+  else if (timerArray.every((time) => time === 0)) {
     return [
       ["Work", 0, 0],
       ["Study", 0, 0],
-      ["Exercise", 0, 0]
+      ["Exercise", 0, 0],
     ];
-  }
-  else {
+  } else {
     const timers = [
-      { name: 'Work', time: totWorkTime },
-      { name: 'Study', time: totStudyTime },
-      { name: 'Exercise', time: totExerciseTime }
+      { name: "Work", time: totWorkTime },
+      { name: "Study", time: totStudyTime },
+      { name: "Exercise", time: totExerciseTime },
     ];
 
     // Find the largest bar
     let bar1Time = -1;
-    let bar1Name = '';
+    let bar1Name = "";
     for (const timer of timers) {
       if (timer.time > bar1Time) {
         bar1Time = timer.time;
@@ -69,7 +65,7 @@ export default function barchartLogic() {
 
     // Find second largest bar
     let bar2Time = -1;
-    let bar2Name = '';
+    let bar2Name = "";
     for (const timer of timers) {
       if (timer.name !== bar1Name && timer.time > bar2Time) {
         bar2Time = timer.time;
@@ -77,20 +73,24 @@ export default function barchartLogic() {
       }
     }
 
-    // Find the remaining bar 
+    // Find the remaining bar
     let bar3Time = -1;
-    let bar3Name = '';
+    let bar3Name = "";
     for (const timer of timers) {
-    if (timer.name !== bar1Name && timer.name !== bar2Name && timer.time > bar3Time) {
-      bar3Time = timer.time;
-      bar3Name = timer.name;
+      if (
+        timer.name !== bar1Name &&
+        timer.name !== bar2Name &&
+        timer.time > bar3Time
+      ) {
+        bar3Time = timer.time;
+        bar3Name = timer.name;
       }
     }
 
     // Width proportion calculation
     let bar1Width = 1;
-    let bar2Width = bar2Time/bar1Time;
-    let bar3Width = bar3Time/bar1Time;
+    let bar2Width = bar2Time / bar1Time;
+    let bar3Width = bar3Time / bar1Time;
 
     const bar1Array = [bar1Name, bar1Width, bar1Time];
     const bar2Array = [bar2Name, bar2Width, bar2Time];
@@ -101,9 +101,9 @@ export default function barchartLogic() {
 }
 
 function parseDuration(duration) {
-  const [hours, minutes, seconds] = duration.split(':').map(Number);
-  const totalHours = hours + (minutes / 60) + (seconds / 3600);
-  return totalHours
+  const [hours, minutes, seconds] = duration.split(":").map(Number);
+  const totalHours = hours + minutes / 60 + seconds / 3600;
+  return totalHours;
 }
 
 export { parseDuration };
