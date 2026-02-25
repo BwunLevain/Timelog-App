@@ -17,6 +17,8 @@ const { filterByTimeInterval, parseLocaleDate, editHistoryEntry, deleteHistoryEn
 describe("overviewLogic", () => {
   beforeEach(() => {
     mockGetHistory.mockReset();
+    mockFormatDuration.mockReset();
+    jest.restoreAllMocks();
   });
 
   // Test to see if date format is parsed correctly
@@ -142,9 +144,8 @@ describe("overviewLogic - edge cases", () => {
       { start: "2026-03-01 10:00:00", end: "2026-03-01 11:00:00" },
     ]);
 
-    const startDate = new Date("2026-02-22");
-    const endDate = new Date("2026-02-28");
-    endDate.setHours(23, 59, 59, 999);
+    const startDate = new Date(2026, 1, 22, 0, 0, 0);
+    const endDate = new Date(2026, 1, 28, 23, 59, 59);
 
     const result = filterByTimeInterval(startDate, endDate);
     expect(result).toHaveLength(2);
@@ -153,15 +154,16 @@ describe("overviewLogic - edge cases", () => {
   });
 
   test("editHistoryEntry does not change history if id is not found", () => {
-    const mockHistory = [{ id: 1 }];
+    const mockHistory = [{ id: 1, start: "2026-02-20 10:00:00", end: "2026-02-20 11:00:00", duration: "01:00:00" }];
     mockGetHistory.mockReturnValue(mockHistory);
     mockFormatDuration.mockReturnValue("01:00:00");
 
-    const setItemSpy = jest.spyOn(Storage.prototype, "setItem");
+    const setItemSpy = jest.spyOn(Storage.prototype, "setItem").mockClear();
 
     editHistoryEntry(999, new Date(), new Date());
 
     const savedData = JSON.parse(setItemSpy.mock.calls[0][1]); // expects to find an id but it wont, to cover "test branch"
-    expect(savedData).toEqual(mockHistory);
+    expect(savedData).toHaveLength(mockHistory.length);
+    expect(savedData[0]).toEqual(mockHistory[0]);
   });
 });
