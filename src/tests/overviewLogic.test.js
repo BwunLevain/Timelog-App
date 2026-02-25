@@ -4,12 +4,12 @@ import { jest } from '@jest/globals';
 const mockGetHistory = jest.fn();
 
 // Mock localStorage.js BEFORE importing the module under test
-jest.unstable_mockModule('./scripts/localStorage.js', () => ({
+jest.unstable_mockModule('../scripts/localStorage.js', () => ({
   getHistory: mockGetHistory,
 }));
 
 // Dynamically import SUT
-const { filterByTimeInterval, parseLocaleDate } = await import('./scripts/overviewLogic.js');
+const { filterByTimeInterval, parseLocaleDate } = await import('../scripts/overviewLogic.js');
 
 describe('overviewLogic', () => {
 

@@ -1,5 +1,5 @@
 import { jest, describe, beforeEach, test, expect } from '@jest/globals'; 
-import { startTimer, pauseTimer, stopTimer, getTime } from './scripts/script.js';
+import { startTimer, pauseTimer, stopTimer, getTime } from '../scripts/script.js';
 
 jest.useFakeTimers(); // makes it so that we can use time however we want
 
