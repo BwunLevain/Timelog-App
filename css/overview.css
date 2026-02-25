@@ -67,3 +67,46 @@
 .fill-bar {
   animation: fillProgress 1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
+
+/* edit button*/
+/* Options container for edit/delete buttons */
+.options {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem; /* Space between buttons */
+}
+
+/* Hide by default */
+.hidden {
+  display: none;
+}
+
+/* Individual option buttons */
+.editOption, .deleteOption {
+  padding: 0.3rem 0.6rem;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Color coding for options */
+.editOption {
+  background-color: #5cb85c; /* Green-ish for edit */
+  color: white;
+}
+
+.deleteOption {
+  background-color: #d9534f; /* Red for delete */
+  color: white;
+}
+.editBtnShape {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;       /* size of the dots */
+  cursor: pointer;
+  color: var(--text-dark);
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+}

@@ -25,6 +25,7 @@ function logCurrentTime(category, startTime, endTime = Date.now()) {
     const endStr = `${endD.getFullYear()}-${pad(endD.getMonth() + 1)}-${pad(endD.getDate())} ${pad(endD.getHours())}:${pad(endD.getMinutes())}:${pad(endD.getSeconds())}`;
 
     const entry = {
+        id: Date.now(), // id needed for editing
         category,
         start: startStr,
         end: endStr,
