@@ -19,7 +19,7 @@ describe("barchartLogic", () => {
     mockGetHistory.mockReset();
   });
 
-  it("Should return following output", () => {
+  test("Should return following output", () => {
     mockGetHistory.mockReturnValue([
       { category: "Work", duration: "10:00:00" },
       { category: "Study", duration: "05:00:00" },
