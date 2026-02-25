@@ -3,49 +3,47 @@ const CACHE_VERSION = "v1";
 const CACHE_NAME = `workers-cache-${CACHE_VERSION}`;
 
 const ASSETS = [
-  "/",
+  "./", 
+  "./index.html",
+  "./manifest.json",
+  "./sw.js",
+  "./swCall.js",
+
   // HTML Files
-  "../html/offline.html",
-  "../html/overviewpage.html",
-  "../html/pomodoromode.html",
-  "../html/settingspage.html",
-  "../html/trainingmode.html",
-  "../../index.html",
+  "./offline.html",
+  "./overviewpage.html",
+  "./pomodoromode.html",
+  "./settingspage.html",
+  "./trainingmode.html",
 
   // CSS Files
-  "../css/base.css",
-  "../css/components.css",
-  "../css/overview.css",
-  "../css/style.css",
-  "../css/timer.css",
-  "../css/variables.css",
+  "./src/css/base.css",
+  "./src/css/components.css",
+  "./src/css/overview.css",
+  "./src/css/style.css",
+  "./src/css/timer.css",
+  "./src/css/variables.css",
 
-  // Scripts
-  "./addTimeDOM.js",
-  "./addTimeLogic.js",
-  "./barchartDOM.js",
-  "./barchartLogic.js",
-  "./localStorage.js",
-  "./navigation.js",
-  "./overviewDOM.js",
-  "./overviewLogic.js",
-  "./timer.js",
-  "./settingsDOM.js",
-  "./statsDisplayDOM.js",
-  "./statsDisplayLogic.js",
-  "./swCall.js",
-  "./themes.js",
-  "./timerDOM.js",
-  "./training.js",
-  "./sw.js",
-
-  // Root files
-  
-  "../../manifest.json",
+  // Scripts (All moved into the src/scripts/ path)
+  "./src/scripts/addTimeDOM.js",
+  "./src/scripts/addTimeLogic.js",
+  "./src/scripts/barchartDOM.js",
+  "./src/scripts/barchartLogic.js",
+  "./src/scripts/localStorage.js",
+  "./src/scripts/navigation.js",
+  "./src/scripts/overviewDOM.js",
+  "./src/scripts/overviewLogic.js",
+  "./src/scripts/timer.js",
+  "./src/scripts/settingsDOM.js",
+  "./src/scripts/statsDisplayDOM.js",
+  "./src/scripts/statsDisplayLogic.js",  
+  "./src/scripts/themes.js",
+  "./src/scripts/timerDOM.js",
+  "./src/scripts/training.js",
 
   // Images
-  "../images/icon-192.png",
-  "../images/icon-512.png",
+  "./src/images/icon-192.png",
+  "./src/images/icon-512.png",
 ];
 
 // Install - Sparar alla kritiska resurser i cachen
@@ -112,7 +110,7 @@ async function handleRequest(request) {
     // 3. OFFLINE-FALLBACK (Kriterium nr 5)
     // Kontrollerar om användaren försöker navigera till en ny sida
     if (request.mode === "navigate") {
-      const offlineFallback = await cache.match("../html/offline.html");
+      const offlineFallback = await cache.match("offline.html");
       if (offlineFallback) return offlineFallback;
     }
 
