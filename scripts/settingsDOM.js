@@ -12,11 +12,11 @@ if (isInitialLight) {
 
 if (toggleBtn) {
     toggleBtn.textContent = isInitialLight ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+    toggleBtn.addEventListener('click', handleThemeToggle);
 }
 
 function handleThemeToggle() {
     const currentClasses = Array.from(document.body.classList);
-    
     const shouldBeLight = toggleThemeLogic(currentClasses, localStorage);
     
     if (shouldBeLight) {
@@ -28,13 +28,11 @@ function handleThemeToggle() {
     }
 }
 
-if (toggleBtn) {
-    toggleBtn.addEventListener('click', handleThemeToggle);
-}
-
-//reset local storage button
 if (resetBtn) {
-    resetBtn.addEventListener('click', clearHistory);
+    resetBtn.addEventListener('click', () => {
+        clearHistory();
+        showToast('Storage cleared successfully!');
+    });
 }
 
 function showToast(message) {
@@ -51,11 +49,5 @@ function showToast(message) {
         z-index: 1000;
     `;
     document.body.appendChild(toast);
-
     setTimeout(() => toast.remove(), 3000);
 }
-
-resetBtn.addEventListener('click', () => {
-    clearHistory();
-    showToast('Storage cleared successfully!');
-});
