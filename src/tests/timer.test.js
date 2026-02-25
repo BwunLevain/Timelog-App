@@ -6,7 +6,7 @@ import {
   getTime,
 } from "../scripts/timer.js";
 
-const mockStorage = {
+const mockStorage = { // used as a "fake" storage instead of localStorage
   getItem: jest.fn(() => null),
   setItem: jest.fn(),
   removeItem: jest.fn(),

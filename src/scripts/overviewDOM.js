@@ -1,6 +1,6 @@
 import { updateGraph } from "./barchartDOM.js";
 import { getHistory, formatDuration } from "./localStorage.js";
-import { filterByTimeInterval, parseLocaleDate } from "./overviewLogic.js";
+import { deleteHistoryEntry, editHistoryEntry, filterByTimeInterval, parseLocaleDate } from "./overviewLogic.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const historyButton = document.getElementById("historyButton");
@@ -81,15 +81,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       historyList.appendChild(li);
 
+      // options menu
       const optionsDiv = document.createElement("div");
       optionsDiv.className = "options hidden";
 
-      // 3 buttons for "settings"
+      // edit button
       const editOption = document.createElement("button");
       editOption.className = "editOption";
       editOption.textContent = "Edit";
 
-      // delete
+      // delete button
       const deleteOption = document.createElement("button");
       deleteOption.className = "deleteOption";
       deleteOption.textContent = "Delete";
@@ -98,10 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
       optionsDiv.appendChild(deleteOption);
       li.appendChild(optionsDiv);
 
-      // button to edit in overview
+      // 3 "dots" for options in overview
       const editBtn = document.createElement("button");
-      editBtn.className = "editBtnShape";
       editBtn.innerHTML = "&#8942;"; // 3 vertical buttons
+      editBtn.className = "editBtnShape";
       editBtn.setAttribute("aria-label", "More options");
       li.appendChild(editBtn); // adds/shows the button
 
@@ -114,12 +115,11 @@ document.addEventListener("DOMContentLoaded", () => {
       editOption.addEventListener("click", () => {
         // hide the dropdown menu
         optionsDiv.classList.add("hidden");
-
         // clear the time text
         timeP.innerHTML = "";
 
         const formatForInput = (str) => str.replace(" ", "T").slice(0, 16);
-
+        //slice is needed for the amount of chars when you edit the time, which are 16. T is used as a connection between date and time and is how html wants it written
         // create start input
         const startInput = document.createElement("input");
         startInput.type = "datetime-local";
@@ -133,13 +133,11 @@ document.addEventListener("DOMContentLoaded", () => {
         // create save button
         const saveBtn = document.createElement("button");
         saveBtn.textContent = "Save";
-        saveBtn.className = "saveEditBtn";
 
         // add to time paragraph
         timeP.appendChild(startInput);
         timeP.appendChild(endInput);
         timeP.appendChild(saveBtn);
-
         saveBtn.addEventListener("click", () => {
           const newStart = new Date(startInput.value);
           const newEnd = new Date(endInput.value);
@@ -151,42 +149,18 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Invalid date.");
             return;
           }
-          // convert back to "YYYY-MM-DD HH:mm:ss" for localStorage
-          const saveStart = startInput.value.replace("T", " ") + ":00";
-          const saveEnd = endInput.value.replace("T", " ") + ":00";
-
-          const history = getHistory();
-          const updatedHistory = history.map((e) => {
-            if (Number(e.id) === Number(entry.id)) {
-              return {
-                ...e,
-                start: saveStart,
-                end: saveEnd,
-                duration: formatDuration(newEnd.getTime() - newStart.getTime()),
-              };
-            }
-            return e;
-          });
-          localStorage.setItem(
-            "time_log_history",
-            JSON.stringify(updatedHistory),
-          );
+          
+          editHistoryEntry(entry.id, newStart, newEnd);
           updateHistory(); // re-render
         });
       });
 
       // delete/remove from localStorage
       deleteOption.addEventListener("click", () => {
-        const history = getHistory();
-        const updatedHistory = history.filter(
-          (e) => Number(e.id) !== Number(entry.id),
-        );
-        localStorage.setItem(
-          "time_log_history",
-          JSON.stringify(updatedHistory),
-        );
+        deleteHistoryEntry(entry.id);
         updateHistory(); // render list
       });
+      historyList.appendChild(li);
     });
 
     // Handle empty history

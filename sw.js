@@ -46,7 +46,7 @@ const ASSETS = [
   "./src/images/icon-512.png",
 ];
 
-// Install - Sparar alla kritiska resurser i cachen
+// Install - Saves all critical resources in the cache
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -54,10 +54,10 @@ self.addEventListener("install", (event) => {
       return cache.addAll(ASSETS);
     }),
   );
-  self.skipWaiting(); // Gör att den nya SW:n aktiveras direkt
+  self.skipWaiting(); // Makes it so that the new Service worker is activated instantly
 });
 
-// Activate - Rensar gamla cacher för att hantera uppdateringar smidigt
+// Activate - Clears old cache's to handle updates in "version"
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches
@@ -70,10 +70,10 @@ self.addEventListener("activate", (event) => {
         ),
       ),
   );
-  self.clients.claim(); // Tar kontroll över alla flikar omedelbart
+  self.clients.claim();
 });
 
-// Fetch - Hanterar förfrågningar
+// Fetch - Handels requests 
 self.addEventListener("fetch", (event) => {
   const request = event.request;
   if (request.method !== "GET") return;
@@ -85,21 +85,19 @@ async function handleRequest(request) {
   const cache = await caches.open(CACHE_NAME);
   const cachedResponse = await cache.match(request);
 
-  // 1. Om filen finns i cachen, returnera den
+  // If the cache is findable, return it
   if (cachedResponse) {
-    // Försök uppdatera cachen i bakgrunden (Stale-while-revalidate)
     fetch(request)
       .then((networkResponse) => {
         if (networkResponse.ok) cache.put(request, networkResponse.clone());
       })
       .catch(() => {
-        /* Tystar nätverksfel i konsolen när vi är offline */
       });
 
     return cachedResponse.clone();
   }
 
-  // 2. Om filen inte finns i cachen, hämta från nätverket
+  // If the file is not in the ache we will get it from the web
   try {
     const networkResponse = await fetch(request);
     if (networkResponse.ok) {
@@ -107,14 +105,13 @@ async function handleRequest(request) {
     }
     return networkResponse;
   } catch (error) {
-    // 3. OFFLINE-FALLBACK (Kriterium nr 5)
-    // Kontrollerar om användaren försöker navigera till en ny sida
+    // Gets used if the user tries to navigate to a new page
     if (request.mode === "navigate") {
       const offlineFallback = await cache.match("offline.html");
       if (offlineFallback) return offlineFallback;
     }
 
-    // Standardmeddelande om ingen fallback finns
+    // If there is no fallback this is the message that you will get.
     return new Response("You´re offline and this resource isn´t cached.", {
       status: 503,
       statusText: "Service Unavailable",
