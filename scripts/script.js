@@ -32,9 +32,9 @@ function pauseTimer() {
   isRunning = false;
 }
 
-function stopTimer(updateCallback) {
+function stopTimer(updateCallback, category) {
   clearInterval(timer);
-  logCurrentTime("CATEGORY", startTime, Date.now());
+  logCurrentTime(category, startTime, Date.now());
   isRunning = false;
   totalSeconds = 0;
   if (updateCallback) updateCallback(totalSeconds);
