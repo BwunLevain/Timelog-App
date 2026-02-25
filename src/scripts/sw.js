@@ -5,46 +5,47 @@ const CACHE_NAME = `workers-cache-${CACHE_VERSION}`;
 const ASSETS = [
   "/",
   // HTML Files
-  "/html/offline.html",
-  "/html/overviewpage.html",
-  "/html/pomodoromode.html",
-  "/html/settingspage.html",
-  "/html/trainingmode.html",
-  "/html//index.html",
+  "../html/offline.html",
+  "../html/overviewpage.html",
+  "../html/pomodoromode.html",
+  "../html/settingspage.html",
+  "../html/trainingmode.html",
+  "../../index.html",
 
   // CSS Files
-  "/css/base.css",
-  "/css/components.css",
-  "/css/overview.css",
-  "/css/style.css",
-  "/css/timer.css",
-  "/css/variables.css",
+  "../css/base.css",
+  "../css/components.css",
+  "../css/overview.css",
+  "../css/style.css",
+  "../css/timer.css",
+  "../css/variables.css",
 
   // Scripts
-  "/scripts/addTimeDOM.js",
-  "/scripts/addTimeLogic.js",
-  "/scripts/barchartDOM.js",
-  "/scripts/barchartLogic.js",
-  "/scripts/localStorage.js",
-  "/scripts/navigation.js",
-  "/scripts/overviewDOM.js",
-  "/scripts/overviewLogic.js",
-  "/scripts/timer.js",
-  "/scripts/settingsDOM.js",
-  "/scripts/statsDisplayDOM.js",
-  "/scripts/statsDisplayLogic.js",
-  "/scripts/swCall.js",
-  "/scripts/themes.js",
-  "/scripts/timerDOM.js",
-  "/scripts/training.js",
+  "./addTimeDOM.js",
+  "./addTimeLogic.js",
+  "./barchartDOM.js",
+  "./barchartLogic.js",
+  "./localStorage.js",
+  "./navigation.js",
+  "./overviewDOM.js",
+  "./overviewLogic.js",
+  "./timer.js",
+  "./settingsDOM.js",
+  "./statsDisplayDOM.js",
+  "./statsDisplayLogic.js",
+  "./swCall.js",
+  "./themes.js",
+  "./timerDOM.js",
+  "./training.js",
+  "./sw.js",
 
   // Root files
-  "/sw.js",
-  "/manifest.json",
+  
+  "../../manifest.json",
 
   // Images
-  "/images/icon-192.png",
-  "/images/icon-512.png",
+  "../images/icon-192.png",
+  "../images/icon-512.png",
 ];
 
 // Install - Sparar alla kritiska resurser i cachen
@@ -111,7 +112,7 @@ async function handleRequest(request) {
     // 3. OFFLINE-FALLBACK (Kriterium nr 5)
     // Kontrollerar om användaren försöker navigera till en ny sida
     if (request.mode === "navigate") {
-      const offlineFallback = await cache.match("/html/offline.html");
+      const offlineFallback = await cache.match("../html/offline.html");
       if (offlineFallback) return offlineFallback;
     }
 
