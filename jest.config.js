@@ -15,7 +15,7 @@ export default {
     "!src/scripts/localStorage.js",
     "!src/scripts/overviewDOM.js",
     "!src/scripts/statsDisplayDOM.js",
-    "!src/scripts/swCall.js",
+    "!swCall.js",
     "!src/scripts/addTimeDOM.js"
   ],
   // Ignore service-worker file(s) from coverage reporting (they run in worker context)
