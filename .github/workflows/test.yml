@@ -69,6 +69,15 @@ jobs:
         # Om testerna failar (exit code ≠ 0) stoppas hela workflow:en här
         run: npm test -- --coverage
       
+        # Namnet på steget
+      - name: Generate Lighthouse report
+        # Kör lighthouse-scriptet från package.json
+        # Lighthouse är ett verktyg som mäter prestanda, tillgänglighet och SEO på webbsidor
+        # npm run lighthouse = kör scriptet definierat under "lighthouse" i package.json med lhci autorun
+        # lhci autorun = Lighthouse CI:s kommando för att köra en serie Lighthouse-tester och generera rapporter
+        # Om Lighthouse-testerna failar (exit code ≠ 0) stoppas hela workflow:en här
+        run: npm run lighthouse
+      
       # Namnet på steget
       - name: Upload coverage to Codecov
         # Använder Codecovs officiella action för att ladda upp coverage-data
