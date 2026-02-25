@@ -10,7 +10,7 @@ const ASSETS = [
   "/html/pomodoromode.html",
   "/html/settingspage.html",
   "/html/trainingmode.html",
-  "/html/workmode.html",
+  "/html/../index.html",
 
   // CSS Files
   "/css/base.css",
