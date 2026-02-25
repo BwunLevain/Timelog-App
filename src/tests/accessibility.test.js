@@ -14,7 +14,7 @@ test("index.html should have no accessibility violations", async () => {
 });
 
 test("settingspage.html should have no accessibility violations", async () => {
-  const html = fs.readFileSync(path.join(process.cwd(), "./src/html/settingspage.html"), "utf8");
+  const html = fs.readFileSync(path.join(process.cwd(), "settingspage.html"), "utf8");
   document.documentElement.innerHTML = html;
 
   const results = await axe(document.body);
@@ -22,7 +22,7 @@ test("settingspage.html should have no accessibility violations", async () => {
 });
 
 test("trainingmode.html should have no accessibility violations", async () => {
-  const html = fs.readFileSync(path.join(process.cwd(), "./src/html/trainingmode.html"), "utf8");
+  const html = fs.readFileSync(path.join(process.cwd(), "trainingmode.html"), "utf8");
   document.documentElement.innerHTML = html;
 
   const results = await axe(document.body);
@@ -30,7 +30,7 @@ test("trainingmode.html should have no accessibility violations", async () => {
 });
 
 test("overviewpage.html should have no accessibility violations", async () => {
-  const html = fs.readFileSync(path.join(process.cwd(), "./src/html/overviewpage.html"), "utf8");
+  const html = fs.readFileSync(path.join(process.cwd(), "overviewpage.html"), "utf8");
   document.documentElement.innerHTML = html;
 
   const results = await axe(document.body);
@@ -38,7 +38,7 @@ test("overviewpage.html should have no accessibility violations", async () => {
 }); 
 
 test("pomodoromode.html should have no accessibility violations", async () => {
-  const html = fs.readFileSync(path.join(process.cwd(), "./src/html/pomodoromode.html"), "utf8");
+  const html = fs.readFileSync(path.join(process.cwd(), "pomodoromode.html"), "utf8");
   document.documentElement.innerHTML = html;
 
   const results = await axe(document.body);

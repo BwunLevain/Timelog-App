@@ -1,4 +1,4 @@
-import { getHistory, formatDuration } from "./localStorage.js";
+import { getHistory } from "./localStorage.js";
 
 // Function that filters the localStorage history to user input date
 function filterByTimeInterval(startDate, endDate) {
@@ -26,48 +26,5 @@ function parseLocaleDate(dateStr) {
     );
   }
 }
-// Formats the time so that it fits the local time, mirrors the time and date that your computer is in
-function formatLocalDate(date) {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  const hour = String(date.getHours()).padStart(2, "0");
-  const min = String(date.getMinutes()).padStart(2, "0");
-  const sec = String(date.getSeconds()).padStart(2, "0");
 
-  return `${year}-${month}-${day} ${hour}:${min}:${sec}`;
-}
-
-// edit button
-function editHistoryEntry(id, newStart, newEnd) {
-  const history = getHistory();
-  
-  const saveStart = formatLocalDate(newStart);
-  const saveEnd = formatLocalDate(newEnd);
-  
-  const updatedHistory = history.map((entry) => {
-    if (Number(entry.id) === Number(id)) {
-      return {
-        ...entry,
-        start: saveStart,
-        end: saveEnd,
-        duration: formatDuration(newEnd - newStart),
-      };
-    }
-    return entry;
-  });
-  localStorage.setItem("time_log_history", JSON.stringify(updatedHistory));
-}
-
-// delete button
-function deleteHistoryEntry(id) {
-  const history = getHistory();
-
-  const updatedHistory = history.filter(
-    (entry) => Number(entry.id) !== Number(id)
-  );
-
-  localStorage.setItem("time_log_history", JSON.stringify(updatedHistory));
-}
-
-export { filterByTimeInterval, parseLocaleDate, editHistoryEntry, deleteHistoryEntry, };
+export { filterByTimeInterval, parseLocaleDate };
