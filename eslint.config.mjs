@@ -6,18 +6,18 @@ export default defineConfig([
   { 
     files: ["**/*.{js,mjs,cjs}"], 
     plugins: { js }, 
-    extends: ["js/recommended"], 
     languageOptions: { 
       globals: {
         ...globals.browser,
-        ...globals.jest     // ← Lägger till Jest-globaler här!
+        ...globals.jest,
+        ...globals.node
       }
     } 
   },
   { 
     files: ["**/*.js"], 
     languageOptions: { 
-      sourceType: "script" 
+      sourceType: "module" 
     } 
   },
 ]);

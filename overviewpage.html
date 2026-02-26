@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Track your activities and view your progress with our comprehensive overview page. Access detailed history and insightful graphs."
+    />
+    <title>Study Pomodoro - Overview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#673ab7" />
+    <style>
+      /* --- CSS Variables for Theming --- */
+      :root {
+        /* Dark Theme (Default) */
+        --bg-color: #263d5c;
+        --primary-purple: #6b3b9d;
+        --accent-light: #d9d9e9;
+        --text-white: #ffffff;
+        --text-dark: #324b6b;
+        --button-text: #fefefe;
+        --graph-bar: #e6e6f5;
+        --graph-label: #eaeaf5;
+        --shadow-purple: rgba(107, 59, 157, 0.3);
+
+        /* Fonts */
+        --font-main: "Bricolage Grotesque", sans-serif;
+        --font-header: "Abril Fatface", serif;
+      }
+
+      body.lightTheme {
+        --bg-color: #f8f7fd;
+        --accent-light: #f1e4fc;
+        --primary-purple: #5f4c7a;
+        --text-white: #203661;
+        --text-dark: #000d1fbd;
+        --button-text: #ffffff;
+        --graph-bar: #b1c8e6;
+        --graph-label: #273345;
+        --shadow-purple: rgba(165, 122, 219, 0.3);
+      }
+
+      /* --- Minimal reset --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        font-family: var(--font-main);
+        color: var(--text-white);
+      }
+
+      /* --- Visually hidden (används direkt) --- */
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      /* --- Header / Navigation --- */
+      .headerContainer {
+        display: flex;
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+
+      .headerContainer a,
+      .headerContainer button {
+        flex: 1;
+        height: 3.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--button-text);
+        background-color: var(--primary-purple);
+        border-radius: 0 0 1.5rem 1.5rem;
+        border: none;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      /* --- Dropdown menu (initial state) --- */
+      .trackersMenu {
+        display: none;
+        position: absolute;
+        top: 0;
+        width: 33.33vw;
+        background-color: var(--primary-purple);
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        padding-top: 4.5rem;
+        padding-bottom: 1.5rem;
+        border-radius: 0 0 1.5rem 1.5rem;
+        list-style: none;
+        z-index: 5;
+      }
+
+      .trackersMenu li {
+        width: 85%;
+        padding: 0.75rem;
+        background-color: var(--accent-light);
+        border-radius: 0.8rem;
+        text-align: center;
+      }
+
+      .trackersMenu a {
+        color: var(--text-dark);
+        font-weight: bold;
+        text-decoration: none;
+      }
+    </style>
+    <link rel="stylesheet" href="./src/css/variables.css" />
+    <link rel="stylesheet" href="./src/css/base.css" />
+    <link rel="stylesheet" href="./src/css/components.css" />
+    <link rel="stylesheet" href="./src/css/overview.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="headerContainer" aria-label="Main Navigation">
+        <button
+          id="trackersToggle"
+          aria-label="Toggle tracker menu"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          TRACKERS
+        </button>
+        <a href="overviewpage.html" class="nav-link active">OVERVIEW</a>
+        <a href="settingspage.html" class="nav-link">SETTINGS</a>
+      </nav>
+
+      <nav id="trackersMenuContainer">
+        <ul
+          id="trackersMenu"
+          class="trackersMenu"
+          aria-label="Select tracker type"
+        >
+          <li><a href="pomodoromode.html" class="menu-link">Study</a></li>
+          <li><a href="trainingmode.html" class="menu-link">Exercise</a></li>
+          <li><a href="index.html" class="menu-link">Work</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="overviewHeaderContainer" aria-labelledby="mainTitle">
+        <h1 id="mainTitle">Overviews</h1>
+        <div class="view-toggle-group" role="tablist">
+          <button
+            id="historyButton"
+            class="btn-primary"
+            role="tab"
+            aria-selected="true"
+            aria-controls="historyOverviewArea"
+          >
+            History
+          </button>
+          <button
+            id="graphButton"
+            class="btn-primary"
+            role="tab"
+            aria-selected="false"
+            aria-controls="graphView"
+          >
+            Graph
+          </button>
+        </div>
+      </section>
+
+      <section
+        class="historyContainer"
+        id="historyOverviewArea"
+        role="tabpanel"
+        aria-labelledby="historyButton"
+      >
+        <h2 class="visually-hidden">Activity History</h2>
+        <ul class="historyList"></ul>
+      </section>
+
+      <section
+        class="graphContainer"
+        id="graphView"
+        role="tabpanel"
+        aria-labelledby="graphButton"
+        hidden
+      >
+        <h2 class="visually-hidden">Activity Graph</h2>
+        <ul class="activityList">
+          <li class="activity graphItem" data-activity="work">
+            <div class="graphInfo">
+              <p class="graphCategory">WORK</p>
+            </div>
+            <time class="graphDuration" datetime="PT0H">0h</time>
+          </li>
+
+          <li class="activity graphItem" data-activity="study">
+            <div class="graphInfo">
+              <p class="graphCategory">STUDY</p>
+            </div>
+            <time class="graphDuration" datetime="PT0H">0h</time>
+          </li>
+
+          <li class="activity graphItem" data-activity="exercise">
+            <div class="graphInfo">
+              <p class="graphCategory">EXERCISE</p>
+            </div>
+            <time class="graphDuration" datetime="PT0H">0h</time>
+          </li>
+        </ul>
+      </section>
+
+      <section class="overviewSelectors" aria-label="Data range filters">
+        <button id="rangeSelectorButton" class="btn-primary">
+          SELECT <br />
+          RANGE
+        </button>
+        <button id="allTimeSelectorButton" class="btn-primary">
+          RESET <br />
+          RANGE
+        </button>
+      </section>
+    </main>
+
+    <script src="./src/scripts/navigation.js" type="module"></script>
+    <script src="./src/scripts/barchartDOM.js" type="module"></script>
+    <script src="./src/scripts/overviewDOM.js" type="module"></script>    
+    <script src="./src/scripts/settingsDOM.js" type="module"></script>
+    <script src="swCall.js"></script>
+  </body>
+</html>
