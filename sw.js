@@ -20,7 +20,6 @@ const ASSETS = [
   "./src/css/base.css",
   "./src/css/components.css",
   "./src/css/overview.css",
-  "./src/css/style.css",
   "./src/css/timer.css",
   "./src/css/variables.css",
 
